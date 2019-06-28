@@ -6,7 +6,7 @@ public class Main2Activity extends BaseFatherActivity {
 
     @Override
     public String getCurrentPage() {
-        return "跳转界面";
+        return getString(R.string.main2_activity);
     }
 
     @Override
