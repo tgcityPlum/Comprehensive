@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_title">@color/color_666666</color><!-- 标题颜色 -->
+    <color name="color_context">@color/color_666666</color><!-- 内容颜色 -->
+
+
+    <color name="color_666666">#666666</color>
+</resources>

@@ -1,0 +1,222 @@
+/*allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}*/
+
+ext {
+    //Android
+    applicationId = "com.tgcity.demo"
+    minSdkVersion = 16
+    targetSdkVersion = 28
+    versionCode = 1
+    versionName = "1.0.1"
+    compileSdkVersion = 28
+
+    //Libraries
+//    daggerVersion = '2.8'
+//    javaxAnnotationVersion = '1.0'
+//
+    rxJavaVersion = '2.1.16'
+    rxAndroidVersion = '2.0.2'
+    retrofitSdkVersion = '2.4.0'
+    rxlifecycleSdkVersion = "2.0.1"
+    butterKnifeVersion = '8.8.1'
+    glideVersion = '4.7.1'
+
+//    javaxInjectVersion = '1'
+
+//    gsonVersion = '2.6'
+    androidSupportSdkVersion = '28.0.0'
+    constraintLayoutVersion = '1.1.3'
+//    refreshVersion = '1.0.4'
+//    clickSpanLinkVersion = '1.5.2'
+//    pickerViewVersion = '3.2.7'
+
+    //Testing
+    robolectricVersion = '3.1.4'
+    jUnitVersion = '4.12'
+    assertJVersion = '1.7.1'
+    runnerVersion = '1.0.2'
+    espressoVersion = '3.0.2'
+//    mockitoVersion = '1.9.5'
+//    dexmakerVersion = '1.1'
+//    dexmakerVersion = '1.0'
+
+    //Development
+//    leakCanaryVersion = '1.5.4'
+
+    //conflict package
+//    guavaVwesion = '19.0'
+
+    //Ping++ pay
+//    payVersion = "2.1.9"
+    //Kotlin
+//    kotlin_version = "1.1.51"
+//    anko_version = "0.10.4"
+
+    supportDependencies = [
+            appcompatV7     : "com.android.support:appcompat-v7:${androidSupportSdkVersion}",
+            constraintLayout: "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+            /*appcompatV7     : "com.android.support:appcompat-v7:${androidSupportSdkVersion}",
+            paletteV7       : "com.android.support:palette-v7:${androidSupportSdkVersion}",
+            supportV4       : "com.android.support:support-v4:${androidSupportSdkVersion}",
+            annotations     : "com.android.support:support-annotations:${androidSupportSdkVersion}",
+            // material design
+            design          : "com.android.support:design:${androidSupportSdkVersion}",
+            cardview        : "com.android.support:cardview-v7:${androidSupportSdkVersion}",
+            recyclerview    : "com.android.support:recyclerview-v7:${androidSupportSdkVersion}",
+            // 7.0 Permission
+            rxpermissions   : "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar",
+            */
+    ]
+    dataDependencies = [
+            //rxJava
+            rxJava2              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid2           : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            //retrofit
+            retrofit             : "com.squareup.retrofit2:retrofit:${retrofitSdkVersion}",
+            retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitSdkVersion}",
+            retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava:${retrofitSdkVersion}",
+            //rxLifecycle
+            rxlifecycle                  : "com.trello.rxlifecycle2:rxlifecycle:${rxlifecycleSdkVersion}",
+            rxlifecycleAndroid           : "com.trello.rxlifecycle2:rxlifecycle-android:${rxlifecycleSdkVersion}",
+            // butterKnife
+            butterknife          : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterknifeApt       : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            // image
+            glide                        : "com.github.bumptech.glide:glide:${glideVersion}"
+
+            // dex分包
+            /* multidex                     : "com.android.support:multidex:1.0.1",
+             // dagger
+             dagger                       : "com.google.dagger:dagger:${daggerVersion}",
+             javaxAnnotation              : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+             daggerCompiler               : "com.google.dagger:dagger-compiler:${daggerVersion}",
+             // retrofit + rx
+
+                          retorfitConverterScalar      : "com.squareup.retrofit2:converter-scalars:${retrofitSdkVersion}",
+
+             ,
+            ,
+
+             rxlifecycleComponents        : "com.trello:rxlifecycle-components:${rxlifecycleSdkVersion}",
+             rxlifecycleNavi              : "com.trello:rxlifecycle-navi:${rxlifecycleSdkVersion}",
+             rxlifecycleKotlin            : "com.trello:rxlifecycle-kotlin:${rxlifecycleSdkVersion}",
+             rxcache                      : "com.github.VictorAlbertos.RxCache:runtime:1.6.2",
+             rxcacheJolyglotGson          : "com.github.VictorAlbertos.Jolyglot:gson:0.0.3",
+             gson                         : "com.google.code.gson:gson:${gsonVersion}",
+             // rxBindding
+             rxbinding                    : "com.jakewharton.rxbinding:rxbinding:1.0.0",
+             rxbindingSupportV4           : "com.jakewharton.rxbinding:rxbinding-support-v4:1.0.0",
+             rxbindingSupportV7           : "com.jakewharton.rxbinding:rxbinding-appcompat-v7:1.0.0",
+             rxbindingDesign              : "com.jakewharton.rxbinding:rxbinding-design:1.0.0",
+             rxbindingDesignrRcyclerviewV7: "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:1.0.0",
+             // database
+             greendao                     : "org.greenrobot:greendao:3.2.0",
+             greendaoGenerator            : "org.greenrobot:greendao-generator:3.2.0",
+             greendaoSqlcipher            : "net.zetetic:android-database-sqlcipher:3.5.4",
+             // image
+             glide                        : "com.github.bumptech.glide:glide:3.7.0",
+             nineoldandroids              : "com.nineoldandroids:library:2.4.0",
+             glideOkhttpIntegration       : "com.github.bumptech.glide:okhttp3-integration:1.4.0@aar",
+             okhttp3                      : "com.squareup.okhttp3:okhttp:3.2.0",
+             // eventbus
+             androideventbus              : "org.simple:androideventbus:1.0.5.1",
+             ,
+             // log
+             timber                       : "com.jakewharton.timber:timber:4.1.2",
+             logger                       : "com.orhanobut:logger:1.15",
+             //包含各种指示器
+             magicIndicator               : "com.github.hackware1993:MagicIndicator:1.5.0",
+             //robolectric与dagger中间接依赖的冲突，故锁定版本
+             guava                        : "com.google.guava:guava:${guavaVwesion}",
+ //            clickSpanLink                : "com.klinkerapps:link_builder:${clickSpanLinkVersion}",
+             swipeLayout                  : "com.daimajia.swipelayout:library:1.2.0@aar",
+             recyclerviewAnimator         : 'jp.wasabeef:recyclerview-animators:2.2.6',
+             jiguangJpush                 : 'cn.jiguang.sdk:jpush:3.0.3',
+             jiguangJcore                 : 'cn.jiguang.sdk:jcore:1.1.1',
+             umeng                        : 'com.umeng.analytics:analytics:latest.integration',
+ //            umeng                        : 'com.umeng.analytics:analytics:6.1.4',
+             amapLocation                 : 'com.amap.api:location:latest.integration',
+             a3Dmap                       : 'com.amap.api:3dmap:5.4.0',
+             amapSearch                   : 'com.amap.api:search:6.1.0',
+
+             pingPayCore                  : "com.pingxx:pingpp-core:${payVersion}",//使用 ping++ 支付时必须添加
+             pingWxPay                    : "com.pingxx:pingpp-wxpay:${payVersion}",//ping++ 使用微信支付时添加
+             pingAliPay                   : "com.pingxx:pingpp-alipay:${payVersion}",//ping++ 使用支付宝时添加
+             pingUpacpPay                 : "com.pingxx:pingpp-upacp:${payVersion}",//ping++ 使用银联支付时添加
+
+ //            compile 'com.pingxx:pingpp-wxpay:2.1.9' //使用微信支付时添加
+ //            compile 'com.pingxx:pingpp-alipay:2.1.9' // 使用支付宝时添加
+ //            compile 'com.pingxx:pingpp-upacp:2.1.9' // 使用银联支付时添加
+ //            compile 'com.pingxx:pingpp-bfb-sdk:2.1.9' // 使用百付宝时添加
+ //            compile 'com.pingxx:pingpp-qpay:2.1.9' // 使用QQ钱包时添加
+ //            compile 'com.pingxx:pingpp-cmbwallet:2.1.9' // 使用招行一网通时添加
+             // skin
+             skin                         : 'skin.support:skin-support:1.2.7',         // skin-support 基础控件支持
+             skinDesign                   : 'skin.support:skin-support-design:1.2.4',   // skin-support-design material design 控件支持[可选],已经依赖了skin
+             skinCardveiw                 : 'skin.support:skin-support-cardview:1.2.0', // skin-support-cardview CardView 控件支持[可选]已经依赖了skin
+             // font
+             calligraphyFont              : 'uk.co.chrisjenx:calligraphy:2.3.0',
+             // markdown editor
+             markdownView                 : 'com.github.tiagohm.MarkdownView:library:0.17.0',
+             editor                       : 'jp.wasabeef:richeditor-android:1.2.2',
+             richtext                     : 'com.zzhoujay.richtext:richtext:2.5.4',
+
+             flowlayout                   : 'com.zhy:flowlayout-lib:1.0.3',
+             contacts                     : 'com.github.tamir7.contacts:contacts:1.1.7',
+             update                       : 'org.lzh.nonview.updateplugin:UpdatePlugin:2.4.0',
+             vsersionUpdate               : 'com.allenliu.versionchecklib:library:1.6.6',
+             slf4j                        : 'org.slf4j:slf4j-android:1.7.21',
+
+             refresh                      : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3',
+             refreshHeader                : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3',
+             gifView                      : 'pl.droidsonroids.gif:android-gif-drawable:1.2.3',
+
+             pickerView                   : "com.contrarywind:Android-PickerView:${pickerViewVersion}",
+
+             // 环信相关
+             playServices                 : 'com.google.android.gms:play-services-gcm:9.4.0',
+             hyphenate                    : 'com.hyphenate:hyphenate-sdk:3.3.7',
+
+             // 扫码相关
+             zxing                        : 'com.google.zxing:core:3.3.0',
+             bgaQrcodecore                : 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar',
+             bgaZxing                     : 'cn.bingoogolapple:bga-zxing:1.1.9@aar',
+             kotlin                       : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin_version}",
+             // Anko Commons
+             ankoCommon                   : "org.jetbrains.anko:anko-commons:$anko_version",
+             //banner
+             convenientbanner             : "com.bigkoo:convenientbanner:2.0.5",
+             fresco                       : "com.facebook.fresco:fresco:0.14.1"*/
+    ]
+    testDependencies = [
+            junit   : "junit:junit:${jUnitVersion}",
+            runner  : "com.android.support.test:runner:${runnerVersion}",
+            espresso: "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+            /*,
+            androidJUnitRunner  : "android.support.test.runner.AndroidJUnitRunner",
+            assertj             : "org.assertj:assertj-core:${assertJVersion}",
+            mockito             : "org.mockito:mockito-core:${mockitoVersion}",
+            dexmaker            : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+            dexmakerMockito     : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+            robolectric         : "org.robolectric:robolectric:${robolectricVersion}",
+            multidexTest        : "org.robolectric:shadows-multidex:${robolectricVersion}",
+           ,
+            espressoIntent      : "com.android.support.test.espresso:espresso-intents:${espressoVersion}",
+            // 测试recyclerView列表
+            espressoRecyclerView: "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
+            // espresso异步测试依赖库，需要compile到主工程
+            espressoIdling      : "com.android.support.test.espresso:espresso-idling-resource:${espressoVersion}",
+           "*/
+    ]
+
+    developmentDependencies = [
+            /*leakCanaryDebug  : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            leakCanaryRelease: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",*/
+    ]
+}
