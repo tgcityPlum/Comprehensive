@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.tgcity.base.R;
+import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.ClearViewUtils;
 import com.tgcity.base.utils.LogUtils;
 
@@ -57,7 +59,9 @@ public abstract class BaseBindViewActivity extends BaseOrientationActivity {
      */
     private void setButterKnifeBind() {
         unBind = ButterKnife.bind(this);
-        LogUtils.i("butterKnife bind succeed");
+        if (BaseConstant.Power.isBaseBindViewActivityLogShow) {
+            LogUtils.d(getString(R.string.base_bind_view_activity_current_butterKnife));
+        }
     }
 
     /**

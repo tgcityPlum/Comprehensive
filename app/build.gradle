@@ -28,14 +28,14 @@ dependencies {
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espresso
-    //引入 rxJava
-    implementation dataDependencies.rxJava2
-    implementation dataDependencies.rxAndroid2
-    //引入 retrofit
-    implementation dataDependencies.retrofit
-    implementation dataDependencies.retrofitConverterGson
-    implementation dataDependencies.retrofitAdapterRxJava
+    //引入 rxLifecycle
+    implementation dataDependencies.rxlifecycle
+    implementation dataDependencies.rxlifecycleAndroid
     //引入 butterKnife
     implementation dataDependencies.butterknife
     implementation dataDependencies.butterknifeApt
+    //引入 common
+    implementation project(':library:common')
+    //引入 base
+    implementation project(':library:base')
 }

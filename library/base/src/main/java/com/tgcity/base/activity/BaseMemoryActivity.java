@@ -1,6 +1,8 @@
 package com.tgcity.base.activity;
 
 import com.bumptech.glide.Glide;
+import com.tgcity.base.R;
+import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.LogUtils;
 
 import io.reactivex.Observable;
@@ -13,7 +15,7 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * 基础的activity类
- * --处理内容的状况
+ * --监听系统内存的状况
  * ----参考地址：https://mp.weixin.qq.com/s?__biz=MzIxNjc0ODExMA==&mid=2247484311&idx=1&sn=1fe0416bed4137dd45c6e9c153bb14f4&chksm=97851ab6a0f293a0cde28ff6d1091b2232e1758e9845a05549d01c62f412def742985d642630&scene=21#wechat_redirect
  */
 public abstract class BaseMemoryActivity extends BaseLoadingActivity {
@@ -55,7 +57,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      */
     private void onTrimMemoryRunningModerate() {
         //可以适当地清理一些垃圾了
-        LogUtils.d("当前活动页面 "+getLocalClassName()+ " 内存轻微吃紧");
+        logBaseMemoryActivity(getString(R.string.base_memory_activity_running_moderate));
     }
 
     /**
@@ -66,7 +68,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      */
     private void onTrimMemoryRunningLow() {
         //强烈建议开始清理垃圾
-        LogUtils.d("当前活动页面 "+getLocalClassName()+ " 内存过低");
+        logBaseMemoryActivity(getString(R.string.base_memory_activity_running_low));
     }
 
     /**
@@ -81,7 +83,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      */
     private void onTrimMemoryRunningCritical() {
         //如果不清理垃圾那就GAME OVER了
-        LogUtils.d("当前活动页面 "+getLocalClassName()+ " 内存极低");
+        logBaseMemoryActivity(getString(R.string.base_memory_activity_running_critical));
     }
 
     /**
@@ -92,7 +94,22 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      */
     private void onTrimMemoryUIHidden() {
         //可以清理一些用户不需要看到但又不重要，显示之后又可以复原的东西
-        LogUtils.d("当前活动页面 "+getLocalClassName()+" APP被切换到后台");
+        logBaseMemoryActivity(getString(R.string.base_memory_activity_ui_hidden));
+    }
+
+    public abstract String getCurrentPage();
+
+    public String getCurrentPageName(String message) {
+        return getString(R.string.base_memory_activity_current_page_name, getCurrentPage(), getLocalClassName(), message);
+    }
+
+    /**
+     * 输出当前界面调用方法的日志
+     */
+    private void logBaseMemoryActivity(String message) {
+        if (BaseConstant.Power.isBaseMemoryActivityLogShow) {
+            LogUtils.d(message);
+        }
     }
 
     @Override

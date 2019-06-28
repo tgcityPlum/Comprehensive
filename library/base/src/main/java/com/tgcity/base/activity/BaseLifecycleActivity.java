@@ -18,7 +18,7 @@ import io.reactivex.subjects.BehaviorSubject;
  * 基础的activity
  * --管理activity的生命周期
  */
-public class BaseLifecycleActivity extends BaseMemoryActivity implements LifecycleProvider<ActivityEvent> {
+public abstract class BaseLifecycleActivity extends BaseMemoryActivity implements LifecycleProvider<ActivityEvent> {
     //BehaviorSubject
     private BehaviorSubject<ActivityEvent> mBehaviorSubject = BehaviorSubject.create();
 

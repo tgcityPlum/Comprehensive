@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">base</string>
+
+
+    <string name="base_event_logic_activity_initView">正在调用initView()</string>
+    <string name="base_event_logic_activity_setListener">正在调用setListener()</string>
+    <string name="base_event_logic_activity_depositParameter">正在调用depositParameter()</string>
+    <string name="base_event_logic_activity_depositBeforeAll">正在调用depositBeforeAll()</string>
+    <string name="base_memory_activity_running_moderate">内存轻微吃紧</string>
+    <string name="base_memory_activity_running_low">内存过低</string>
+    <string name="base_memory_activity_running_critical">内存极低</string>
+    <string name="base_memory_activity_ui_hidden">APP被切换到后台</string>
+    <string name="base_memory_activity_current_page_name">当前界面{&#160;%s&#160;} ==>%s&#160;%s</string>
+    <string name="base_bind_view_activity_current_butterKnife">butterKnife&#160;bind&#160;succeed</string>
 </resources>

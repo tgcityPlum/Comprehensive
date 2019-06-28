@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.tgcity.base.R;
+import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.LogUtils;
 
 /**
@@ -21,7 +23,7 @@ public abstract class BaseEventLogicActivity extends BaseBindViewActivity {
         depositParameter();
 
         initView();
-        LogUtils.d("当前界面{ " + getLocalClassName() + " 正在调用initView()");
+        logBaseEventLogicActivity(getCurrentPageName(getString(R.string.base_event_logic_activity_initView)));
 
         setListener();
         launched = true;
@@ -56,23 +58,26 @@ public abstract class BaseEventLogicActivity extends BaseBindViewActivity {
     }
 
     public void setListener() {
-        LogUtils.d("当前界面{ " + getCurrentPageName() + " 正在调用setListener()");
+        logBaseEventLogicActivity(getCurrentPageName(getString(R.string.base_event_logic_activity_setListener)));
     }
 
     public abstract void initView();
 
     public void depositParameter() {
-        LogUtils.d("当前界面{ " + getCurrentPageName() + " 正在调用depositParameter()");
+        logBaseEventLogicActivity(getCurrentPageName(getString(R.string.base_event_logic_activity_depositParameter)));
     }
 
     public void depositBeforeAll() {
-        LogUtils.d("当前界面{ " + getCurrentPageName() + " 正在调用depositBeforeAll()");
+        logBaseEventLogicActivity(getCurrentPageName(getString(R.string.base_event_logic_activity_depositBeforeAll)));
     }
 
-    public abstract String getCurrentPage();
-
-    private String getCurrentPageName() {
-        return getCurrentPage() + " } ==>" + getLocalClassName();
+    /**
+     * 输出当前界面调用方法的日志
+     */
+    private void logBaseEventLogicActivity(String message) {
+        if (BaseConstant.Power.isBaseEventLogicActivityLogShow) {
+            LogUtils.d(message);
+        }
     }
 
     @Override

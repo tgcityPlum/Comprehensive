@@ -1,13 +1,24 @@
 package com.tgcity.demo;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.tgcity.base.activity.BaseFatherActivity;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends BaseFatherActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+    public String getCurrentPage() {
+        return "跳转界面";
     }
+
+    @Override
+    public int getViewLayout() {
+        return R.layout.activity_main2;
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+
+
 }
