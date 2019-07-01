@@ -2,7 +2,9 @@
 <resources>
     <color name="color_title">@color/color_666666</color><!-- 标题颜色 -->
     <color name="color_context">@color/color_666666</color><!-- 内容颜色 -->
-
+    <color name="color_line">#fafafa</color><!--分割线的颜色-->
+    <color name="color_white">#ffffff</color><!--白色-->
 
     <color name="color_666666">#666666</color>
+    <color name="color_212121">#212121</color>
 </resources>

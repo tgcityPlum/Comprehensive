@@ -14,6 +14,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
+    implementation supportDependencies.constraintLayout
+    implementation supportDependencies.recyclerview
     //引入 butterKnife
     implementation dataDependencies.butterknife
     implementation dataDependencies.butterknifeApt
@@ -25,4 +27,6 @@ dependencies {
     //引入 rxLifecycle
     implementation dataDependencies.rxlifecycle
     implementation dataDependencies.rxlifecycleAndroid
+    //沉浸式状态栏
+    implementation dataDependencies.immersionbar
 }

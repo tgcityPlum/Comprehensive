@@ -12,4 +12,5 @@
     <string name="base_memory_activity_ui_hidden">APP被切换到后台</string>
     <string name="base_memory_activity_current_page_name">当前界面{&#160;%s&#160;} ==>%s&#160;%s</string>
     <string name="base_bind_view_activity_current_butterKnife">butterKnife&#160;bind&#160;succeed</string>
+    <string name="base_immersion_bar_activity_autoImmersionBar">正在调用autoImmersionBar()</string>
 </resources>

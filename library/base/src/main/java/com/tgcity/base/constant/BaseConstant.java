@@ -21,5 +21,7 @@ public class BaseConstant {
         public static final boolean isBaseBindViewActivityLogShow = isAppDebug && true;
         //监听系统内存状况的开关：是否显示内存状况  true-显示  false-不显示
         public static final boolean isBaseMemoryActivityLogShow = isAppDebug && true;
+        //Activity的沉浸式状态栏开关：是否显示沉浸式状态栏开关  true-显示  false-不显示
+        public static final boolean isBaseImmersionBarActivityLogShow = isAppDebug && true;
     }
 }
