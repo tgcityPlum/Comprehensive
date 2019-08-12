@@ -172,7 +172,7 @@ public class TitleBar extends Toolbar {
     protected void init() {
         if (!isInit) {
             isInit = true;
-            LayoutInflater.from(getContext()).inflate(R.layout.toolBar_layout, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.toolbar_layout, this);
             back = findViewById(R.id.leftBackImg);
             rightImgMenu = findViewById(R.id.rightImgMenu);
             rightTextMenu = findViewById(R.id.rightTextMenu);

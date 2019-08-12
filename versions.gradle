@@ -20,8 +20,8 @@ ext {
 //    daggerVersion = '2.8'
 //    javaxAnnotationVersion = '1.0'
 //
-    rxJavaVersion = '2.1.16'
-    rxAndroidVersion = '2.0.2'
+    rxJavaVersion = '2.0.1'
+    rxAndroidVersion = '2.0.1'
     retrofitSdkVersion = '2.4.0'
     rxlifecycleSdkVersion = "2.0.1"
     butterKnifeVersion = '8.8.1'

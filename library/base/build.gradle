@@ -18,7 +18,7 @@ dependencies {
     implementation supportDependencies.recyclerview
     //引入 butterKnife
     implementation dataDependencies.butterknife
-    implementation dataDependencies.butterknifeApt
+    annotationProcessor dataDependencies.butterknifeApt
     //引入 glide
     implementation dataDependencies.glide
     //引入 rxJava

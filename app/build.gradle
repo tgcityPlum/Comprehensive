@@ -33,7 +33,7 @@ dependencies {
     implementation dataDependencies.rxlifecycleAndroid
     //引入 butterKnife
     implementation dataDependencies.butterknife
-    implementation dataDependencies.butterknifeApt
+    annotationProcessor dataDependencies.butterknifeApt
     //引入 common
     implementation project(':library:common')
     //引入 base
