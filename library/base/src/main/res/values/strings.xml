@@ -1,7 +1,10 @@
 <resources>
+    <!--    Flag about the app with starting    -->
     <string name="app_name">base</string>
+    <string name="exit_app">再按一次退出应用</string>
+    <!--    Flag about the app with ending    -->
 
-
+    <!--    Flag in the subclass of activity with starting  -->
     <string name="base_event_logic_activity_initView">正在调用initView()</string>
     <string name="base_event_logic_activity_setListener">正在调用setListener()</string>
     <string name="base_event_logic_activity_depositParameter">正在调用depositParameter()</string>
@@ -13,4 +16,6 @@
     <string name="base_memory_activity_current_page_name">当前界面{&#160;%s&#160;} ==>%s&#160;%s</string>
     <string name="base_bind_view_activity_current_butterKnife">butterKnife&#160;bind&#160;succeed</string>
     <string name="base_immersion_bar_activity_autoImmersionBar">正在调用autoImmersionBar()</string>
+    <!--    Flag in the subclass of activity with ending   -->
+
 </resources>

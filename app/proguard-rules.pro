@@ -187,3 +187,12 @@
   public *;
 }
 #glide结束
+
+#agentweb开始
+-keep class com.just.agentweb.** {
+    *;
+}
+-dontwarn com.just.agentweb.**
+#Java 注入类不要混淆 ， 例如 AndroidInterface 类 ， 需要 Keep
+-keepclassmembers class com.tgcity.web.interfaces.AndroidInterface{ *; }
+#agentweb结束

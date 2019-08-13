@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion versionConfig.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion versionConfig.minSdkVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation supportDependencies.appcompatV7
+    implementation supportDependencies.agentweb
+    implementation 'com.nineoldandroids:library:2.4.0'
+
+    //引入 base
+    implementation project(':library:base')
+}

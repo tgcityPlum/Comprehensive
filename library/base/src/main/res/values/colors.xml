@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    common color starting   -->
+    <color name="color_white">#ffffff</color><!--白色-->
+    <!--    common color ending   -->
+
+    <!--    app color starting  -->
     <color name="color_title">@color/color_666666</color><!-- 标题颜色 -->
     <color name="color_context">@color/color_666666</color><!-- 内容颜色 -->
     <color name="color_line">#fafafa</color><!--分割线的颜色-->
-    <color name="color_white">#ffffff</color><!--白色-->
+    <color name="title_bag">#FF6C4B</color>
+    <!--    app color ending  -->
 
     <color name="color_666666">#666666</color>
     <color name="color_212121">#212121</color>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Web Library</string>
+    <string name="error_webview_network_pause">服务器开小差了</string>
+    <string name="error_webview_network_restart">轻触重试</string>
+</resources>

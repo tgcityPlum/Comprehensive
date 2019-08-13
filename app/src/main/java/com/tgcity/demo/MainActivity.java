@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         tvTime.setText(String.valueOf(time - aLong));
 
                         if (time - aLong == 0) {
-                            startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                            startActivity(new Intent(MainActivity.this, TestWebActivity.class));
                         }
                     }
                 });

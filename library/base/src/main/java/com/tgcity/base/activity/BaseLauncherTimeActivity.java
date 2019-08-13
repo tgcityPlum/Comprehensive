@@ -11,7 +11,7 @@ import com.tgcity.base.utils.LogUtils;
  * 基础的activity
  * --处理Activity的启动时间
  */
-public abstract class BaseLauncherTimeActivity extends BaseEventLogicActivity {
+public abstract class BaseLauncherTimeActivity extends BaseImmersionBarActivity {
     //time
     private long currentTime;
 

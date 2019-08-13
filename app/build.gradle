@@ -38,4 +38,6 @@ dependencies {
     implementation project(':library:common')
     //引入 base
     implementation project(':library:base')
+    //引入 webLibrary
+    implementation project(':library:weblibrary')
 }

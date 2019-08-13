@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TestDemo11</string>
 
-    <string name="main2_activity">主页跳转页</string>
+    <string name="test_web_activity">测试web模块</string>
     <string name="main_activity">主页</string>
 </resources>
