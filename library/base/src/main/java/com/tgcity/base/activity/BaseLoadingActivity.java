@@ -3,7 +3,7 @@ package com.tgcity.base.activity;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tgcity.base.utils.LogUtils;
-import com.tgcity.base.widget.BaseDialogLoading;
+import com.tgcity.base.widget.dialog.BaseDialogLoading;
 
 /**
  * 基础的activity

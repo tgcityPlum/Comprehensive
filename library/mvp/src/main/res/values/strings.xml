@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">mvp</string>
+    <string name="ERROR_DEFAULT_TITLE">出错啦</string>
+    <string name="ERROR_DEFAULT_CONTENT">再试一次吧</string>
+    <string name="ERROR_DEFAULT_BUTTON">重试</string>
+    <string name="ERROR_API_NO_AUTHORITY_TITLE">请登录VIP账号</string>
+    <string name="ERROR_API_NO_AUTHORITY_BUTTON">开通VIP</string>
+    <string name="ERROR_OVERLOAD_TITLE">请求过于频繁</string>
+    <string name="ERROR_OVERLOAD_DESC">请稍后再试</string>
+    <string name="ERROR_NO_NETWORK_TITLE">没有找到网络</string>
+    <string name="ERROR_NO_NETWORK_DESC">请检查网络后重试</string>
+    <string name="ERROR_NO_NETWORK_BUTTON">去检查</string>
+    <string name="ERROR_SINGNATURE_FAILURE_TIME_TITLE">当前系统时间不正确</string>
+    <string name="ERROR_SINGNATURE_FAILURE_TIME_DESC">请设置成标准北京时间后重试</string>
+    <string name="ERROR_CONNECT_TIME_OUT_TITLE">连接超时</string>
+    <string name="ERROR_FORMATE_DATA_TITLE">返回数据解析错误</string>
+    <string name="ERROR_CLASS_CAST_TITLE">类转换错误</string>
+</resources>

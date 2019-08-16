@@ -1,7 +1,7 @@
 # base library
 ## 项目结构
 --activity
-----BaseFatherActivity      //项目中常规的Activity都继承此类
+----BaseCommonActivity      //项目中常规的Activity都继承此类
 ----BaseLauncherTimeActivity//处理Activity的启动时间
 ----BaseImmersionBarActivity//处理Activity的沉浸式状态栏
 ----BaseEventLogicActivity  //处理Activity的事件逻辑

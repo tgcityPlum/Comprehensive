@@ -30,6 +30,8 @@ dependencies {
     implementation project(':library:weblibrary')
     //引入 network
     implementation project(':library:network')
+    //引入 mvp
+    implementation project(':library:mvp')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

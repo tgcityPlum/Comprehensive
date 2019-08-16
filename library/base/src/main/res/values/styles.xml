@@ -33,18 +33,7 @@
         <item name="contentInsetStart">0dp</item>
     </style>
 
-    <declare-styleable name="TitleBar">
-        <attr name="back" format="reference" />
-        <attr name="rightImgRes" format="reference" />
-        <attr name="rightImgScaleType" format="integer" />
-        <attr name="leftImgScaleType" format="integer" />
-        <attr name="rightStr" format="string" />
-        <attr name="rightStrColor" format="color" />
-        <attr name="title" format="string" />
-        <attr name="doubleClickTip" format="string" />
-        <attr name="doubleClickTipValves" format="integer" />
 
-    </declare-styleable>
     <!--    view style ending   -->
 
 

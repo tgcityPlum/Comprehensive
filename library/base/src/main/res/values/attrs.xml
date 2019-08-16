@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StrongGradientButton">
+        <attr name="leftTopRadius_Gradient" format="dimension" />
+        <attr name="leftBottomRadius_Gradient" format="dimension" />
+        <attr name="rightTopRadius_Gradient" format="dimension" />
+        <attr name="rightBottomRadius_Gradient" format="dimension" />
+        <attr name="radius_Gradient" format="dimension" />
+        <attr name="normalTextColor_Gradient" format="color" />
+        <attr name="pressTextColor_Gradient" format="color" />
+        <attr name="unableTextColor_Gradient" format="color" />
+        <attr name="normalBackgroundColor_start_Gradient" format="color" />
+        <attr name="normalBackgroundColor_end_Gradient" format="color" />
+        <attr name="pressBackgroundColor_start_Gradient" format="color" />
+        <attr name="pressBackgroundColor_end_Gradient" format="color" />
+        <attr name="unableBackgroundColor_start_Gradient" format="color" />
+        <attr name="unableBackgroundColor_end_Gradient" format="color" />
+        <attr name="normalStrokeColor_Gradient" format="color" />
+        <attr name="pressStrokeColor_Gradient" format="color" />
+        <attr name="unableStrokeColor_Gradient" format="color" />
+        <attr name="normalStrokeWidth_Gradient" format="dimension" />
+        <attr name="pressStrokeWidth_Gradient" format="dimension" />
+        <attr name="unableStrokeWidth_Gradient" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressActivity">
+
+        <attr name="loadingProgressBarWidth" format="dimension" />
+        <attr name="loadingProgressBarHeight" format="dimension" />
+        <attr name="loadingBackgroundColor" format="color" />
+
+        <attr name="emptyImageWidth" format="dimension" />
+        <attr name="emptyImageHeight" format="dimension" />
+        <attr name="emptyTitleTextSize" format="dimension" />
+        <attr name="emptyContentTextSize" format="dimension" />
+        <attr name="emptyTitleTextColor" format="color" />
+        <attr name="emptyContentTextColor" format="color" />
+        <attr name="emptyBackgroundColor" format="color" />
+
+        <attr name="errorImageWidth" format="dimension" />
+        <attr name="errorImageHeight" format="dimension" />
+        <attr name="errorTitleTextSize" format="dimension" />
+        <attr name="errorContentTextSize" format="dimension" />
+        <attr name="errorTitleTextColor" format="color" />
+        <attr name="errorContentTextColor" format="color" />
+        <attr name="errorButtonTextColor" format="color" />
+        <attr name="errorBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TitleBar">
+        <attr name="back" format="reference" />
+        <attr name="rightImgRes" format="reference" />
+        <attr name="rightImgScaleType" format="integer" />
+        <attr name="leftImgScaleType" format="integer" />
+        <attr name="rightStr" format="string" />
+        <attr name="rightStrColor" format="color" />
+        <attr name="title" format="string" />
+        <attr name="doubleClickTip" format="string" />
+        <attr name="doubleClickTipValves" format="integer" />
+
+    </declare-styleable>
+</resources>

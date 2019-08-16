@@ -3,8 +3,8 @@ package com.tgcity.demo;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
-import com.tgcity.base.activity.BaseFatherActivity;
-import com.tgcity.base.widget.TitleBar;
+import com.tgcity.base.activity.BaseCommonActivity;
+import com.tgcity.base.widget.titlebar.TitleBar;
 import com.tgcity.web.WebViewInit;
 import com.tgcity.web.WebViewLayout;
 import com.tgcity.web.WebViewManager;
@@ -14,7 +14,7 @@ import butterknife.BindView;
 /**
  * 测试web界面的显示
  */
-public class TestWebActivity extends BaseFatherActivity {
+public class TestWebActivity extends BaseCommonActivity {
 
     @BindView(R.id.web_layout)
     WebViewLayout webLayout;

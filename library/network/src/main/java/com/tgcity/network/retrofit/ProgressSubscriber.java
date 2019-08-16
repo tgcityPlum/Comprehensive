@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 import com.tgcity.network.R;
 import com.tgcity.network.callback.SimpleCallBack;
-import com.tgcity.base.widget.NetworkDialogLoading;
+import com.tgcity.base.widget.dialog.NetworkDialogLoading;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;

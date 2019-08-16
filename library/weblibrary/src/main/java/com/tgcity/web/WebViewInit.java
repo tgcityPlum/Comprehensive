@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.AgentWebUIControllerImplBase;
 import com.just.agentweb.PermissionInterceptor;
-import com.tgcity.base.widget.TitleBar;
+import com.tgcity.base.widget.titlebar.TitleBar;
 import com.tgcity.web.dao.OnWebViewOperationCallBack;
 import com.tgcity.web.enums.WebViewLayoutPosition;
 

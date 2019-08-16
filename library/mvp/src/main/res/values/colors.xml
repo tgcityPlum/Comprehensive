@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="progress_activity_error_button_text_color_normal">#FF6C4B</color>
+    <color name="progress_activity_error_button_text_color_stop">#aaaaaaaa</color>
+
+</resources>

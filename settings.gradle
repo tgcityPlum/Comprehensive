@@ -1,2 +1,2 @@
 include ':app'
-include  ':library:base',':library:common', ':library:weblibrary', ':library:network'
+include  ':library:base',':library:common', ':library:weblibrary', ':library:network', ':library:mvp'

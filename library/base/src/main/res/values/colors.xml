@@ -11,6 +11,24 @@
     <color name="title_bag">#FF6C4B</color>
     <!--    app color ending  -->
 
+    <!--    StrongGradientButton color starting  -->
+    <color name="strong_gradient_button_normal_start_background_color">#FF5053</color>
+    <color name="strong_gradient_button_normal_end_background_color">#E9302D</color>
+    <color name="strong_gradient_button_press_start_background_color">#DF5053</color>
+    <color name="strong_gradient_button_press_end_background_color">#D9302D</color>
+    <color name="strong_gradient_button_unable_start_background_color">#FBAAAA</color>
+    <color name="strong_gradient_button_unable_end_background_color">#F29C9A</color>
+
+    <color name="strong_gradient_button_normal_text_color">#FFFFFF</color>
+    <color name="strong_gradient_button_press_text_color">#FFFFFF</color>
+    <color name="strong_gradient_button_unable_text_color">#FFFFFF</color>
+
+    <color name="strong_gradient_button_normal_stroke_color">#00000000</color>
+    <color name="strong_gradient_button_press_stroke_color">#00000000</color>
+    <color name="strong_gradient_button_unable_stroke_color">#00000000</color>
+    <!--    StrongGradientButton color ending  -->
+
     <color name="color_666666">#666666</color>
+    <color name="color_999999">#999999</color>
     <color name="color_212121">#212121</color>
 </resources>

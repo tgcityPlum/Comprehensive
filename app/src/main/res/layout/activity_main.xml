@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.tgcity.base.widget.TitleBar
+    <com.tgcity.base.widget.titlebar.TitleBar
         android:id="@+id/titleBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

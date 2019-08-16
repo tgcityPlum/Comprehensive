@@ -18,4 +18,11 @@
     <string name="base_immersion_bar_activity_autoImmersionBar">正在调用autoImmersionBar()</string>
     <!--    Flag in the subclass of activity with ending   -->
 
+    <string name="progressActivityEmptyTitlePlaceholder">没有数据</string>
+    <string name="progressActivityEmptyContentPlaceholder">没有找到数据请点击重试</string>
+    <string name="progressActivityErrorTitlePlaceholder">网络连接失败</string>
+    <string name="progressActivityErrorContentPlaceholder">请检查连接后重试</string>
+    <string name="progressActivityErrorButton">重试</string>
+
+
 </resources>

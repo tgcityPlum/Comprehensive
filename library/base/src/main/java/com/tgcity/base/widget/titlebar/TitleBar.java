@@ -1,4 +1,4 @@
-package com.tgcity.base.widget;
+package com.tgcity.base.widget.titlebar;
 
 import android.content.Context;
 import android.content.res.TypedArray;

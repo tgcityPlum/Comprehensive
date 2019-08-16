@@ -11,7 +11,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.tgcity.base.R;
 import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.LogUtils;
-import com.tgcity.base.widget.TitleBar;
+import com.tgcity.base.widget.titlebar.TitleBar;
 
 /**
  * 基础的activity

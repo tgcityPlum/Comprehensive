@@ -1,4 +1,4 @@
-package com.tgcity.base.widget;
+package com.tgcity.base.widget.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
