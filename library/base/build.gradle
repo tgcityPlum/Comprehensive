@@ -29,4 +29,6 @@ dependencies {
     implementation dataDependencies.rxlifecycleAndroid
     //沉浸式状态栏
     implementation dataDependencies.immersionbar
+    //引入 尺寸适配
+    implementation dataDependencies.autosize
 }

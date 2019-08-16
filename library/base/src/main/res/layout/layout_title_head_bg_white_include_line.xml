@@ -18,7 +18,7 @@
     <View
         android:id="@+id/v_line_title"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp_1"
         android:background="@color/color_line"
         app:layout_constraintTop_toBottomOf="@id/titleBar" />
 

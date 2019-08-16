@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">network</string>
+    <!--服务器的初始化标识-->
+    <string name="SERVER_WX">SERVER_WX</string>
+    <string name="SERVER_DEFAULT">SERVER_DEFAULT</string>
+    <string name="SERVER_NEW">SERVER_NEW</string>
+    <string name="SERVER_IMAGE_UPLOAD">SERVER_IMAGE_UPLOAD</string>
+    <string name="SERVER_DEFAULT_SHARE_IMAGE">SERVER_DEFAULT_SHARE_IMAGE</string>
+</resources>

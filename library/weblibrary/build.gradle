@@ -12,11 +12,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //引入 base
+    implementation project(':library:base')
 
     implementation supportDependencies.appcompatV7
     implementation supportDependencies.agentweb
     implementation 'com.nineoldandroids:library:2.4.0'
 
-    //引入 base
-    implementation project(':library:base')
+
 }

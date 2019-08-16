@@ -22,9 +22,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //引入 base
+    implementation project(':library:base')
+    //引入 common
+    implementation project(':library:common')
+    //引入 webLibrary
+    implementation project(':library:weblibrary')
+    //引入 network
+    implementation project(':library:network')
+
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
     implementation supportDependencies.constraintLayout
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espresso
@@ -34,10 +44,5 @@ dependencies {
     //引入 butterKnife
     implementation dataDependencies.butterknife
     annotationProcessor dataDependencies.butterknifeApt
-    //引入 common
-    implementation project(':library:common')
-    //引入 base
-    implementation project(':library:base')
-    //引入 webLibrary
-    implementation project(':library:weblibrary')
+
 }

@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.tgcity.base.R;
 
-public class BaseLoadingDialog extends Dialog {
+public class BaseDialogLoading extends Dialog {
     //loading image
     private ImageView loadingProgress;
     //loading context
@@ -36,17 +36,17 @@ public class BaseLoadingDialog extends Dialog {
         }
     }
 
-    public BaseLoadingDialog(Context context) {
+    public BaseDialogLoading(Context context) {
         super(context);
         this.mContext = context;
     }
 
-    public BaseLoadingDialog(Context context, int theme) {
+    public BaseDialogLoading(Context context, int theme) {
         super(context, theme);
         this.mContext = context;
     }
 
-    protected BaseLoadingDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
+    protected BaseDialogLoading(Context context, boolean cancelable, OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         this.mContext = context;
     }

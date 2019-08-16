@@ -3,27 +3,27 @@ package com.tgcity.base.activity;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tgcity.base.utils.LogUtils;
-import com.tgcity.base.widget.BaseLoadingDialog;
+import com.tgcity.base.widget.BaseDialogLoading;
 
 /**
  * 基础的activity
  * --处理加载指示器
  */
 public class BaseLoadingActivity extends AppCompatActivity {
-    //BaseLoadingDialog
-    private BaseLoadingDialog mBaseLoadingDialog;
+    //BaseDialogLoading
+    private BaseDialogLoading mBaseDialogLoading;
 
     /**
      * show loading
      */
     public void showLoadingDialog() {
-        if (mBaseLoadingDialog == null) {
-            mBaseLoadingDialog = new BaseLoadingDialog(this);
+        if (mBaseDialogLoading == null) {
+            mBaseDialogLoading = new BaseDialogLoading(this);
         }
 
-        if (!mBaseLoadingDialog.isShowing()) {
-            mBaseLoadingDialog.show();
-            LogUtils.i("BaseLoadingDialog is show");
+        if (!mBaseDialogLoading.isShowing()) {
+            mBaseDialogLoading.show();
+            LogUtils.i("BaseDialogLoading is show");
         }
     }
 
@@ -31,8 +31,8 @@ public class BaseLoadingActivity extends AppCompatActivity {
      * dismiss loading
      */
     public void dismissLoadingDialog() {
-        if (mBaseLoadingDialog != null) {
-            mBaseLoadingDialog.dismiss();
+        if (mBaseDialogLoading != null) {
+            mBaseDialogLoading.dismiss();
         }
     }
 
@@ -41,8 +41,8 @@ public class BaseLoadingActivity extends AppCompatActivity {
         super.onDestroy();
         //destroy loading
         dismissLoadingDialog();
-        if (mBaseLoadingDialog != null) {
-            mBaseLoadingDialog.clear();
+        if (mBaseDialogLoading != null) {
+            mBaseDialogLoading.clear();
         }
     }
 }

@@ -23,5 +23,7 @@ public class BaseConstant {
         public static final boolean isBaseMemoryActivityLogShow = isAppDebug && true;
         //Activity的沉浸式状态栏开关：是否显示沉浸式状态栏开关  true-显示  false-不显示
         public static final boolean isBaseImmersionBarActivityLogShow = isAppDebug && true;
+        //尺寸适配日志开关：是否显示尺寸适配日志开关  true-显示  false-不显示
+        public static final boolean isAutoSizeLogShow = isAppDebug && true;
     }
 }
