@@ -2,11 +2,11 @@ package com.tgcity.demo.testmvp;
 
 import android.util.Log;
 
-import com.tgcity.common.bean.response.TestDataItemBean;
-import com.tgcity.common.bean.response.result.HttpResult;
 import com.tgcity.mvp.present.BasePresenter;
+import com.tgcity.network.bean.result.HttpResult;
 import com.tgcity.network.callback.SimpleCallBack;
 import com.tgcity.network.retrofit.NetworkRetrofitUtils;
+import com.tgcity.resource.bean.response.TestDataItemBean;
 
 import java.util.List;
 

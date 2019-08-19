@@ -1,7 +1,7 @@
 package com.tgcity.network.retrofit;
 
 import com.tgcity.network.base.NetworkConstant;
-import com.tgcity.common.bean.response.NetworkResponseEntity;
+import com.tgcity.network.bean.NetworkResponseEntity;
 import com.tgcity.network.utils.MD5Util;
 
 import java.io.IOException;

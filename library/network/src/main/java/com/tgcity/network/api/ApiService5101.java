@@ -1,12 +1,12 @@
 package com.tgcity.network.api;
 
 
-import com.tgcity.common.bean.request.QueryMessagesInput;
-import com.tgcity.common.bean.response.MessagesUnreadCountOutput;
-import com.tgcity.common.bean.response.PagedListResultDto;
-import com.tgcity.common.bean.response.QueryMessagesOutput;
-import com.tgcity.common.bean.response.SettingsDto;
-import com.tgcity.common.bean.response.result.HttpResultTZY;
+import com.tgcity.resource.bean.request.QueryMessagesInput;
+import com.tgcity.resource.bean.response.MessagesUnreadCountOutput;
+import com.tgcity.resource.bean.response.PagedListResultDto;
+import com.tgcity.resource.bean.response.QueryMessagesOutput;
+import com.tgcity.resource.bean.response.SettingsDto;
+import com.tgcity.network.bean.result.HttpResultTZY;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;

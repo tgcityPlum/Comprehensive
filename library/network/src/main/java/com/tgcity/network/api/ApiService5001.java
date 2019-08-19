@@ -1,10 +1,10 @@
 package com.tgcity.network.api;
 
-import com.tgcity.common.bean.request.QueryMatchAndMismatchCollegeInput;
-import com.tgcity.common.bean.response.E360QuestionModel;
-import com.tgcity.common.bean.response.QueryMajorChooseSubjectOutput;
-import com.tgcity.common.bean.response.QueryMatchAndMismatchCollegeOutput;
-import com.tgcity.common.bean.response.result.HttpResultTZY;
+import com.tgcity.resource.bean.request.QueryMatchAndMismatchCollegeInput;
+import com.tgcity.resource.bean.response.E360QuestionModel;
+import com.tgcity.resource.bean.response.QueryMajorChooseSubjectOutput;
+import com.tgcity.resource.bean.response.QueryMatchAndMismatchCollegeOutput;
+import com.tgcity.network.bean.result.HttpResultTZY;
 
 import java.util.List;
 

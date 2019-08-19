@@ -6,8 +6,8 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 import com.tgcity.base.utils.LogUtils;
-import com.tgcity.common.bean.response.result.HttpResult;
 import com.tgcity.network.cache.model.ErrorMode;
+import com.tgcity.network.bean.result.HttpResult;
 
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;

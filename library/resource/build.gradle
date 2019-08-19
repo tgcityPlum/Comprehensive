@@ -13,12 +13,4 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 resource
-//    implementation project(':library:resource')
-    //引入 base
-    implementation project(':library:base')
-    
-    //项目初始化引入的dependencies
-    implementation supportDependencies.appcompatV7
-    implementation supportDependencies.recyclerview
 }

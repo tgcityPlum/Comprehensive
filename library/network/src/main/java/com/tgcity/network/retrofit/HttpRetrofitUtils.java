@@ -5,8 +5,7 @@ import android.content.Context;
 import android.support.annotation.CallSuper;
 
 import com.tgcity.network.base.NetworkConstant;
-import com.tgcity.common.bean.response.result.HttpResult;
-import com.tgcity.common.bean.response.result.HttpResultTZY;
+import com.tgcity.network.bean.result.HttpResultTZY;
 import com.tgcity.network.cache.RxCache;
 import com.tgcity.network.cache.model.CacheMode;
 import com.tgcity.network.cache.model.CacheResult;
@@ -19,6 +18,7 @@ import com.tgcity.network.callback.SimpleType;
 import com.tgcity.network.greendao.helper.HttpKeyOperationHelper;
 import com.tgcity.network.subsciber.CallBackSubsciber;
 import com.tgcity.network.utils.CommonUtils;
+import com.tgcity.network.bean.result.HttpResult;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import java.util.List;

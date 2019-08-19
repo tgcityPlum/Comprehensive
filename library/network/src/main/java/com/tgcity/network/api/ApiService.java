@@ -1,10 +1,10 @@
 package com.tgcity.network.api;
 
-import com.tgcity.common.bean.request.WeixinBody;
-import com.tgcity.common.bean.response.PictureDto;
-import com.tgcity.common.bean.response.TestDataItemBean;
-import com.tgcity.common.bean.response.WeixinToken;
-import com.tgcity.common.bean.response.result.HttpResult;
+import com.tgcity.resource.bean.request.WeixinBody;
+import com.tgcity.resource.bean.response.PictureDto;
+import com.tgcity.resource.bean.response.TestDataItemBean;
+import com.tgcity.resource.bean.response.WeixinToken;
+import com.tgcity.network.bean.result.HttpResult;
 
 import java.util.List;
 

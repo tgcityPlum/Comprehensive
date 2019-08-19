@@ -3,7 +3,6 @@ package com.tgcity.demo.testRefreshView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.tgcity.common.bean.response.TestDataItemBean;
 import com.tgcity.demo.R;
 import com.tgcity.mvp.model.OnDepositRequestPrepareListCallBack;
 import com.tgcity.mvp.view.activity.BaseMVPActivity;
@@ -11,6 +10,7 @@ import com.tgcity.mvp.widget.progress.ProgressView;
 import com.tgcity.network.cache.model.ErrorMode;
 import com.tgcity.refreshview.springview.widget.SpringView;
 import com.tgcity.refreshview.utils.RefreshViewUtils;
+import com.tgcity.resource.bean.response.TestDataItemBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,8 +75,14 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
     @Override
     public void setList(List<TestDataItemBean> data) {
         List<TestDataItemBean> list = new ArrayList<>();
-        list.addAll(data);
-        list.addAll(data);
+
+        if (data.size() > 10){
+            for (int i = 0; i < 10; i++) {
+                list.add(data.get(i));
+            }
+        }else {
+            list.addAll(data);
+        }
         //刷新列表数据
         RefreshViewUtils.depositRequestComplete(false, refresh, progress, refreshAdapter, pageIndex, list, this, p -> pageIndex = p);
 

@@ -1,3 +1,3 @@
 include ':app'
-include  ':library:base',':library:common', ':library:weblibrary', ':library:network'
-include  ':library:mvp', ':library:refreshview', ':library:refreshviewadapter'
+include  ':library:base', ':library:weblibrary', ':library:network'
+include  ':library:mvp', ':library:refreshview', ':library:refreshviewadapter', ':library:resource'
