@@ -3,4 +3,5 @@
 
     <string name="test_web_activity">测试web模块</string>
     <string name="main_activity">主页</string>
+    <string name="test_refresh_activity">测试列表刷新</string>
 </resources>

@@ -28,7 +28,10 @@
     <color name="strong_gradient_button_unable_stroke_color">#00000000</color>
     <!--    StrongGradientButton color ending  -->
 
-    <color name="color_666666">#666666</color>
-    <color name="color_999999">#999999</color>
     <color name="color_212121">#212121</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_777777">#777777</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_9B9B9B">#9B9B9B</color>
+    <color name="color_E9302D">#E9302D</color>
 </resources>

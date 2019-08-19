@@ -1,10 +1,8 @@
 package com.tgcity.demo.testmvp;
 
-import android.view.View;
 import android.widget.Button;
 
 import com.tgcity.demo.R;
-import com.tgcity.mvp.model.OnPresenterTaskCallBack;
 import com.tgcity.mvp.view.activity.BaseMVPActivity;
 import com.tgcity.mvp.widget.progress.ProgressView;
 import com.tgcity.network.cache.model.ErrorMode;
@@ -26,21 +24,7 @@ public class TestMVPActivity extends BaseMVPActivity<TestMVPConstact.View, TestM
 
     @Override
     public void initView() {
-        btnTestData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenterTask(new OnPresenterTaskCallBack<TestMVPPresenter>() {
-                    @Override
-                    public void onPresenterTask(TestMVPPresenter presenter) {
-                        presenter.onShow();
-                    }
-                });
-            }
-        });
-    }
-
-    private void onLoadData() {
-
+        btnTestData.setOnClickListener(view -> presenterTask(TestMVPPresenter::onShow));
     }
 
     @Override

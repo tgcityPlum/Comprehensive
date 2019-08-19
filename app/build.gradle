@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -32,11 +37,15 @@ dependencies {
     implementation project(':library:network')
     //引入 mvp
     implementation project(':library:mvp')
+    //引入 refreshview
+    implementation project(':library:refreshview')
+    //引入 refreshviewadapter
+    implementation project(':library:refreshviewadapter')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
     implementation supportDependencies.constraintLayout
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation supportDependencies.recyclerview
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espresso
