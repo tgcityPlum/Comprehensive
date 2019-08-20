@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.OverScroller;
 
-import com.tgcity.network.cache.model.ErrorMode;
-import com.tgcity.network.retrofit.ApiException;
+import com.tgcity.base.network.cache.model.ErrorMode;
+import com.tgcity.base.network.retrofit.ApiException;
 import com.tgcity.refreshview.R;
 import com.tgcity.refreshview.springview.listener.AppBarStateChangeListener;
 

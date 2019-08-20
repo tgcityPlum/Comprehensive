@@ -9,7 +9,7 @@ import com.tgcity.network.api.ApiService5001;
 import com.tgcity.network.api.ApiService5100;
 import com.tgcity.network.api.ApiService5101;
 import com.tgcity.network.base.NetworkConstant;
-import com.tgcity.network.bean.result.HttpResult;
+import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.bean.result.HttpResultTZY;
 import com.tgcity.network.cache.model.CacheMode;
 import com.tgcity.network.callback.SimpleCallBack;

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.tgcity.network.cache.model.ErrorMode;
+import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.refreshview.R;
 import com.tgcity.refreshview.springview.widget.SpringView;
 

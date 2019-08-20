@@ -17,7 +17,7 @@
 package com.tgcity.network.callback;
 
 
-import com.tgcity.network.bean.result.HttpResult;
+import com.tgcity.base.network.bean.result.HttpResult;
 
 /**
  * 作者：TGCity by Administrator on 2018/7/23

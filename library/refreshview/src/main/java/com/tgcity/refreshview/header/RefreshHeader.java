@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.tgcity.base.utils.check.AntiShake;
 import com.tgcity.base.utils.imageloader.ImageHelper;
-import com.tgcity.network.cache.model.ErrorMode;
+import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.refreshview.R;
 import com.tgcity.refreshview.springview.container.BaseHeader;
 import com.tgcity.refreshview.springview.widget.SpringView;
@@ -45,7 +45,7 @@ public class RefreshHeader extends BaseHeader {
     private ImageView errorLogo;
     private TextView errorTitle, errorDesc;
 
-    private int errorImg = R.mipmap.ic_launcher;
+    private int errorImg = R.mipmap.ic_error;
     private String errorTxtTitle = "出错啦", errorDescTitle = "轻触重试";
 
     private SpringView.OnExceptionEventClickListener onExceptionEventClickListener;

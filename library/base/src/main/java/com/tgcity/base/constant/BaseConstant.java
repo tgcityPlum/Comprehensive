@@ -26,4 +26,10 @@ public class BaseConstant {
         //尺寸适配日志开关：是否显示尺寸适配日志开关  true-显示  false-不显示
         public static final boolean isAutoSizeLogShow = isAppDebug && true;
     }
+
+    //服务器域名
+    public class Service {
+        public final static long SERVICE_TRY_WAIT = 10 * 1000;//出错重试等待时间（暂时定为10秒）
+        public final static long SERVICE_TRY_INTERVAL = 1 * 1000;//出错重试时的间隔时间（暂时定为1秒）
+    }
 }

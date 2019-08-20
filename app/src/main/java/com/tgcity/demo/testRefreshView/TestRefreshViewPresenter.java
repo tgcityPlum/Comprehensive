@@ -3,7 +3,7 @@ package com.tgcity.demo.testRefreshView;
 import android.util.Log;
 
 import com.tgcity.mvp.present.BasePresenter;
-import com.tgcity.network.bean.result.HttpResult;
+import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.callback.SimpleCallBack;
 import com.tgcity.network.retrofit.NetworkRetrofitUtils;
 import com.tgcity.resource.bean.response.TestDataItemBean;

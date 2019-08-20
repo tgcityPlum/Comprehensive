@@ -2,10 +2,10 @@ package com.tgcity.demo.testmvp;
 
 import android.widget.Button;
 
+import com.tgcity.base.widget.progress.ProgressView;
 import com.tgcity.demo.R;
 import com.tgcity.mvp.view.activity.BaseMVPActivity;
-import com.tgcity.mvp.widget.progress.ProgressView;
-import com.tgcity.network.cache.model.ErrorMode;
+import com.tgcity.base.network.cache.model.ErrorMode;
 
 import butterknife.BindView;
 

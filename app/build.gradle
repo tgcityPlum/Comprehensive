@@ -12,10 +12,33 @@ android {
         versionName versionConfig.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        /*
+        * so文件需验证签名 所有debug也要加上签名
+        * 关闭后核心代码将无法调用
+        * */
+        release {
+            storeFile file('../jks/comprehensive.jks')//签名文件路径
+            storePassword "comprehensive"
+            keyAlias "comprehensive"
+            keyPassword "comprehensive"
+        }
+    }
+
     buildTypes {
         release {
+            minifyEnabled true   //开启混淆
+            zipAlignEnabled true  //压缩优化
+            shrinkResources true  //移出无用资源
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -32,15 +55,15 @@ dependencies {
     //引入 base
     implementation project(':library:base')
     //引入 webLibrary
-    implementation project(':library:weblibrary')
+    implementation project(':library:web')
     //引入 network
     implementation project(':library:network')
     //引入 mvp
     implementation project(':library:mvp')
     //引入 refreshview
     implementation project(':library:refreshview')
-    //引入 refreshviewadapter
-    implementation project(':library:refreshviewadapter')
+    //引入 refreshadapter
+    implementation project(':library:refreshadapter')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

@@ -1,6 +1,6 @@
 package com.tgcity.demo.testmvp;
 
-import com.tgcity.mvp.model.OnPublicRefreshViewCallBack;
+import com.tgcity.base.mvp.model.OnPublicRefreshViewCallBack;
 
 public class TestMVPConstact {
 

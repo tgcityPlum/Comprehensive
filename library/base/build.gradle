@@ -8,6 +8,12 @@ android {
     defaultConfig {
         minSdkVersion versionConfig.minSdkVersion
     }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
@@ -34,4 +40,8 @@ dependencies {
     implementation dataDependencies.immersionbar
     //引入 尺寸适配
     implementation dataDependencies.autosize
+    //引入 Gson
+    implementation dataDependencies.gson
+    //引入 retrofit
+    implementation dataDependencies.retrofit
 }

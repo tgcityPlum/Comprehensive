@@ -9,11 +9,16 @@ android {
         minSdkVersion versionConfig.minSdkVersion
     }
 
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 resource
+    //引入 resource,将bean文件引入进来
     implementation project(':library:resource')
     //引入 base
     implementation project(':library:base')

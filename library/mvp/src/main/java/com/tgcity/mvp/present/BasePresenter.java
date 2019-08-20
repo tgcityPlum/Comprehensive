@@ -1,8 +1,8 @@
 package com.tgcity.mvp.present;
 
-import com.tgcity.mvp.model.OnPublicRefreshViewCallBack;
-import com.tgcity.network.cache.model.ErrorMode;
-import com.tgcity.network.retrofit.ApiException;
+import com.tgcity.base.mvp.model.OnPublicRefreshViewCallBack;
+import com.tgcity.base.network.cache.model.ErrorMode;
+import com.tgcity.base.network.retrofit.ApiException;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**

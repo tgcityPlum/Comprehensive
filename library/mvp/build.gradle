@@ -13,8 +13,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
     implementation project(':library:base')
-    //引入 network
-    implementation project(':library:network')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

@@ -19,7 +19,7 @@ package com.tgcity.network.subsciber;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.tgcity.network.retrofit.ApiException;
+import com.tgcity.base.network.retrofit.ApiException;
 
 import java.lang.ref.WeakReference;
 

@@ -20,7 +20,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.tgcity.network.callback.CallBack;
-import com.tgcity.network.retrofit.ApiException;
+import com.tgcity.base.network.retrofit.ApiException;
 
 /**
  * 作者：TGCity by Administrator on 2018/7/23

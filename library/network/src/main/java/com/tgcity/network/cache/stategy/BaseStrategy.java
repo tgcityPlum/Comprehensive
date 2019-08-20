@@ -22,8 +22,8 @@ import android.support.annotation.NonNull;
 
 import com.tgcity.network.cache.RxCache;
 import com.tgcity.network.cache.model.CacheResult;
-import com.tgcity.network.cache.model.ErrorMode;
-import com.tgcity.network.retrofit.ApiException;
+import com.tgcity.base.network.cache.model.ErrorMode;
+import com.tgcity.base.network.retrofit.ApiException;
 
 import java.lang.reflect.Type;
 

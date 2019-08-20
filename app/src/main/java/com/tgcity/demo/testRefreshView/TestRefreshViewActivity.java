@@ -3,11 +3,11 @@ package com.tgcity.demo.testRefreshView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.tgcity.base.widget.progress.ProgressView;
 import com.tgcity.demo.R;
-import com.tgcity.mvp.model.OnDepositRequestPrepareListCallBack;
+import com.tgcity.base.mvp.model.OnDepositRequestPrepareListCallBack;
 import com.tgcity.mvp.view.activity.BaseMVPActivity;
-import com.tgcity.mvp.widget.progress.ProgressView;
-import com.tgcity.network.cache.model.ErrorMode;
+import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.refreshview.springview.widget.SpringView;
 import com.tgcity.refreshview.utils.RefreshViewUtils;
 import com.tgcity.resource.bean.response.TestDataItemBean;
@@ -19,11 +19,11 @@ import butterknife.BindView;
 
 public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewConstant.View, TestRefreshViewPresenter> implements TestRefreshViewConstant.View {
 
-    @BindView(R.id.progress)
-    ProgressView progress;
+    @BindView(R.id.progressView)
+    ProgressView progressView;
     //上下拉刷新组件
-    @BindView(R.id.refresh)
-    SpringView refresh;
+    @BindView(R.id.springView)
+    SpringView springView;
     //上下拉刷新组件
     @BindView(R.id.recycleView)
     RecyclerView recycleView;
@@ -41,7 +41,7 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
     public void initView() {
         refreshAdapter = new TestRefreshAdapter(R.layout.item_refresh, null);
 
-        RefreshViewUtils.bindRecyclerViewWithRefreshAndAdapter(getContext(), new LinearLayoutManager(getContext()), recycleView, refresh, refreshAdapter, new OnDepositRequestPrepareListCallBack() {
+        RefreshViewUtils.bindRecyclerViewWithRefreshAndAdapter(getContext(), new LinearLayoutManager(getContext()), recycleView, springView, refreshAdapter, new OnDepositRequestPrepareListCallBack() {
             @Override
             public void onRequestRefresh() {
                 pageIndex = 1;
@@ -84,18 +84,18 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
             list.addAll(data);
         }
         //刷新列表数据
-        RefreshViewUtils.depositRequestComplete(false, refresh, progress, refreshAdapter, pageIndex, list, this, p -> pageIndex = p);
+        RefreshViewUtils.depositRequestComplete(false, springView, progressView, refreshAdapter, pageIndex, list, this, p -> pageIndex = p);
 
     }
 
     @Override
     public void showProgress() {
-        progress.showLoading();
+        progressView.showLoading();
     }
 
     @Override
     public void showError(Throwable e) {
-        progress.errorOperation(e, new ProgressView.OnProgressViewCallBack() {
+        progressView.errorOperation(e, new ProgressView.OnProgressViewCallBack() {
 
             @Override
             public void onReTry() {
@@ -111,7 +111,7 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
 
     @Override
     public void showEmpty() {
-        progress.showEmpty(getResources().getDrawable(R.drawable.monkey_cry), "----", "---");
+        progressView.showEmpty(getResources().getDrawable(R.drawable.monkey_cry), "----", "---");
     }
 
     private void loadData() {

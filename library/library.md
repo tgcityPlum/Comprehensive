@@ -5,4 +5,4 @@
 --network               网络层
 --weblibrary            web层
 --refreshview           上下拉层
---refreshviewadapter    适配器层
+--refreshadapter        适配器层

@@ -1,21 +1,22 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+##-------------------------------- 第三方库 ---------------
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+#----------------------------- retrofit2 ------------------
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-dontwarn org.robovm.**
+-keep class org.robovm.** { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+#----------------------------- greendao开始 ---------------
+-keep class org.greenrobot.greendao.**{*;}
+-keep public interface org.greenrobot.greendao.**
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+public static java.lang.String TABLENAME;
+}
+-keep class **$Properties
+-keep class net.sqlcipher.database.**{*;}
+-keep public interface net.sqlcipher.database.**
+-dontwarn net.sqlcipher.database.**
+-dontwarn org.greenrobot.greendao.**
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile

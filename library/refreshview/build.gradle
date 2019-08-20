@@ -14,12 +14,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
     implementation project(':library:base')
-    //引入 network
-    implementation project(':library:network')
-    //引入 mvp
-    implementation project(':library:mvp')
     //引入 refreshviewadapter
-    implementation project(':library:refreshviewadapter')
+    implementation project(':library:refreshadapter')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

@@ -3,11 +3,11 @@ package com.tgcity.refreshview.utils;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
-import com.tgcity.mvp.model.OnDepositRequestCompleteCallBack;
-import com.tgcity.mvp.model.OnDepositRequestPrepareListCallBack;
-import com.tgcity.mvp.model.OnPublicRefreshViewCallBack;
-import com.tgcity.mvp.widget.progress.ProgressView;
-import com.tgcity.network.cache.model.ErrorMode;
+import com.tgcity.base.mvp.model.OnDepositRequestCompleteCallBack;
+import com.tgcity.base.mvp.model.OnDepositRequestPrepareListCallBack;
+import com.tgcity.base.mvp.model.OnPublicRefreshViewCallBack;
+import com.tgcity.base.network.cache.model.ErrorMode;
+import com.tgcity.base.widget.progress.ProgressView;
 import com.tgcity.refreshadapter.BaseQuickAdapter;
 import com.tgcity.refreshadapter.loadmore.SimpleLoadMoreView;
 import com.tgcity.refreshview.helper.BaseRecyclerViewAdapterHelper;

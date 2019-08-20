@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".testmvp.TestMVPActivity">
 
-    <com.tgcity.mvp.widget.progress.ProgressView
+    <com.tgcity.base.widget.progress.ProgressView
         android:id="@+id/progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,6 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="测试数据" />
-    </com.tgcity.mvp.widget.progress.ProgressView>
+    </com.tgcity.base.widget.progress.ProgressView>
 
 </android.support.constraint.ConstraintLayout>

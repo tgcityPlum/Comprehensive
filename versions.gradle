@@ -33,6 +33,7 @@ ext {
     androidSupportSdkVersion = '28.0.0'
     constraintLayoutVersion = '1.1.3'
     agentwebVersion = '4.0.2'
+    nineoldVersion = '2.4.0'
     disklrucacheVersion = '2.0.2'
     greenDaoVersion = '3.2.2'
     autoSizeVersion = '0.9.5'
@@ -65,7 +66,6 @@ ext {
             annotations     : "com.android.support:support-annotations:${androidSupportSdkVersion}",
             constraintLayout: "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             recyclerview    : "com.android.support:recyclerview-v7:${androidSupportSdkVersion}",
-            agentweb        : "com.just.agentweb:agentweb:${agentwebVersion}",
             design          : "com.android.support:design:${androidSupportSdkVersion}"
             /*
             paletteV7       : "com.android.support:palette-v7:${androidSupportSdkVersion}",
@@ -105,6 +105,10 @@ ext {
             // database
             greendao                     : "org.greenrobot:greendao:${greenDaoVersion}",
             autosize                     : "me.jessyan:autosize:${autoSizeVersion}",//屏幕适配方案  https://github.com/JessYanCoding/AndroidAutoSize
+            // webView
+            nineoldandroids              : "com.nineoldandroids:library:${nineoldVersion}",
+            agentweb                     : "com.just.agentweb:agentweb:${agentwebVersion}"
+
             // dex分包
             /* multidex                     : "com.android.support:multidex:1.0.1",
              // dagger
@@ -134,7 +138,7 @@ ext {
              greendaoSqlcipher            : "net.zetetic:android-database-sqlcipher:3.5.4",
              // image
              glide                        : "com.github.bumptech.glide:glide:3.7.0",
-             nineoldandroids              : "com.nineoldandroids:library:2.4.0",
+
              glideOkhttpIntegration       : "com.github.bumptech.glide:okhttp3-integration:1.4.0@aar",
              okhttp3                      : "com.squareup.okhttp3:okhttp:3.2.0",
              // eventbus
