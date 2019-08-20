@@ -2,6 +2,7 @@
 
 #----------------------------- 实体类 ----------------
 -keep class com.tgcity.network.bean.**{*;}
+-keep class com.tgcity.network.cache.**{*;}
 
 #----------------------------- retrofit2 ------------------
 -dontwarn retrofit2.**

@@ -2,6 +2,7 @@
 
 #----------------------------- 实体类 ----------------
 -keep class com.tgcity.base.network.bean.**{*;}
+-keep class com.tgcity.base.network.cache.**{*;}
 
 #----------------------------- butterknife ----------------
 # PS 针对butterknife7.0及以上的
