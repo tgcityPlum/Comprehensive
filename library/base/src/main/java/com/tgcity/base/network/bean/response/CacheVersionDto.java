@@ -1,4 +1,4 @@
-package com.tgcity.resource.bean.response;
+package com.tgcity.base.network.bean.response;
 /*
 *
 * 缓存配置模型

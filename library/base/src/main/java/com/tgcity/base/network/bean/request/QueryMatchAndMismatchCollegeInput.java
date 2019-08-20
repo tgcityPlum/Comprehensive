@@ -1,4 +1,4 @@
-package com.tgcity.resource.bean.request;
+package com.tgcity.base.network.bean.request;
 
 import java.io.Serializable;
 

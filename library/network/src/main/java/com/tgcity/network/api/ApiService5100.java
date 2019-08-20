@@ -1,8 +1,8 @@
 package com.tgcity.network.api;
 
 
-import com.tgcity.resource.bean.request.RegistrationUserInput;
-import com.tgcity.resource.bean.response.UserIdDto;
+import com.tgcity.base.network.bean.request.RegistrationUserInput;
+import com.tgcity.base.network.bean.response.UserIdDto;
 import com.tgcity.network.bean.result.HttpResultTZY;
 
 import io.reactivex.Observable;

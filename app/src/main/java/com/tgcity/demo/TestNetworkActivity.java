@@ -6,10 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.tgcity.base.network.bean.response.TestDataItemBean;
 import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.callback.SimpleCallBack;
 import com.tgcity.network.retrofit.NetworkRetrofitUtils;
-import com.tgcity.resource.bean.response.TestDataItemBean;
 
 import java.util.List;
 

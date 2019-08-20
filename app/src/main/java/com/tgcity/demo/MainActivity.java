@@ -7,9 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.tgcity.demo.testRefreshView.TestRefreshViewActivity;
+import com.tgcity.demo.testmvp.TestMVPActivity;
+
 import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -41,12 +45,6 @@ public class MainActivity extends AppCompatActivity {
 //        onRxTime1();
 //        onRxTime2(5);
 
-        tvTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRxTime3(5);
-            }
-        });
     }
 
     private void onRxTime3(final int time) {
@@ -219,6 +217,27 @@ public class MainActivity extends AppCompatActivity {
         };
         //被观察者  被订阅  观察者
         book.subscribe(person);
+    }
+
+    @OnClick({R.id.tv_time, R.id.tv_test_refresh, R.id.tv_test_mvp, R.id.tv_test_network, R.id.tv_test_web})
+    public void onClickView(View view) {
+        switch (view.getId()) {
+            case R.id.tv_time:
+                onRxTime3(5);
+                break;
+            case R.id.tv_test_refresh:
+                startActivity(new Intent(this, TestRefreshViewActivity.class));
+                break;
+            case R.id.tv_test_mvp:
+                startActivity(new Intent(this, TestMVPActivity.class));
+                break;
+            case R.id.tv_test_network:
+                startActivity(new Intent(this, TestNetworkActivity.class));
+                break;
+            case R.id.tv_test_web:
+                startActivity(new Intent(this, TestWebActivity.class));
+                break;
+        }
     }
 
     @Override

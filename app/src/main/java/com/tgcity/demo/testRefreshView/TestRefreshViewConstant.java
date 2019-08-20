@@ -1,7 +1,7 @@
 package com.tgcity.demo.testRefreshView;
 
 import com.tgcity.base.mvp.model.OnPublicRefreshViewCallBack;
-import com.tgcity.resource.bean.response.TestDataItemBean;
+import com.tgcity.base.network.bean.response.TestDataItemBean;
 
 import java.util.List;
 

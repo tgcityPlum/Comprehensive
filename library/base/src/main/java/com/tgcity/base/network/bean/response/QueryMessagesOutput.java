@@ -1,4 +1,4 @@
-package com.tgcity.resource.bean.response;
+package com.tgcity.base.network.bean.response;
 
 /**
  * 个人中心--根据类型获取消息列表的数据模型

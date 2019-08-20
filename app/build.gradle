@@ -50,8 +50,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 resource
-    implementation project(':library:resource')
     //引入 base
     implementation project(':library:base')
     //引入 webLibrary

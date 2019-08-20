@@ -2,10 +2,10 @@ package com.tgcity.demo.testRefreshView;
 
 import android.support.annotation.Nullable;
 
+import com.tgcity.base.network.bean.response.TestDataItemBean;
 import com.tgcity.demo.R;
 import com.tgcity.refreshadapter.BaseListenerEventAdapter;
 import com.tgcity.refreshadapter.BaseViewHolder;
-import com.tgcity.resource.bean.response.TestDataItemBean;
 
 import java.util.List;
 

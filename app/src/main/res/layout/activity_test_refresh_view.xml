@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         android:background="@color/color_white"
+        app:back="@mipmap/back"
         app:title="@string/test_refresh_activity" />
 
     <include layout="@layout/refresh_list" />

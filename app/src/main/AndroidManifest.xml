@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppBaseThemeWithWindowIsTranslucent">
-        <activity android:name=".testRefreshView.TestRefreshViewActivity"
-            android:label="@string/test_refresh_activity">
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -23,16 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".testmvp.TestMVPActivity">
-
-        </activity>
-        <activity android:name=".TestNetworkActivity"></activity>
+        <activity
+            android:name=".testRefreshView.TestRefreshViewActivity"
+            android:label="@string/test_refresh_activity" />
+        <activity android:name=".testmvp.TestMVPActivity" />
+        <activity android:name=".TestNetworkActivity" />
         <activity
             android:name=".TestWebActivity"
             android:label="@string/test_web_activity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/main_activity" /> <!-- ******* 自动适配UI-开始  ui设计均基于375x667设计 此处请勿修改  ******* -->
+
+        <!-- ******* 自动适配UI-开始  ui设计均基于375x667设计 此处请勿修改  ******* -->
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />

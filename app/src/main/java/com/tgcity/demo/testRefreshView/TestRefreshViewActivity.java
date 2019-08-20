@@ -3,14 +3,15 @@ package com.tgcity.demo.testRefreshView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.tgcity.base.network.bean.response.TestDataItemBean;
 import com.tgcity.base.widget.progress.ProgressView;
+import com.tgcity.base.widget.titlebar.TitleBar;
 import com.tgcity.demo.R;
 import com.tgcity.base.mvp.model.OnDepositRequestPrepareListCallBack;
 import com.tgcity.mvp.view.activity.BaseMVPActivity;
 import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.refreshview.springview.widget.SpringView;
 import com.tgcity.refreshview.utils.RefreshViewUtils;
-import com.tgcity.resource.bean.response.TestDataItemBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import butterknife.BindView;
 
 public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewConstant.View, TestRefreshViewPresenter> implements TestRefreshViewConstant.View {
 
+    @BindView(R.id.titleBar)
+    TitleBar titleBar;
     @BindView(R.id.progressView)
     ProgressView progressView;
     //上下拉刷新组件
@@ -60,6 +63,8 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
         });
 
         loadData();
+
+        titleBar.setBackListener(view -> finish());
     }
 
     @Override

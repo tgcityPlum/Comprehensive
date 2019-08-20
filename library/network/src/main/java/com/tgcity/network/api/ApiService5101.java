@@ -1,11 +1,11 @@
 package com.tgcity.network.api;
 
 
-import com.tgcity.resource.bean.request.QueryMessagesInput;
-import com.tgcity.resource.bean.response.MessagesUnreadCountOutput;
-import com.tgcity.resource.bean.response.PagedListResultDto;
-import com.tgcity.resource.bean.response.QueryMessagesOutput;
-import com.tgcity.resource.bean.response.SettingsDto;
+import com.tgcity.base.network.bean.request.QueryMessagesInput;
+import com.tgcity.base.network.bean.response.MessagesUnreadCountOutput;
+import com.tgcity.base.network.bean.response.PagedListResultDto;
+import com.tgcity.base.network.bean.response.QueryMessagesOutput;
+import com.tgcity.base.network.bean.response.SettingsDto;
 import com.tgcity.network.bean.result.HttpResultTZY;
 
 import io.reactivex.Observable;
