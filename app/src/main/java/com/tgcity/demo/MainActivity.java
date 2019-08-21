@@ -7,13 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.tgcity.demo.testRefreshView.TestRefreshViewActivity;
-import com.tgcity.demo.testmvp.TestMVPActivity;
+import com.tgcity.mode.news.TestViewBindActivity;
 
 import java.util.concurrent.TimeUnit;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -37,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
         tvTime = findViewById(R.id.tv_time);
 //        onRxBook1();
@@ -102,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         tvTime.setText(String.valueOf(time - aLong));
 
                         if (time - aLong == 0) {
-                            startActivity(new Intent(MainActivity.this, TestWebActivity.class));
+//                            startActivity(new Intent(MainActivity.this, TestWebActivity.class));
                         }
                     }
                 });
@@ -219,27 +215,6 @@ public class MainActivity extends AppCompatActivity {
         book.subscribe(person);
     }
 
-    @OnClick({R.id.tv_time, R.id.tv_test_refresh, R.id.tv_test_mvp, R.id.tv_test_network, R.id.tv_test_web})
-    public void onClickView(View view) {
-        switch (view.getId()) {
-            case R.id.tv_time:
-                onRxTime3(5);
-                break;
-            case R.id.tv_test_refresh:
-                startActivity(new Intent(this, TestRefreshViewActivity.class));
-                break;
-            case R.id.tv_test_mvp:
-                startActivity(new Intent(this, TestMVPActivity.class));
-                break;
-            case R.id.tv_test_network:
-                startActivity(new Intent(this, TestNetworkActivity.class));
-                break;
-            case R.id.tv_test_web:
-                startActivity(new Intent(this, TestWebActivity.class));
-                break;
-        }
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -248,5 +223,9 @@ public class MainActivity extends AppCompatActivity {
             timer.dispose();
             timer = null;
         }
+    }
+
+    public void testBindView(View view) {
+        startActivity(new Intent(this, TestViewBindActivity.class));
     }
 }

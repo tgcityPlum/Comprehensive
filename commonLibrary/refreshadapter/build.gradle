@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion versionConfig.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion versionConfig.minSdkVersion
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //引入 base
+    implementation project(':functionLibrary:base')
+    
+    //项目初始化引入的dependencies
+    implementation supportDependencies.appcompatV7
+    implementation supportDependencies.recyclerview
+}

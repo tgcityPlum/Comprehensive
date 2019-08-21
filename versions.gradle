@@ -17,14 +17,14 @@ ext {
     compileSdkVersion = 28
 
     //Libraries
-//    daggerVersion = '2.8'
+    daggerVersion = '2.8'
 //    javaxAnnotationVersion = '1.0'
 //
     rxJavaVersion = '2.0.1'
     rxAndroidVersion = '2.0.1'
     retrofitSdkVersion = '2.4.0'
     rxlifecycleSdkVersion = "2.0.1"
-    butterKnifeVersion = '8.8.1'
+    butterKnifeVersion = '8.5.1'
     glideVersion = '4.7.1'
 
 //    javaxInjectVersion = '1'
@@ -107,14 +107,14 @@ ext {
             autosize                     : "me.jessyan:autosize:${autoSizeVersion}",//屏幕适配方案  https://github.com/JessYanCoding/AndroidAutoSize
             // webView
             nineoldandroids              : "com.nineoldandroids:library:${nineoldVersion}",
-            agentweb                     : "com.just.agentweb:agentweb:${agentwebVersion}"
-
+            agentweb                     : "com.just.agentweb:agentweb:${agentwebVersion}",
+            // dagger
+            dagger                       : "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler               : "com.google.dagger:dagger-compiler:${daggerVersion}",
             // dex分包
             /* multidex                     : "com.android.support:multidex:1.0.1",
              // dagger
-             dagger                       : "com.google.dagger:dagger:${daggerVersion}",
              javaxAnnotation              : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-             daggerCompiler               : "com.google.dagger:dagger-compiler:${daggerVersion}",
              // retrofit + rx
 
                           retorfitConverterScalar      : "com.squareup.retrofit2:converter-scalars:${retrofitSdkVersion}",

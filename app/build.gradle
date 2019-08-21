@@ -1,11 +1,19 @@
-apply plugin: 'com.android.application'
+def isIntegratedMode = isIntegratedMode.toBoolean()
+
+if (isIntegratedMode){
+    apply plugin: 'com.android.application'
+}else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     def versionConfig = rootProject.extensions.getByName("ext")
-
     compileSdkVersion versionConfig.compileSdkVersion
+
     defaultConfig {
-        applicationId versionConfig.applicationId
+        if (isIntegratedMode){
+            applicationId versionConfig.applicationId
+        }
         minSdkVersion versionConfig.minSdkVersion
         targetSdkVersion versionConfig.targetSdkVersion
         versionCode versionConfig.versionCode
@@ -26,19 +34,21 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            minifyEnabled true   //开启混淆
-            zipAlignEnabled true  //压缩优化
-            shrinkResources true  //移出无用资源
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
+    if (isIntegratedMode){
+        buildTypes {
+            release {
+                minifyEnabled true   //开启混淆
+                zipAlignEnabled true  //压缩优化
+                shrinkResources true  //移出无用资源
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.release
+            }
 
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            debug {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.release
+            }
         }
     }
 
@@ -51,17 +61,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
-    implementation project(':library:base')
-    //引入 webLibrary
-    implementation project(':library:web')
-    //引入 network
-    implementation project(':library:network')
-    //引入 mvp
-    implementation project(':library:mvp')
-    //引入 refreshview
-    implementation project(':library:refreshview')
-    //引入 refreshadapter
-    implementation project(':library:refreshadapter')
+    implementation project(':functionLibrary:base')
+    implementation project(':businessLibrary:news')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

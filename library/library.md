@@ -1,9 +1,0 @@
-# library文档说明
-## 项目结构
---resource              资源层
---base                  基础层
---network               网络层
---web                   web层
---mvp                   mvp层
---refreshview           上下拉层
---refreshadapter        适配器层

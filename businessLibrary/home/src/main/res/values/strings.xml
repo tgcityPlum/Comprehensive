@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">homeModule</string>
+    <string name="test_web_activity">测试web模块</string>
+
+</resources>

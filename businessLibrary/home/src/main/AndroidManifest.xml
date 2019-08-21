@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tgcity.home">
+
+    <application android:theme="@style/AppBaseThemeWithWindowIsTranslucent">
+        <activity
+            android:name=".TestWebActivity"
+            android:label="@string/test_web_activity" />
+    </application>
+
+</manifest>
