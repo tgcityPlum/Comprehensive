@@ -25,7 +25,7 @@
 
         <TextView
             android:id="@+id/title"
-            style="@style/textColor_212121_textSize_18_bold"
+            style="@style/size_18_color_212121_bold"
             android:layout_width="@dimen/dp_0"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/dp_8"

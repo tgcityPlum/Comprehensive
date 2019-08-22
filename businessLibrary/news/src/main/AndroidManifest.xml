@@ -3,7 +3,7 @@
     package="com.tgcity.mode.news">
 
     <application>
-        <activity android:name=".TestViewBindActivity"></activity>
+        <activity android:name=".testRefreshView.TestRefreshViewCommonActivity"/>
     </application>
 
 </manifest>

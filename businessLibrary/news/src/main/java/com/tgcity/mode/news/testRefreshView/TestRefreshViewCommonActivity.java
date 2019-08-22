@@ -1,34 +1,31 @@
-package com.tgcity.demo.testRefreshView;
+package com.tgcity.mode.news.testRefreshView;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.tgcity.base.mvp.model.OnDepositRequestPrepareListCallBack;
 import com.tgcity.base.network.bean.response.TestDataItemBean;
+import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.base.widget.progress.ProgressView;
 import com.tgcity.base.widget.titlebar.TitleBar;
-import com.tgcity.demo.R;
-import com.tgcity.base.mvp.model.OnDepositRequestPrepareListCallBack;
-import com.tgcity.mvp.view.activity.BaseMVPActivity;
-import com.tgcity.base.network.cache.model.ErrorMode;
+import com.tgcity.mode.news.R;
+import com.tgcity.mvp.view.activity.MVPCommonActivity;
 import com.tgcity.refreshview.springview.widget.SpringView;
 import com.tgcity.refreshview.utils.RefreshViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 
-public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewConstant.View, TestRefreshViewPresenter> implements TestRefreshViewConstant.View {
+public class TestRefreshViewCommonActivity extends MVPCommonActivity<TestRefreshViewConstant.View, TestRefreshViewPresenter> implements TestRefreshViewConstant.View {
 
-    @BindView(R.id.titleBar)
-    TitleBar titleBar;
-    @BindView(R.id.progressView)
+//    @BindView(R2.id.titleBar2)
+    public TitleBar titleBar;
+
     ProgressView progressView;
     //上下拉刷新组件
-    @BindView(R.id.springView)
     SpringView springView;
     //上下拉刷新组件
-    @BindView(R.id.recycleView)
     RecyclerView recycleView;
 
     private TestRefreshAdapter refreshAdapter;
@@ -42,6 +39,11 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
 
     @Override
     public void initView() {
+        titleBar = findViewById(R.id.titleBar2);
+        progressView = findViewById(R.id.progressView);
+        springView = findViewById(R.id.springView);
+        recycleView = findViewById(R.id.recycleView);
+
         refreshAdapter = new TestRefreshAdapter(R.layout.item_refresh, null);
 
         RefreshViewUtils.bindRecyclerViewWithRefreshAndAdapter(getContext(), new LinearLayoutManager(getContext()), recycleView, springView, refreshAdapter, new OnDepositRequestPrepareListCallBack() {
@@ -67,6 +69,7 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
         titleBar.setBackListener(view -> finish());
     }
 
+
     @Override
     protected TestRefreshViewPresenter createPresenter() {
         return new TestRefreshViewPresenter();
@@ -81,11 +84,11 @@ public class TestRefreshViewActivity extends BaseMVPActivity<TestRefreshViewCons
     public void setList(List<TestDataItemBean> data) {
         List<TestDataItemBean> list = new ArrayList<>();
 
-        if (data.size() > 10){
+        if (data.size() > 10) {
             for (int i = 0; i < 10; i++) {
                 list.add(data.get(i));
             }
-        }else {
+        } else {
             list.addAll(data);
         }
         //刷新列表数据

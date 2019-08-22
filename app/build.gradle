@@ -1,8 +1,8 @@
 def isIntegratedMode = isIntegratedMode.toBoolean()
 
-if (isIntegratedMode){
+if (isIntegratedMode) {
     apply plugin: 'com.android.application'
-}else {
+} else {
     apply plugin: 'com.android.library'
 }
 
@@ -11,14 +11,15 @@ android {
     compileSdkVersion versionConfig.compileSdkVersion
 
     defaultConfig {
-        if (isIntegratedMode){
-            applicationId versionConfig.applicationId
-        }
         minSdkVersion versionConfig.minSdkVersion
-        targetSdkVersion versionConfig.targetSdkVersion
-        versionCode versionConfig.versionCode
-        versionName versionConfig.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        if (isIntegratedMode) {
+            applicationId versionConfig.applicationId
+            targetSdkVersion versionConfig.targetSdkVersion
+            versionCode versionConfig.versionCode
+            versionName versionConfig.versionName
+            testInstrumentationRunner versionConfig.testInstrumentationRunner
+        }
     }
 
     signingConfigs {
@@ -34,7 +35,7 @@ android {
         }
     }
 
-    if (isIntegratedMode){
+    if (isIntegratedMode) {
         buildTypes {
             release {
                 minifyEnabled true   //开启混淆
@@ -62,7 +63,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
     implementation project(':functionLibrary:base')
-    implementation project(':businessLibrary:news')
+
+    if (isIntegratedMode) {
+        implementation project(':businessLibrary:news')
+    }
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
@@ -74,8 +78,4 @@ dependencies {
     //引入 rxLifecycle
     implementation dataDependencies.rxlifecycle
     implementation dataDependencies.rxlifecycleAndroid
-    //引入 butterKnife
-    implementation dataDependencies.butterknife
-    annotationProcessor dataDependencies.butterknifeApt
-
 }

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">news</string>
+    <string name="app_name">newsModule</string>
+    <string name="test_refresh_activity">测试列表刷新</string>
 </resources>

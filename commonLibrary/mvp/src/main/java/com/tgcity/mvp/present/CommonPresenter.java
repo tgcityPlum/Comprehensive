@@ -6,10 +6,10 @@ import com.tgcity.base.network.retrofit.ApiException;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
- * BasePresenter,自动绑定解绑View接口
+ * CommonPresenter,自动绑定解绑View接口
  */
 
-public abstract class BasePresenter<V> {
+public abstract class CommonPresenter<V> {
     public LifecycleTransformer lifecycleTransformer;
     public V view;
     private boolean isInit;//这个字段用于列表loading动画的触发，仅仅使用一次

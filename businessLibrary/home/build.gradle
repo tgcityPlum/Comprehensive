@@ -13,14 +13,15 @@ android {
     compileSdkVersion versionConfig.compileSdkVersion
 
     defaultConfig {
+        minSdkVersion versionConfig.minSdkVersion
+
         if (isHomeMode) {
             applicationId versionConfig.applicationId
+            targetSdkVersion versionConfig.targetSdkVersion
+            versionCode versionConfig.versionCode
+            versionName versionConfig.versionName
+            testInstrumentationRunner versionConfig.testInstrumentationRunner
         }
-        minSdkVersion versionConfig.minSdkVersion
-        targetSdkVersion versionConfig.targetSdkVersion
-        versionCode versionConfig.versionCode
-        versionName versionConfig.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {

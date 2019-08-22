@@ -1,9 +1,9 @@
-package com.tgcity.demo.testRefreshView;
+package com.tgcity.mode.news.testRefreshView;
 
 import android.support.annotation.Nullable;
 
 import com.tgcity.base.network.bean.response.TestDataItemBean;
-import com.tgcity.demo.R;
+import com.tgcity.mode.news.R;
 import com.tgcity.refreshadapter.BaseListenerEventAdapter;
 import com.tgcity.refreshadapter.BaseViewHolder;
 

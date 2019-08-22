@@ -4,14 +4,14 @@ import android.os.Bundle;
 
 import com.tgcity.base.activity.BaseLauncherTimeActivity;
 import com.tgcity.mvp.model.OnPresenterTaskCallBack;
-import com.tgcity.mvp.present.BasePresenter;
+import com.tgcity.mvp.present.CommonPresenter;
 
 
 /**
  * MVP activity，如果使用MVP开发模式，可继承本类
  */
 
-public abstract class BaseMVPActivity<V, P extends BasePresenter<V>> extends BaseLauncherTimeActivity {
+public abstract class MVPCommonActivity<V, P extends CommonPresenter<V>> extends BaseLauncherTimeActivity {
 
     protected P presenter;
 

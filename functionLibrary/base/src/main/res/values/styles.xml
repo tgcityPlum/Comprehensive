@@ -19,10 +19,15 @@
     <!--    application theme ending   -->
 
     <!--    text and color style starting   -->
-    <style name="textColor_212121_textSize_18_bold">
-        <item name="android:textColor">@color/color_212121</item>
+    <style name="size_18_color_212121_bold">
         <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:textColor">@color/color_212121</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="size_14_color_666666">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/color_666666</item>
     </style>
 
     <!--    text and color style ending   -->

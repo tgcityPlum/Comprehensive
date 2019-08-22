@@ -1,4 +1,4 @@
-package com.tgcity.demo.testRefreshView;
+package com.tgcity.mode.news.testRefreshView;
 
 import com.tgcity.base.mvp.model.OnPublicRefreshViewCallBack;
 import com.tgcity.base.network.bean.response.TestDataItemBean;

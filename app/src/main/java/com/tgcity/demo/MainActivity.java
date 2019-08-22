@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.tgcity.mode.news.TestViewBindActivity;
+import com.tgcity.mode.news.testlogin.TestLoginCommonActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -226,6 +226,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testBindView(View view) {
-        startActivity(new Intent(this, TestViewBindActivity.class));
+        startActivity(new Intent(this, TestLoginCommonActivity.class));
     }
 }

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.tgcity.base.widget.titlebar.TitleBar
-        android:id="@+id/titleBar"
+        android:id="@+id/titleBar2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         android:background="@color/color_white"

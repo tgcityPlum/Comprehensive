@@ -1,4 +1,4 @@
-package debug.base;
+package com.tgcity.mode.news.base;
 
 import com.tgcity.base.application.BaseApplication;
 

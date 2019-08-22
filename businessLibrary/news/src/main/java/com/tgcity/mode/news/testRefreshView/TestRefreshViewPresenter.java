@@ -1,16 +1,16 @@
-package com.tgcity.demo.testRefreshView;
+package com.tgcity.mode.news.testRefreshView;
 
 import android.util.Log;
 
 import com.tgcity.base.network.bean.response.TestDataItemBean;
-import com.tgcity.mvp.present.BasePresenter;
+import com.tgcity.mvp.present.CommonPresenter;
 import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.callback.SimpleCallBack;
 import com.tgcity.network.retrofit.NetworkRetrofitUtils;
 
 import java.util.List;
 
-public class TestRefreshViewPresenter extends BasePresenter<TestRefreshViewConstant.View> implements TestRefreshViewConstant.Presenter{
+public class TestRefreshViewPresenter extends CommonPresenter<TestRefreshViewConstant.View> implements TestRefreshViewConstant.Presenter{
 
     @Override
     public void getList() {
