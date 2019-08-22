@@ -1,4 +1,4 @@
-package com.tgcity.mode.news.testRefreshView;
+package com.tgcity.mode.news.indexlist;
 
 import android.util.Log;
 
@@ -10,7 +10,7 @@ import com.tgcity.network.retrofit.NetworkRetrofitUtils;
 
 import java.util.List;
 
-public class TestRefreshViewPresenter extends CommonPresenter<TestRefreshViewConstant.View> implements TestRefreshViewConstant.Presenter{
+public class NewsIndexListPresenter extends CommonPresenter<NewsIndexListConstant.View> implements NewsIndexListConstant.Presenter{
 
     @Override
     public void getList() {

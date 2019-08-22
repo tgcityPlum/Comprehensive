@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppBaseThemeWithWindowIsTranslucent">
 
-        <activity android:name=".testRefreshView.TestRefreshViewCommonActivity" />
+        <activity android:name=".indexlist.NewsIndexListActivity" />
 
         <activity android:name="debug.activity.NewsLauncherActivity">
             <intent-filter>

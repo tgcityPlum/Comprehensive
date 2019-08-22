@@ -1,4 +1,4 @@
-package com.tgcity.mode.news.testRefreshView;
+package com.tgcity.mode.news.indexlist;
 
 import android.support.annotation.Nullable;
 
@@ -9,9 +9,9 @@ import com.tgcity.refreshadapter.BaseViewHolder;
 
 import java.util.List;
 
-public class TestRefreshAdapter extends BaseListenerEventAdapter<TestDataItemBean, BaseViewHolder> {
+public class NewsIndexListAdapter extends BaseListenerEventAdapter<TestDataItemBean, BaseViewHolder> {
 
-    public TestRefreshAdapter(int layoutResId, @Nullable List<TestDataItemBean> data) {
+    public NewsIndexListAdapter(int layoutResId, @Nullable List<TestDataItemBean> data) {
         super(layoutResId, data);
     }
 

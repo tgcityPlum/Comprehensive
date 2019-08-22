@@ -1,11 +1,11 @@
-package com.tgcity.mode.news.testRefreshView;
+package com.tgcity.mode.news.indexlist;
 
 import com.tgcity.base.mvp.model.OnPublicRefreshViewCallBack;
 import com.tgcity.base.network.bean.response.TestDataItemBean;
 
 import java.util.List;
 
-public class TestRefreshViewConstant {
+public class NewsIndexListConstant {
 
     public interface View extends OnPublicRefreshViewCallBack {
         void setList(List<TestDataItemBean> data);

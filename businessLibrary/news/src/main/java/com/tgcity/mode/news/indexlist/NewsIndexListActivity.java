@@ -1,4 +1,4 @@
-package com.tgcity.mode.news.testRefreshView;
+package com.tgcity.mode.news.indexlist;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TestRefreshViewCommonActivity extends MVPCommonActivity<TestRefreshViewConstant.View, TestRefreshViewPresenter> implements TestRefreshViewConstant.View {
+public class NewsIndexListActivity extends MVPCommonActivity<NewsIndexListConstant.View, NewsIndexListPresenter> implements NewsIndexListConstant.View {
 
 //    @BindView(R2.id.titleBar2)
     public TitleBar titleBar;
@@ -28,13 +28,13 @@ public class TestRefreshViewCommonActivity extends MVPCommonActivity<TestRefresh
     //上下拉刷新组件
     RecyclerView recycleView;
 
-    private TestRefreshAdapter refreshAdapter;
+    private NewsIndexListAdapter refreshAdapter;
     //页码下标
     private int pageIndex = 1;
 
     @Override
     public int getViewLayout() {
-        return R.layout.activity_test_refresh_view;
+        return R.layout.activity_news_index_list;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class TestRefreshViewCommonActivity extends MVPCommonActivity<TestRefresh
         springView = findViewById(R.id.springView);
         recycleView = findViewById(R.id.recycleView);
 
-        refreshAdapter = new TestRefreshAdapter(R.layout.item_refresh, null);
+        refreshAdapter = new NewsIndexListAdapter(R.layout.item_refresh, null);
 
         RefreshViewUtils.bindRecyclerViewWithRefreshAndAdapter(getContext(), new LinearLayoutManager(getContext()), recycleView, springView, refreshAdapter, new OnDepositRequestPrepareListCallBack() {
             @Override
@@ -71,8 +71,8 @@ public class TestRefreshViewCommonActivity extends MVPCommonActivity<TestRefresh
 
 
     @Override
-    protected TestRefreshViewPresenter createPresenter() {
-        return new TestRefreshViewPresenter();
+    protected NewsIndexListPresenter createPresenter() {
+        return new NewsIndexListPresenter();
     }
 
     @Override
@@ -123,7 +123,7 @@ public class TestRefreshViewCommonActivity extends MVPCommonActivity<TestRefresh
     }
 
     private void loadData() {
-        presenterTask(TestRefreshViewPresenter::getList);
+        presenterTask(NewsIndexListPresenter::getList);
     }
 
 }

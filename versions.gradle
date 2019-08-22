@@ -1,15 +1,6 @@
-/*allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url "https://jitpack.io"
-        }
-    }
-}*/
-
 ext {
     //Android
-    applicationId = "com.tgcity.demo"
+    applicationId = "com.tgcity.comprehensive"
     minSdkVersion = 16
     targetSdkVersion = 28
     versionCode = 1

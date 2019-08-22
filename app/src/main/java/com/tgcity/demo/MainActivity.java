@@ -7,10 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.tgcity.mode.news.testlogin.TestLoginCommonActivity;
+import com.tgcity.mode.news.indexlist.NewsIndexListActivity;
 
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -226,6 +225,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testBindView(View view) {
-        startActivity(new Intent(this, TestLoginCommonActivity.class));
+        startActivity(new Intent(this, NewsIndexListActivity.class));
     }
 }
