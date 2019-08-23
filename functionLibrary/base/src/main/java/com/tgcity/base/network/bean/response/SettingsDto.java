@@ -1,22 +1,6 @@
 package com.tgcity.base.network.bean.response;
 
-/**
- * @author TGCity
- * @create 2019/5/31 14：32
- * @Describe
- */
 public class SettingsDto {
-
-
-    /**
-     * id : 5cb581727b4e0d7eec869b1a
-     * numId : 2
-     * name : Android版本配置信息
-     * identification : AndroidVersion
-     * description : 用于Android版本配置信息
-     * settingsJson : {"NewVersionCode":"111","ForceVersionCode":"222","NewVersionName":"333","Summary":"444","ApkSize":"555","Body":"666","UpdateDate":"888","UpdateUrl":"777"}
-     * info : null
-     */
 
     private String id;
     private int numId;
@@ -80,5 +64,18 @@ public class SettingsDto {
 
     public void setInfo(Object info) {
         this.info = info;
+    }
+
+    @Override
+    public String toString() {
+        return "SettingsDto{" +
+                "id='" + id + '\'' +
+                ", numId=" + numId +
+                ", name='" + name + '\'' +
+                ", identification='" + identification + '\'' +
+                ", description='" + description + '\'' +
+                ", settingsJson='" + settingsJson + '\'' +
+                ", info=" + info +
+                '}';
     }
 }

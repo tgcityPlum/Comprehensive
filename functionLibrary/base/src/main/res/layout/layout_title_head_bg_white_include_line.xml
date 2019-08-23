@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <!--标题栏布局-->
-    <com.eagersoft.youzy.youzy.widget.titlebar.TitleBar
+    <com.tgcity.base.widget.titlebar.TitleBar
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

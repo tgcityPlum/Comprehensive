@@ -105,4 +105,21 @@ public class QueryMessagesOutput {
     public void setForeignKeyId(int foreignKeyId) {
         this.foreignKeyId = foreignKeyId;
     }
+
+    @Override
+    public String toString() {
+        return "QueryMessagesOutput{" +
+                "id='" + id + '\'' +
+                ", numId=" + numId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", link='" + link + '\'' +
+                ", remark='" + remark + '\'' +
+                ", receiverId=" + receiverId +
+                ", isRead=" + isRead +
+                ", creationTime='" + creationTime + '\'' +
+                ", creationTimeFormat='" + creationTimeFormat + '\'' +
+                ", foreignKeyId=" + foreignKeyId +
+                '}';
+    }
 }

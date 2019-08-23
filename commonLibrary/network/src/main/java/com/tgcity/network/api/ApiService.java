@@ -3,7 +3,6 @@ package com.tgcity.network.api;
 import com.tgcity.base.network.bean.request.WeixinBody;
 import com.tgcity.base.network.bean.response.PictureDto;
 import com.tgcity.base.network.bean.response.TestDataItemBean;
-import com.tgcity.base.network.bean.response.WeixinToken;
 import com.tgcity.base.network.bean.result.HttpResult;
 
 import java.util.List;
@@ -24,10 +23,6 @@ import retrofit2.http.Query;
  */
 
 public interface ApiService {
-
-    //获取微信小程序token
-    @GET("cgi-bin/token")
-    Observable<WeixinToken> getWeixinToken(@Query("grant_type") String grant_type, @Query("appid") String appid, @Query("secret") String secret);
 
     //获取微信小程序二维码
     @POST("wxa/getwxacode")

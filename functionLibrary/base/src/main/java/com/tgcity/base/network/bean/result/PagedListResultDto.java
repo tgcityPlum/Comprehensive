@@ -1,4 +1,4 @@
-package com.tgcity.base.network.bean.response;
+package com.tgcity.base.network.bean.result;
 
 
 import java.util.List;

@@ -3,35 +3,22 @@ package com.tgcity.network.retrofit;
 import android.app.Application;
 
 import com.google.gson.Gson;
-import com.tgcity.base.network.bean.request.QueryMatchAndMismatchCollegeInput;
-import com.tgcity.base.network.bean.request.QueryMessagesInput;
-import com.tgcity.base.network.bean.request.RegistrationUserInput;
 import com.tgcity.base.network.bean.request.WeixinBody;
 import com.tgcity.base.network.bean.response.CacheVersionDto;
-import com.tgcity.base.network.bean.response.MessagesUnreadCountOutput;
-import com.tgcity.base.network.bean.response.PagedListResultDto;
 import com.tgcity.base.network.bean.response.PictureDto;
-import com.tgcity.base.network.bean.response.QueryMajorChooseSubjectOutput;
-import com.tgcity.base.network.bean.response.QueryMatchAndMismatchCollegeOutput;
-import com.tgcity.base.network.bean.response.QueryMessagesOutput;
 import com.tgcity.base.network.bean.response.SettingsDto;
-import com.tgcity.base.network.bean.response.TestDataItemBean;
-import com.tgcity.base.network.bean.response.UserIdDto;
-import com.tgcity.base.network.bean.response.WeixinToken;
+import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.base.utils.LogUtils;
 import com.tgcity.network.api.ApiService;
 import com.tgcity.network.api.ApiService5001;
-import com.tgcity.network.api.ApiService5100;
 import com.tgcity.network.api.ApiService5101;
 import com.tgcity.network.base.NetworkConstant;
-import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.bean.result.HttpResultTZY;
 import com.tgcity.network.cache.model.CacheMode;
 import com.tgcity.network.callback.SimpleCallBack;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import java.io.File;
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.functions.Function;
@@ -54,7 +41,6 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
     public ApiService service_weixin;
     public ApiService service_image;
     public ApiService5001 service_tzy5001;
-    public ApiService5100 service_tzy5100;
     public ApiService5101 service_tzy5101;
     public ApiService service_ImageDownload;
 
@@ -97,7 +83,6 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
                     break;
                 case NetworkConstant.ServiceFlag.SERVER_NEW:
                     service_tzy5001 = getRetrofitTZY5001().create(ApiService5001.class);
-                    service_tzy5100 = getRetrofitTZY5100().create(ApiService5100.class);
                     service_tzy5101 = getRetrofitTZY5101().create(ApiService5101.class);
                     break;
                 case NetworkConstant.ServiceFlag.SERVER_DEFAULT:
@@ -117,7 +102,6 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
                         "老版本API地址是否初始化：" + (service != null) + "\n" +
                         "新版本API地址是否初始化：" + "\n" +
                         (service_tzy5001 != null) + "\n" +
-                        (service_tzy5100 != null) + "\n" +
                         (service_tzy5101 != null) + "\n" +
                         "是否需要获取版本信息：" + getCacheVersion
         );
@@ -172,17 +156,6 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
                 .setCacheMode(CacheMode.NO_CACHE), callBack);
     }
 
-
-    // 获取微信小程序token
-    public void getwxacodeBitmap(LifecycleTransformer lifecycleTransformer, String grant_type, String appid, String secret, SimpleCallBack<WeixinToken> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_weixin.getWeixinToken(grant_type, appid, secret))
-                .setApiName("getwxacodeBitmap")
-                .setRequestData(grant_type, appid, secret, NetworkConstant.Cache_Other)
-                .setHttpResultFormatting(false)
-                .setCacheTime(NetworkConstant.cache_a_second)
-                .setCacheMode(CacheMode.NO_CACHE), callBack);
-    }
-
     // 获取微信小程序码
     public void getwxacode(LifecycleTransformer lifecycleTransformer, String access_token, WeixinBody weixinBody, final SimpleCallBack<ResponseBody> callBack) {
         toObservable(lifecycleTransformer, new Builder(service_weixin.getwxacode(access_token, weixinBody))
@@ -217,71 +190,5 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
                     .setCacheMode(CacheMode.NO_CACHE), callBack);
         }
     }
-
-    //图片上传
-    public void getTestList(String access_token, SimpleCallBack<HttpResult<List<TestDataItemBean>>> callBack) {
-        toObservable(null, new Builder(service.getTestList(access_token))
-                .setApiName("getTestList")
-                .setRequestData(access_token, NetworkConstant.Cache_Other)
-                .setHttpResultFormatting(false)
-                .setCacheTime(NetworkConstant.cache_a_second)
-                .setCacheMode(CacheMode.NO_CACHE), callBack);
-    }
-
-
-    /*****************************************************************我是分割线，以下开始为新接口*******************************************************************************/
-
-    //用户注册
-    public void Register(LifecycleTransformer lifecycleTransformer, RegistrationUserInput registrationUserInput, SimpleCallBack<UserIdDto> callBack) {
-        toObservable(new Builder(service_tzy5100.Register(registrationUserInput))
-                .setApiName("Register")
-                .setHttpResultFormatting(true)
-                .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
-                .setCacheMode(CacheMode.NO_CACHE), callBack);
-    }
-
-    /*****************************************************************5100结束*******************************************************************************/
-    //选科模块--获得匹配和不匹配院校
-    public void queryMatchAndMismatchCollege(LifecycleTransformer lifecycleTransformer, QueryMatchAndMismatchCollegeInput mismatchCollegeInput, SimpleCallBack<QueryMatchAndMismatchCollegeOutput> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_tzy5001.queryMatchAndMismatchCollege(mismatchCollegeInput))
-                .setApiName("queryMatchAndMismatchCollege")
-                .setRequestData(mismatchCollegeInput, NetworkConstant.Cache_Other)
-                .setHttpResultFormatting(true)
-                .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
-                .setCacheMode(CacheMode.FIRSTCACHE), callBack);
-    }
-
-    //选科模块--选科专业明细查询
-    public void queryMajorChooseSubject(LifecycleTransformer lifecycleTransformer, int provinceId, String MajorCode, int year, SimpleCallBack<List<QueryMajorChooseSubjectOutput>> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_tzy5001.queryMajorChooseSubject(provinceId, MajorCode, year))
-                .setApiName("queryMajorChooseSubject")
-                .setRequestData(provinceId, MajorCode, year, NetworkConstant.Cache_Other)
-                .setHttpResultFormatting(true)
-                .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
-                .setCacheMode(CacheMode.NO_CACHE), callBack);
-    }
-
-    /*****************************************************************5001结束*******************************************************************************/
-
-
-    //个人中心消息--获取用户未读消息数量
-    public void MessagesUnreadCount(LifecycleTransformer lifecycleTransformer, int userNumId, boolean isFillGroupMessage, SimpleCallBack<MessagesUnreadCountOutput> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_tzy5101.MessagesUnreadCount(userNumId, isFillGroupMessage))
-                .setApiName("MessagesUnreadCount")
-                .setHttpResultFormatting(true)
-                .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
-                .setCacheMode(CacheMode.NO_CACHE), callBack);
-    }
-
-    //个人中心消息--根据类型获取消息列表
-    public void QueryMessages(LifecycleTransformer lifecycleTransformer, QueryMessagesInput input, SimpleCallBack<PagedListResultDto<QueryMessagesOutput>> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_tzy5101.QueryMessages(input))
-                .setApiName("QueryMessages")
-                .setHttpResultFormatting(true)
-                .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
-                .setCacheMode(CacheMode.NO_CACHE), callBack);
-    }
-
-    /*****************************************************************5101结束*******************************************************************************/
 
 }

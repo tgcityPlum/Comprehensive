@@ -101,11 +101,11 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
 
     }
 
-    <T> void toObservable(Builder builder, SimpleCallBack<T> observer) {
+    protected <T> void toObservable(Builder builder, SimpleCallBack<T> observer) {
         this.toObservable(null, builder, observer);
     }
 
-    <T> void toObservable(LifecycleTransformer lifecycleTransformer, Builder builder, SimpleCallBack<T> observer) {
+    public <T> void toObservable(LifecycleTransformer lifecycleTransformer, Builder builder, SimpleCallBack<T> observer) {
 
         RxCache rxCache = rxCacheBuilder
                 .apiName(builder.apiName)

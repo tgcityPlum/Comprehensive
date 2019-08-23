@@ -6,17 +6,6 @@ package com.tgcity.base.network.bean.response;
 * */
 public class CacheVersionDto {
 
-
-    /**
-     * College : 1
-     * Major : 2
-     * PCL : 3
-     * Other : 4
-     * LastModificationTime : 2018-05-10 09:33:11
-     * LastModificationUserName : sample string 6
-     * Id : 7
-     */
-
     private int College;//院校缓存版本
     private int Major;//专业缓存版本
     private int PCL;//省控线缓存版本
@@ -79,5 +68,18 @@ public class CacheVersionDto {
 
     public void setId(int Id) {
         this.Id = Id;
+    }
+
+    @Override
+    public String toString() {
+        return "CacheVersionDto{" +
+                "College=" + College +
+                ", Major=" + Major +
+                ", PCL=" + PCL +
+                ", Other=" + Other +
+                ", LastModificationTime='" + LastModificationTime + '\'' +
+                ", LastModificationUserName='" + LastModificationUserName + '\'' +
+                ", Id=" + Id +
+                '}';
     }
 }

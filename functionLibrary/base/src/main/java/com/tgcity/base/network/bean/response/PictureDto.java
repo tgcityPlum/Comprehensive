@@ -6,12 +6,6 @@ package com.tgcity.base.network.bean.response;
 
 public class PictureDto {
 
-
-    /**
-     * FileId : 1
-     * FileUrl : sample string 2
-     */
-
     private int FileId;
     private String FileUrl;
 
