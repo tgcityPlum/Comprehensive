@@ -1,6 +1,8 @@
 def isIntegratedMode = isIntegratedMode.toBoolean()
+def modeType = MODE_TYPE as int
+def isNewsMode = !isIntegratedMode && modeType == 2
 
-if (isIntegratedMode) {
+if (isNewsMode) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -8,12 +10,13 @@ if (isIntegratedMode) {
 
 android {
     def versionConfig = rootProject.extensions.getByName("ext")
+
     compileSdkVersion versionConfig.compileSdkVersion
 
     defaultConfig {
         minSdkVersion versionConfig.minSdkVersion
 
-        if (isIntegratedMode) {
+        if (isNewsMode) {
             applicationId versionConfig.applicationId
             targetSdkVersion versionConfig.targetSdkVersion
             versionCode versionConfig.versionCode
@@ -27,33 +30,22 @@ android {
         }
     }
 
-    signingConfigs {
-        /*
-        * so文件需验证签名 所有debug也要加上签名
-        * 关闭后核心代码将无法调用
-        * */
+    buildTypes {
         release {
-            storeFile file('../jks/comprehensive.jks')//签名文件路径
-            storePassword "comprehensive"
-            keyAlias "comprehensive"
-            keyPassword "comprehensive"
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
-    if (isIntegratedMode) {
-        buildTypes {
-            release {
-                minifyEnabled true   //开启混淆
-                zipAlignEnabled true  //压缩优化
-                shrinkResources true  //移出无用资源
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                signingConfig signingConfigs.release
-            }
-
-            debug {
-                minifyEnabled false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                signingConfig signingConfigs.release
+    sourceSets {
+        main {
+            if (isNewsMode) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下屏蔽debug中所有class类文件
+                java {
+                    exclude 'debug/**'
+                }
             }
         }
     }
@@ -62,26 +54,22 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 base
+    //引入 base mvp refreshview network
     implementation project(':functionLibrary:base')
-
-    if (isIntegratedMode) {
-        implementation project(':businessMode:news')
-        implementation project(':businessMode:home')
-    }
+    implementation project(':commonLibrary:mvp')
+    implementation project(':commonLibrary:refreshview')
+    implementation project(':commonLibrary:refreshadapter')
+    implementation project(':commonLibrary:network')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
     implementation supportDependencies.constraintLayout
     implementation supportDependencies.recyclerview
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.runner
-    androidTestImplementation testDependencies.espresso
     //引入 rxLifecycle
     implementation dataDependencies.rxlifecycle
     implementation dataDependencies.rxlifecycleAndroid

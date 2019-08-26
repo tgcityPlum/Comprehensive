@@ -39,6 +39,8 @@ ext {
     assertJVersion = '1.7.1'
     runnerVersion = '1.0.2'
     espressoVersion = '3.0.2'
+    routeApiVersion = '1.3.1'
+    routeCompilerVersion = '1.1.4'
 //    mockitoVersion = '1.9.5'
 //    dexmakerVersion = '1.1'
 //    dexmakerVersion = '1.0'
@@ -103,6 +105,9 @@ ext {
             // dagger
             dagger                       : "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler               : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            // alibaba路由
+            routeApi               : "com.alibaba:arouter-api:${routeApiVersion}",
+            routeCompiler               : "com.alibaba:arouter-compiler:${routeCompilerVersion}",
             // dex分包
             /* multidex                     : "com.android.support:multidex:1.0.1",
              // dagger
