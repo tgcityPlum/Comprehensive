@@ -25,6 +25,8 @@ public class BaseConstant {
         public static final boolean isBaseImmersionBarActivityLogShow = isAppDebug && true;
         //尺寸适配日志开关：是否显示尺寸适配日志开关  true-显示  false-不显示
         public static final boolean isAutoSizeLogShow = isAppDebug && true;
+        //路由日志开关：是否显示日志开关  true-显示  false-不显示
+        public static final boolean isRouterLogShow = isAppDebug && true;
     }
 
     //服务器域名

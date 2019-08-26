@@ -12,7 +12,7 @@ import com.tgcity.base.utils.LogUtils;
  * 基础的activity类
  * --处理事件逻辑
  */
-public abstract class BaseEventLogicActivity extends BaseBindViewActivity {
+public abstract class BaseEventLogicActivity extends BaseBindRouterActivity {
     //是否启动过，暂时仅仅用来在singleTask/singleInstance/singleTop模式下或其他类似场景下的不销毁Activity重新加载数据
     private boolean launched;
 

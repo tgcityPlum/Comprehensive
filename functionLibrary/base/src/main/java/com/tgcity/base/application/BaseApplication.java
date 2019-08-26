@@ -2,6 +2,7 @@ package com.tgcity.base.application;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.LogUtils;
 
@@ -29,6 +30,12 @@ public class BaseApplication extends Application {
                 .getUnitsManager()
                 .setSupportDP(true)
                 .setSupportSP(true);
+        //设置路由
+        if (BaseConstant.Power.isRouterLogShow){
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+        ARouter.init(instances);
     }
 
     public static BaseApplication getInstances() {
@@ -36,6 +43,13 @@ public class BaseApplication extends Application {
             instances = new BaseApplication();
         }
         return instances;
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        //关闭路由
+        ARouter.getInstance().destroy();
     }
 
 }

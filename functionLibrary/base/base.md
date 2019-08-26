@@ -6,6 +6,7 @@
 ----BaseImmersionBarActivity//处理Activity的沉浸式状态栏
 ----BaseEventLogicActivity  //处理Activity的事件逻辑
 ----BaseBindViewActivity    //绑定view层
+----BaseBindRouterActivity  //绑定路由
 ----BaseOrientationActivity //管理Activity的屏幕方向
 ----BaseLifecycleActivity   //管理Activity的生命周期
 ----BaseMemoryActivity      //监听系统内存的状况

@@ -17,7 +17,7 @@
             android:name=".TestWebActivity"
             android:label="@string/test_web_activity" />
 
-        <activity android:name="debug.activity.HomeLauncherActivity">
+        <activity android:name="debug.activity.HomeIndexActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

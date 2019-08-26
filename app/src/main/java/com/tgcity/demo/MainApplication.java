@@ -1,17 +1,14 @@
 package com.tgcity.demo;
 
-import android.app.Application;
+import com.tgcity.base.application.BaseApplication;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-
-public class MainApplication extends Application {
+public class MainApplication extends BaseApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        ARouter.openLog();
-        ARouter.openDebug();
-        ARouter.init(this);
     }
+
+
 }

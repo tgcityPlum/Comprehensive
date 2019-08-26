@@ -70,6 +70,7 @@ dependencies {
     implementation project(':functionLibrary:base')
 
     if (isIntegratedMode) {
+        implementation project(':businessMode:launch')
         implementation project(':businessMode:news')
         implementation project(':businessMode:home')
     }

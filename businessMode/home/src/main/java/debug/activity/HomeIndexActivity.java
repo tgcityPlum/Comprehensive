@@ -9,7 +9,7 @@ import com.tgcity.mode.home.TestWebActivity;
 /**
  * home模块--启动页面
  */
-public class HomeLauncherActivity extends AppCompatActivity {
+public class HomeIndexActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

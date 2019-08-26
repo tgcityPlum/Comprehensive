@@ -7,6 +7,12 @@ android {
 
     defaultConfig {
         minSdkVersion versionConfig.minSdkVersion
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -44,4 +50,8 @@ dependencies {
     implementation dataDependencies.gson
     //引入 retrofit
     implementation dataDependencies.retrofit
+    //alibaba路由
+    implementation dataDependencies.routeApi
+    annotationProcessor dataDependencies.routeCompiler
+
 }

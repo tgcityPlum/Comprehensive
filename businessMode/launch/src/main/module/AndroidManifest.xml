@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tgcity.demo">
+    package="com.tgcity.mode.home">
     <!-- 设置权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MainApplication"
+        android:name="debug.base.LaunchApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppBaseThemeWithWindowIsTranslucent">
-        <activity android:name=".index.AppIndexActivity">
+        android:theme="@style/AppBaseThemeWithWindowIsTranslucent"
+        >
+
+        <activity android:name="com.tgcity.launch.guide.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -22,16 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".testfragment.TestFragmentActivity">
 
-        </activity>
-        <activity android:name=".MainActivity"></activity> <!-- ******* 自动适配UI-开始  ui设计均基于375x667设计 此处请勿修改  ******* -->
-        <meta-data
-            android:name="design_width_in_dp"
-            android:value="375" />
-        <meta-data
-            android:name="design_height_in_dp"
-            android:value="667" />
     </application>
-
 </manifest>

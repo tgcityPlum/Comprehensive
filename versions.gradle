@@ -108,6 +108,8 @@ ext {
             // alibaba路由
             routeApi               : "com.alibaba:arouter-api:${routeApiVersion}",
             routeCompiler               : "com.alibaba:arouter-compiler:${routeCompilerVersion}",
+            // gif
+            gifView                      : 'pl.droidsonroids.gif:android-gif-drawable:1.2.3',
             // dex分包
             /* multidex                     : "com.android.support:multidex:1.0.1",
              // dagger
@@ -189,7 +191,7 @@ ext {
 
              refresh                      : 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3',
              refreshHeader                : 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3',
-             gifView                      : 'pl.droidsonroids.gif:android-gif-drawable:1.2.3',
+
 
              pickerView                   : "com.contrarywind:Android-PickerView:${pickerViewVersion}",
 

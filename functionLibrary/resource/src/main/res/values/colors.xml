@@ -9,6 +9,7 @@
     <color name="color_context">@color/color_666666</color><!-- 内容颜色 -->
     <color name="color_line">#fafafa</color><!--分割线的颜色-->
     <color name="title_bag">#FF6C4B</color>
+    <color name="color_launch">#F6F3EF</color>
     <!--    app color ending  -->
 
     <!--    StrongGradientButton color starting  -->
