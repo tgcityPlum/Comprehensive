@@ -29,9 +29,24 @@ public class BaseConstant {
         public static final boolean isRouterLogShow = isAppDebug && true;
     }
 
-    //服务器域名
+    /**
+     *   服务器域名
+     */
     public class Service {
         public final static long SERVICE_TRY_WAIT = 10 * 1000;//出错重试等待时间（暂时定为10秒）
         public final static long SERVICE_TRY_INTERVAL = 1 * 1000;//出错重试时的间隔时间（暂时定为1秒）
+    }
+
+    public class SP {
+        public static final String CONFIG = "comprehensive_cfg";//配置文件名
+
+        // net mode
+        public static final String CACHE_COLLEGE = "Cache_College";//缓存院校
+        public static final String CACHE_MAJOR = "Cache_Major";//缓存专业
+        public static final String CACHE_PCL = "Cache_PCL";//缓存省控线
+        public static final String CACHE_OTHER = "Cache_Other";//缓存其他
+
+        //launch mode
+        public static final String CACHE_IS_LOGIN = "Cache_Is_Login";//是否已经登录
     }
 }

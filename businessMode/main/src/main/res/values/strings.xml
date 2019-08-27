@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">mainMode</string>
+
+    <string name="tag_name_tab3">主页</string>
+    <string name="tag_name_tab1">消息</string>
+    <string name="tag_name_tab2">我的</string>
+
+</resources>

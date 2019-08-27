@@ -1,50 +1,62 @@
-package com.tgcity.demo.testfragment;
+package com.tgcity.main;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.ARouteConstant;
-import com.tgcity.demo.R;
-import com.tgcity.demo.util.DrawableUtil;
+import com.tgcity.mian.R;
 import com.tgcity.mode.index.HomeFragment;
 import com.tgcity.mode.news.testfragment.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestFragmentActivity extends AppCompatActivity {
-
+/**
+ * main模块--主页
+ */
+@Route(path = ARouteConstant.MainMode.MAIN_FRAGMENT)
+public class MainCoreActivity extends BaseCommonActivity {
+    //底部列表控件
     private RecyclerView mRvBottom;
+    //列表适配器
     private BottomAdapter mAdapter;
+    //标题列表
     private List<TabTitle> titleObjectList = new ArrayList<>();//底部TAB的数据
-
+    //FragmentManager
     private FragmentManager fm;
-
+    //fragment的visible位置
     private int oldPosition = 0;
-
+    //fragment集合列表
     private List<Fragment> fragmentList = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_fragment);
-        //定义控件
+    public int getViewLayout() {
+        return R.layout.main_activity_core;
+    }
+
+    @Override
+    public void initView() {
         initViewById();
-        //定义底部控件
         initBottom();
-        //定义fragment
         initFragments();
-        //定义fragment管理器
         initFragmentTransaction();
     }
 
+    @Override
+    public String getCurrentPage() {
+        return getLocalClassName();
+    }
+
+    /**
+     * 定义fragment管理器
+     */
     private void initFragmentTransaction() {
         fm = getSupportFragmentManager();
 
@@ -54,16 +66,20 @@ public class TestFragmentActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    /**
+     * 定义fragment
+     */
     private void initFragments() {
-        NewsFragment newsFragment = (NewsFragment) ARouter.getInstance().build(titleObjectList.get(0).getRoutePath()).navigation();
-        AppFragment appFragment = (AppFragment) ARouter.getInstance().build(titleObjectList.get(1).getRoutePath()).navigation();
-        HomeFragment homeFragment = (HomeFragment) ARouter.getInstance().build(titleObjectList.get(2).getRoutePath()).navigation();
+        HomeFragment homeFragment = (HomeFragment) ARouter.getInstance().build(titleObjectList.get(0).getRoutePath()).navigation();
+        NewsFragment newsFragment = (NewsFragment) ARouter.getInstance().build(titleObjectList.get(1).getRoutePath()).navigation();
 
-        fragmentList.add(newsFragment);
-        fragmentList.add(appFragment);
         fragmentList.add(homeFragment);
+        fragmentList.add(newsFragment);
     }
 
+    /**
+     * 定义控件
+     */
     private void initViewById() {
         mRvBottom = findViewById(R.id.rv_bottom);
     }
@@ -101,23 +117,23 @@ public class TestFragmentActivity extends AppCompatActivity {
     private List<TabTitle> getBottomSetting() {
         //本来这里应该要读取配置文件，然后配置文字和颜色，还有图标,暂时写死
         titleObjectList.add(new TabTitle(
-                ARouteConstant.NewsMode.MAIN_FRAGMENT,
-                R.string.tag_name_tab1,
+                ARouteConstant.HomeMode.MAIN_FRAGMENT,
+                R.string.tag_name_tab3,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab1, R.mipmap.a_tabbar_home_p)));
 
         titleObjectList.add(new TabTitle(
+                ARouteConstant.NewsMode.MAIN_FRAGMENT,
+                R.string.tag_name_tab1,
+                R.color.home_tab_text_selector,
+                DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab2, R.mipmap.a_tabbar_trade_p)));
+
+        /*titleObjectList.add(new TabTitle(
                 ARouteConstant.AppMode.MAIN_FRAGMENT,
                 R.string.tag_name_tab2,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab3, R.mipmap.a_tabbar_market_p)));
-
-        titleObjectList.add(new TabTitle(
-                ARouteConstant.HomeMode.MAIN_FRAGMENT,
-                R.string.tag_name_tab3,
-                R.color.home_tab_text_selector,
-                DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab3, R.mipmap.a_tabbar_market_p)));
-
+*/
         return titleObjectList;
     }
 

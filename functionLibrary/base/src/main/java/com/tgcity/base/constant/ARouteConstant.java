@@ -14,6 +14,11 @@ public class ARouteConstant {
         //首页
         public static final String MAIN_FRAGMENT = "/launch/guideActivity";
     }
+    //main mode
+    public class MainMode {
+        //首页
+        public static final String MAIN_FRAGMENT = "/main/mainCoreActivity";
+    }
     //home mode
     public static class HomeMode{
         //首页

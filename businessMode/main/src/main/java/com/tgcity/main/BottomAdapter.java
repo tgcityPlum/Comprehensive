@@ -1,4 +1,4 @@
-package com.tgcity.demo.testfragment;
+package com.tgcity.main;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tgcity.demo.R;
+import com.tgcity.mian.R;
 
 import java.util.List;
 
@@ -69,7 +69,7 @@ public class BottomAdapter extends RecyclerView.Adapter {
         bHolder.ivIcon.setImageDrawable(titleIconDrawable);
 
         bHolder.llMain.getLayoutParams().width = itemWidth;
-        bHolder.llMain.getLayoutParams().height = (int) mActivity.getResources().getDimension(R.dimen.height_b);
+        bHolder.llMain.getLayoutParams().height = (int) mActivity.getResources().getDimension(R.dimen.dp_50);
 
         bHolder.llMain.requestLayout();//由于要强制等分，所以，要重新布局一下，调整宽高
 
@@ -81,13 +81,10 @@ public class BottomAdapter extends RecyclerView.Adapter {
             bHolder.tvTitle.setSelected(false);
         }
 
-        bHolder.llMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setSelection(position);//先改变当前的item的选中情况
-                if (null != onItemClickListener)
-                    onItemClickListener.onItemClick(position, mTitleObjectList.get(position).getRoutePath());//再执行外界传入的点击事件
-            }
+        bHolder.llMain.setOnClickListener(v -> {
+            setSelection(position);//先改变当前的item的选中情况
+            if (null != onItemClickListener)
+                onItemClickListener.onItemClick(position, mTitleObjectList.get(position).getRoutePath());//再执行外界传入的点击事件
         });
     }
 

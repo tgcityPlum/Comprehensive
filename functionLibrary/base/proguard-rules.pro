@@ -42,7 +42,7 @@
  -keep class com.gyf.immersionbar.* {*;}
  -dontwarn com.gyf.immersionbar.**
 
-#----------------------------- autoSize -----------
+#----------------------------- autoSize ---------------
  -keep class me.jessyan.autosize.** { *; }
  -keep interface me.jessyan.autosize.** { *; }
 
@@ -53,3 +53,7 @@
 
 -keep class com.github.mikephil.charting.** { *; }
 -dontwarn com.github.mikephil.charting.data.realm.**
+
+#----------------------------- ARouter ----------------
+-keep public class com.alibaba.android.arouter.routes.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}

@@ -59,8 +59,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 base
+    //引入 base main
     implementation project(':functionLibrary:base')
+    implementation project(':businessMode:main')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
@@ -70,7 +71,6 @@ dependencies {
     implementation dataDependencies.rxlifecycleAndroid
     //alibaba路由
     implementation dataDependencies.routeApi
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor dataDependencies.routeCompiler
     //gif
     implementation dataDependencies.gifView

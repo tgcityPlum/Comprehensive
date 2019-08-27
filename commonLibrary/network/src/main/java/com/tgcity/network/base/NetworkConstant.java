@@ -1,6 +1,6 @@
 package com.tgcity.network.base;
 
-import com.tgcity.network.utils.SPUtils;
+import com.tgcity.base.utils.SharedPreferencesUtils;
 
 /**
  * Created by Administrator on 2018/7/18.
@@ -59,14 +59,6 @@ public class NetworkConstant {
     public static int Cache_PCL = 1;//省控线相关
     public static int Cache_Other = 1;//其他
 
-    public static SPUtils spUtils;
-
-    public class SP {
-        public static final String CONFIG = "youzy_cfg";//配置文件名
-        public static final String CACHE_COLLEGE = "Cache_College";//缓存院校
-        public static final String CACHE_MAJOR = "Cache_Major";//缓存专业
-        public static final String CACHE_PCL = "Cache_PCL";//缓存省控线
-        public static final String CACHE_OTHER = "Cache_Other";//缓存其他
-    }
+    public static SharedPreferencesUtils sharedPreferencesUtils;
 
 }

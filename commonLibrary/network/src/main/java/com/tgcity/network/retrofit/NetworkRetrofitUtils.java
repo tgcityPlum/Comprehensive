@@ -3,12 +3,14 @@ package com.tgcity.network.retrofit;
 import android.app.Application;
 
 import com.google.gson.Gson;
+import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.network.bean.request.WeixinBody;
 import com.tgcity.base.network.bean.response.CacheVersionDto;
 import com.tgcity.base.network.bean.response.PictureDto;
 import com.tgcity.base.network.bean.response.SettingsDto;
 import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.base.utils.LogUtils;
+import com.tgcity.base.utils.SharedPreferencesUtils;
 import com.tgcity.network.api.ApiService;
 import com.tgcity.network.api.ApiService5001;
 import com.tgcity.network.api.ApiService5101;
@@ -99,31 +101,33 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
                 NetworkConstant.SYSTEM_TAG, "各种API地址初始化结果\n" +
                         "微信地址是否初始化：" + (service_weixin != null) + "\n" +
                         "图片上传地址是否初始化：" + (service_image != null) + "\n" +
-                        "老版本API地址是否初始化：" + (service != null) + "\n" +
+                        "默认版本API地址是否初始化：" + (service != null) + "\n" +
                         "新版本API地址是否初始化：" + "\n" +
                         (service_tzy5001 != null) + "\n" +
                         (service_tzy5101 != null) + "\n" +
                         "是否需要获取版本信息：" + getCacheVersion
         );
         super.init(mContext, getCacheVersion);
+
+        final SharedPreferencesUtils spUtils = NetworkConstant.sharedPreferencesUtils;
+
         if (getCacheVersion) {
             cacheVersion(new SimpleCallBack<CacheVersionDto>() {
                 @Override
                 public void onError(Throwable e) {
-                    NetworkConstant.Cache_College = NetworkConstant.spUtils.getInt(NetworkConstant.SP.CACHE_COLLEGE, 1);
-                    NetworkConstant.Cache_Major = NetworkConstant.spUtils.getInt(NetworkConstant.SP.CACHE_MAJOR, 1);
-                    NetworkConstant.Cache_PCL = NetworkConstant.spUtils.getInt(NetworkConstant.SP.CACHE_PCL, 1);
-                    NetworkConstant.Cache_Other = NetworkConstant.spUtils.getInt(NetworkConstant.SP.CACHE_OTHER, 1);
+                    NetworkConstant.Cache_College = spUtils.getInt(BaseConstant.SP.CACHE_COLLEGE, 1);
+                    NetworkConstant.Cache_Major = spUtils.getInt(BaseConstant.SP.CACHE_MAJOR, 1);
+                    NetworkConstant.Cache_PCL = spUtils.getInt(BaseConstant.SP.CACHE_PCL, 1);
+                    NetworkConstant.Cache_Other = spUtils.getInt(BaseConstant.SP.CACHE_OTHER, 1);
                 }
 
                 @Override
                 public void onNext(CacheVersionDto cacheVersionDtos) {
 
-
-                    NetworkConstant.spUtils.put(NetworkConstant.SP.CACHE_COLLEGE, cacheVersionDtos.getCollege());
-                    NetworkConstant.spUtils.put(NetworkConstant.SP.CACHE_MAJOR, cacheVersionDtos.getMajor());
-                    NetworkConstant.spUtils.put(NetworkConstant.SP.CACHE_PCL, cacheVersionDtos.getPCL());
-                    NetworkConstant.spUtils.put(NetworkConstant.SP.CACHE_OTHER, cacheVersionDtos.getOther());
+                    spUtils.put(BaseConstant.SP.CACHE_COLLEGE, cacheVersionDtos.getCollege());
+                    spUtils.put(BaseConstant.SP.CACHE_MAJOR, cacheVersionDtos.getMajor());
+                    spUtils.put(BaseConstant.SP.CACHE_PCL, cacheVersionDtos.getPCL());
+                    spUtils.put(BaseConstant.SP.CACHE_OTHER, cacheVersionDtos.getOther());
 
                     NetworkConstant.Cache_College = cacheVersionDtos.getCollege();
                     NetworkConstant.Cache_Major = cacheVersionDtos.getMajor();

@@ -2,7 +2,4 @@
     <string name="app_name">封装</string>
 
     <string name="main_activity">主页</string>
-    <string name="tag_name_tab1">消息</string>
-    <string name="tag_name_tab2">app</string>
-    <string name="tag_name_tab3">主页</string>
 </resources>

@@ -1,15 +1,13 @@
 package com.tgcity.demo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.tgcity.mode.news.indexlist.NewsIndexListActivity;
-
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -225,6 +223,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testBindView(View view) {
-        startActivity(new Intent(this, NewsIndexListActivity.class));
+
     }
 }

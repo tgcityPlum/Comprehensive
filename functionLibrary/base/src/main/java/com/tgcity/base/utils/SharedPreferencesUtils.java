@@ -1,8 +1,10 @@
-package com.tgcity.network.utils;
+package com.tgcity.base.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
+
+import com.tgcity.base.constant.BaseConstant;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -17,7 +19,7 @@ import java.util.Set;
  *     desc  : SP相关工具类
  * </pre>
  */
-public final class SPUtils {
+public final class SharedPreferencesUtils {
 
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
@@ -35,10 +37,14 @@ public final class SPUtils {
      *                4. Context.MODE_WORLD_WRITEABLE: 表示当前文件可以被其他应用写入
      *                5. Context.MODE_MULTI_PROCESS: 适用于多进程访问(目前已被废弃，google官方推荐使用ContentProvider来实现进程间共享访问)
      */
-    public SPUtils(Context context, String spName, int mode) {
+    public SharedPreferencesUtils(Context context, String spName, int mode) {
         sp = context.getSharedPreferences(spName, mode);
         editor = sp.edit();
 //        editor.apply();
+    }
+
+    public SharedPreferencesUtils(Context context) {
+        new SharedPreferencesUtils(context, BaseConstant.SP.CONFIG, Context.MODE_PRIVATE);
     }
 
     /**
