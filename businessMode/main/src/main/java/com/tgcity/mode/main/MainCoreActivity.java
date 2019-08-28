@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -18,22 +20,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author TGCity
  * main模块--主页
  */
 @Route(path = RouteConstant.MainMode.MAIN_FRAGMENT)
 public class MainCoreActivity extends BaseCommonActivity {
-    //底部列表控件
+    /**
+     * 底部列表控件
+     */
     private RecyclerView mRvBottom;
-    //列表适配器
+    /**
+     * 列表适配器
+     */
     private BottomAdapter mAdapter;
-    //标题列表
-    private List<TabTitle> titleObjectList = new ArrayList<>();//底部TAB的数据
-    //FragmentManager
+    /**
+     * 标题列表
+     * 底部TAB的数据
+     */
+    private List<TabTitle> titleObjectList = new ArrayList<>();
+
     private FragmentManager fm;
-    //fragment的visible位置
+    /**
+     * fragment的visible位置
+     */
     private int oldPosition = 0;
-    //fragment集合列表
+    /**
+     * fragment集合列表
+     */
     private List<Fragment> fragmentList = new ArrayList<>();
+    /**
+     * 第一次点击时间
+     */
+    private long firstTime = 0;
 
     @Override
     public int getViewLayout() {
@@ -111,7 +129,7 @@ public class MainCoreActivity extends BaseCommonActivity {
     /**
      * 导航栏配置
      *
-     * @return
+     * @return List
      */
     private List<TabTitle> getBottomSetting() {
         //本来这里应该要读取配置文件，然后配置文字和颜色，还有图标,暂时写死
@@ -119,21 +137,30 @@ public class MainCoreActivity extends BaseCommonActivity {
                 RouteConstant.HomeMode.MAIN_FRAGMENT,
                 R.string.tag_name_tab3,
                 R.color.home_tab_text_selector,
-                DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab1, R.mipmap.a_tabbar_home_p)));
+                DrawableUtil.getStateListDrawable(getApplicationContext(), R.mipmap.a_tabbar_tab1, R.mipmap.a_tabbar_home_p)));
 
         titleObjectList.add(new TabTitle(
                 RouteConstant.NewsMode.MAIN_FRAGMENT,
                 R.string.tag_name_tab1,
                 R.color.home_tab_text_selector,
-                DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab2, R.mipmap.a_tabbar_trade_p)));
+                DrawableUtil.getStateListDrawable(getApplicationContext(), R.mipmap.a_tabbar_tab2, R.mipmap.a_tabbar_trade_p)));
 
-        /*titleObjectList.add(new TabTitle(
-                RouteConstant.AppMode.MAIN_FRAGMENT,
-                R.string.tag_name_tab2,
-                R.color.home_tab_text_selector,
-                DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab3, R.mipmap.a_tabbar_market_p)));
-*/
         return titleObjectList;
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            long secondTime = System.currentTimeMillis();
+            long intervalTime = 2000;
+            if (secondTime - firstTime < intervalTime) {
+                System.exit(0);
+            } else {
+                Toast.makeText(getApplicationContext(), getString(R.string.exit_app), Toast.LENGTH_SHORT).show();
+                firstTime = System.currentTimeMillis();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

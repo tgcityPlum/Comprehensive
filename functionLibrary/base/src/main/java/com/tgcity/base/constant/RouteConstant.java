@@ -23,6 +23,14 @@ public class RouteConstant {
     }
 
     /**
+     * Login mode
+     */
+    public class LoginMode {
+        //首页
+        public static final String MAIN_FRAGMENT = "/login/loginActivity";
+    }
+
+    /**
      * home mode
      */
     public static class HomeMode{

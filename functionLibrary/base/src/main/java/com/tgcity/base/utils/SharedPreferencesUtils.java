@@ -41,7 +41,7 @@ public final class SharedPreferencesUtils {
     }
 
     public SharedPreferencesUtils(Context context) {
-        new SharedPreferencesUtils(context, BaseConstant.SP.CONFIG, Context.MODE_PRIVATE);
+        this(context, BaseConstant.SP.CONFIG, Context.MODE_PRIVATE);
     }
 
     /**

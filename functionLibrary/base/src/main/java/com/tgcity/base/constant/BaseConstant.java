@@ -1,5 +1,7 @@
 package com.tgcity.base.constant;
 
+import com.tgcity.base.utils.SharedPreferencesUtils;
+
 /**
  * @author TGCity
  * 基础的静态常量
@@ -40,6 +42,11 @@ public class BaseConstant {
         public final static long SERVICE_TRY_INTERVAL = 1 * 1000;
     }
 
+    public static SharedPreferencesUtils sharedPreferencesUtils;
+
+    /**
+     * SP
+     */
     public class SP {
         public static final String CONFIG = "comprehensive_cfg";//配置文件名
 
