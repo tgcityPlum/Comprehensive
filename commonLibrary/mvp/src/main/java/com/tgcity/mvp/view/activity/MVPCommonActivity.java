@@ -9,6 +9,8 @@ import com.tgcity.mvp.present.CommonPresenter;
 
 /**
  * MVP activity，如果使用MVP开发模式，可继承本类
+ *
+ * @author TGCity
  */
 
 public abstract class MVPCommonActivity<V, P extends CommonPresenter<V>> extends BaseLauncherTimeActivity {
@@ -25,15 +27,10 @@ public abstract class MVPCommonActivity<V, P extends CommonPresenter<V>> extends
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    protected void onDestroy() {
-        if (presenter != null) presenter.detachView();
-        presenter = null;
-        super.onDestroy();
-    }
-
     /**
      * 创建Presenter
+     *
+     * @return P
      */
     protected abstract P createPresenter();
 
@@ -48,6 +45,15 @@ public abstract class MVPCommonActivity<V, P extends CommonPresenter<V>> extends
                 onPresenterTaskCallBack.onPresenterTask(presenter);
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (presenter != null) {
+            presenter.detachView();
+        }
+        presenter = null;
+        super.onDestroy();
     }
 
 }

@@ -6,18 +6,22 @@ import com.tgcity.base.network.retrofit.ApiException;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
+ * @author TGCitY
  * CommonPresenter,自动绑定解绑View接口
  */
 
 public abstract class CommonPresenter<V> {
     public LifecycleTransformer lifecycleTransformer;
     public V view;
-    private boolean isInit;//这个字段用于列表loading动画的触发，仅仅使用一次
+    /**
+     * 这个字段用于列表loading动画的触发，仅仅使用一次
+     */
+    private boolean isInit;
 
     /**
      * 绑定生命周期
      *
-     * @param bindToLifecycle
+     * @param bindToLifecycle LifecycleTransformer
      */
     public void bindLifecycle(LifecycleTransformer bindToLifecycle) {
         lifecycleTransformer = bindToLifecycle;
@@ -26,7 +30,7 @@ public abstract class CommonPresenter<V> {
     /**
      * 绑定View接口
      *
-     * @param v
+     * @param v V
      */
     public void attachView(V v) {
         view = v;
@@ -177,7 +181,10 @@ public abstract class CommonPresenter<V> {
      * 空事件自定义处理回调
      */
     public interface OnNullEventCallBack {
-
+        /**
+         * null event
+         * @param e Throwable
+         */
         void onNullEvent(Throwable e);
     }
 
@@ -185,7 +192,11 @@ public abstract class CommonPresenter<V> {
      * 错误事件自定义处理回调
      */
     public interface OnExceptionEventCallBack {
-
+        /**
+         * exception event
+         * @param e Throwable
+         */
         void onExceptionEvent(Throwable e);
     }
+
 }
