@@ -5,19 +5,40 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Keep;
 
 /**
+ * @author TGCity
  * 院校详情_点击院校对比弹出的页面列表模型
- * Created by Administrator on 2018/11/20.
  */
 @Entity
 public class CollegeDetailsCollegeContrastSchoolDto {
+    /**
+     * 主键
+     */
     @Id(autoincrement = true)
-    private Long id;//主键
-    private String schoolName;//院校名称
-    private int schoolId;//院校ID
-    private String ranking;//排名
-    private String schoolProvince;//院校归属地
-    private long time;//时间
-    private int isCheck;//是否被选中
+    private Long id;
+    /**
+     * 院校名称
+     */
+    private String schoolName;
+    /**
+     * 院校ID
+     */
+    private int schoolId;
+    /**
+     * 院校ID
+     */
+    private String ranking;
+    /**
+     * 院校归属地
+     */
+    private String schoolProvince;
+    /**
+     * 时间
+     */
+    private long time;
+    /**
+     * 是否被选中
+     */
+    private int isCheck;
 
     @Keep
     public CollegeDetailsCollegeContrastSchoolDto(Long id, String schoolName, int schoolId, String ranking, String schoolProvince, long time, int isCheck) {

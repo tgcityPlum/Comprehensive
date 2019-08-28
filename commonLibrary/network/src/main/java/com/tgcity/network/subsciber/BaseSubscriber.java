@@ -28,7 +28,7 @@ import io.reactivex.observers.DisposableObserver;
 import static com.tgcity.network.utils.CallBackUtils.isNetworkAvailable;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 订阅的基类
  * 1.可以防止内存泄露。
  * 2.在onStart()没有网络时直接onCompleted();

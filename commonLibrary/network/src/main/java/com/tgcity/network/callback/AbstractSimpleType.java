@@ -2,11 +2,8 @@ package com.tgcity.network.callback;
 
 /**
  * @author TGCity
- * @create 2019/5/17 21：04
- * @Describe
  */
-public abstract class SimpleType<T> extends CallBack<T> {
-
+public abstract class AbstractSimpleType<T> extends AbstractCallBack<T> {
 
     @Override
     public void onStart() {

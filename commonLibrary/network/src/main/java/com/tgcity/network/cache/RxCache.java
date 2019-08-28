@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
 
+import com.tgcity.network.base.NetworkConstant;
 import com.tgcity.network.cache.converter.GsonDiskConverter;
 import com.tgcity.network.cache.converter.IDiskConverter;
 import com.tgcity.network.cache.core.CacheCore;
@@ -41,11 +42,10 @@ import io.reactivex.ObservableTransformer;
 import io.reactivex.exceptions.Exceptions;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
- *
+ * @author TGCity
  * 缓存统一入口类
  * 主要实现技术：Rxjava+DiskLruCache(jakewharton大神开源的LRU库)
- *
+ * <p>
  * 主要功能：
  * 1.可以独立使用，单独用RxCache来存储数据
  * 2.采用transformer与网络请求结合，可以实现网络缓存功能,本地硬缓存
@@ -56,20 +56,44 @@ import io.reactivex.exceptions.Exceptions;
  * 7.清空缓存（异步）
  * 8.缓存Key会自动进行MD5加密
  * 9.其它参数设置：缓存磁盘大小、缓存key、缓存时间、缓存存储的转换器、缓存目录、缓存Version
- *
+ * <p>
  * 可用于所有缓存需要  并非只服务于网络请求
  * 如果需要 可通过 NetworkRetrofitUtils 初始化的RxCache 使用
  */
 public final class RxCache {
     private final Context context;
-    private final CacheCore cacheCore;                                  //缓存的核心管理类
-    private final String apiName;                                       //api名称
-    private final String requestData;                                   //api请求参数
-    private final long cacheTime;                                       //缓存的时间 单位:秒
-    private final IDiskConverter diskConverter;                         //缓存的转换器
-    private final File diskDir;                                         //缓存的磁盘目录，默认是缓存目录
-    private final int appVersion;                                       //缓存的版本
-    private final long diskMaxSize;                                     //缓存的磁盘大小
+    /**
+     * 缓存的核心管理类
+     */
+    private final CacheCore cacheCore;
+    /**
+     * api名称
+     */
+    private final String apiName;
+    /**
+     * api请求参数
+     */
+    private final String requestData;
+    /**
+     * 缓存的时间 单位:秒
+     */
+    private final long cacheTime;
+    /**
+     * 缓存的转换器
+     */
+    private final IDiskConverter diskConverter;
+    /**
+     * 缓存的磁盘目录，默认是缓存目录
+     */
+    private final File diskDir;
+    /**
+     * 缓存的版本
+     */
+    private final int appVersion;
+    /**
+     * 缓存的磁盘大小
+     */
+    private final long diskMaxSize;
 
     public RxCache() {
         this(new Builder());
@@ -98,12 +122,14 @@ public final class RxCache {
      * @param type      缓存clazz
      */
     public <T> ObservableTransformer<T, CacheResult<T>> transformer(CacheMode cacheMode, final Type type) {
-        final IStrategy strategy = loadStrategy(cacheMode);//获取缓存策略
+        //获取缓存策略
+        final IStrategy strategy = loadStrategy(cacheMode);
         return new ObservableTransformer<T, CacheResult<T>>() {
             @Override
             public ObservableSource<CacheResult<T>> apply(Observable<T> upstream) {
                 Type tempType = type;
-                if (type instanceof ParameterizedType) {//自定义ApiResult
+                if (type instanceof ParameterizedType) {
+                    //自定义ApiResult
                     Class<T> cls = (Class) ((ParameterizedType) type).getRawType();
                     if (CacheResult.class.isAssignableFrom(cls)) {
                         tempType = CallBackUtils.getParameterizedType(type, 0);
@@ -118,7 +144,7 @@ public final class RxCache {
 
         @Override
         public void subscribe(ObservableEmitter<T> subscriber) {
-            if (subscriber==null){
+            if (subscriber == null) {
                 return;
             }
             try {
@@ -145,8 +171,9 @@ public final class RxCache {
 
     /**
      * 获取缓存
+     *
      * @param type 保存的类型
-     * @param key 缓存key
+     * @param key  缓存key
      */
     public <T> Observable<T> load(final Type type, final String key) {
         return load(type, key, -1);
@@ -270,9 +297,18 @@ public final class RxCache {
     }
 
     public static final class Builder {
-        private static final int MIN_DISK_CACHE_SIZE = 5 * 1024 * 1024; // 5MB
-        private static final int MAX_DISK_CACHE_SIZE = 50 * 1024 * 1024; // 50MB
-        public static final long CACHE_NEVER_EXPIRE = -1;//永久不过期
+        /**
+         * 5MB
+         */
+        private static final int MIN_DISK_CACHE_SIZE = 5 * 1024 * 1024;
+        /**
+         * 50MB
+         */
+        private static final int MAX_DISK_CACHE_SIZE = 50 * 1024 * 1024;
+        /**
+         * 永久不过期
+         */
+        public static final long CACHE_NEVER_EXPIRE = -1;
         private int appVersion;
         private long diskMaxSize;
         private File diskDir;
@@ -316,8 +352,8 @@ public final class RxCache {
         /**
          * 默认为缓存路径
          *
-         * @param directory
-         * @return
+         * @param directory File
+         * @return Builder
          */
         public Builder diskDir(File directory) {
             this.diskDir = directory;
@@ -332,6 +368,9 @@ public final class RxCache {
 
         /**
          * 不设置， 默为认50MB
+         *
+         * @param maxSize long
+         * @return Builder
          */
         public Builder diskMax(long maxSize) {
             this.diskMaxSize = maxSize;
@@ -356,7 +395,7 @@ public final class RxCache {
 
         public RxCache build() {
             if (this.diskDir == null && this.context != null) {
-                this.diskDir = getDiskCacheDir(this.context, "youzy-cache");
+                this.diskDir = getDiskCacheDir(this.context, NetworkConstant.UNIQUE_NAME);
             }
             CallBackUtils.checkNotNull(this.diskDir, "diskDir==null");
             if (!this.diskDir.exists()) {

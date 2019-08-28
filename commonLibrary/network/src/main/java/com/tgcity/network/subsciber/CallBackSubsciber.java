@@ -19,20 +19,20 @@ package com.tgcity.network.subsciber;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.tgcity.network.callback.CallBack;
+import com.tgcity.network.callback.AbstractCallBack;
 import com.tgcity.base.network.retrofit.ApiException;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 带有callBack的回调
  * 主要作用是不需要用户订阅，只要实现callback回调
  */
 public class CallBackSubsciber<T> extends BaseSubscriber<T> {
 
-    public CallBack<T> mCallBack;
+    public AbstractCallBack<T> mCallBack;
     
 
-    public CallBackSubsciber(Context context, CallBack<T> callBack) {
+    public CallBackSubsciber(Context context, AbstractCallBack<T> callBack) {
         super(context);
         mCallBack = callBack;
     }

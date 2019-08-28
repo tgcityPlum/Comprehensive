@@ -3,7 +3,7 @@ package com.tgcity.network.utils;
 import android.app.Application;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/24 15：04
+ * @author TGCity
  * 该类用于调用so文件方法
  * 后续更多方法和字段添加与我联系
  * 看红色不爽的（实际并不影响编译）
@@ -16,14 +16,14 @@ public class NativeUtil {
         System.loadLibrary("youzy-lib");
     }
 
-    /*
-    * 获取ca证书
-    * */
+    /**
+     * 获取ca证书
+     */
     public static native String getCaCertificate();
 
-    /*
-    * 获取签名
-    * */
+    /**
+     * 获取签名
+     */
     public static native String youzySign();
 
     public static native String youzyApiSign();
@@ -33,8 +33,9 @@ public class NativeUtil {
     public static native String youzySuperSign();
 
     public static native String youzySignMedia();
-    /*
-    * 授权
-    * */
+
+    /**
+     * 授权
+     */
     public static native boolean soSignatures(Application context);
 }

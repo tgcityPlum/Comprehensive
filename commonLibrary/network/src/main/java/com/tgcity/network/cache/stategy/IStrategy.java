@@ -25,7 +25,7 @@ import io.reactivex.Observable;
 
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 实现缓存策略的接口，可以自定义缓存实现方式，只要实现该接口就可以了
  */
 public interface IStrategy {

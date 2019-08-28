@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 缓存的基类
  * 1.所有缓存处理都继承该基类
  * 2.增加了锁机制，防止频繁读取缓存造成的异常。
@@ -69,7 +69,7 @@ public abstract class BaseCache {
      *
      * @param key   缓存key
      * @param value 缓存内容
-     * @return
+     * @return T
      */
     final <T> boolean save(String key, T value) {
         //1.先检查key
@@ -106,7 +106,7 @@ public abstract class BaseCache {
 
     /**
      * 获取缓存大小
-     * @return
+     * @return long
      */
     long size() {
         return getSize();
@@ -142,38 +142,52 @@ public abstract class BaseCache {
 
     /**
      * 是否包含  采用protected修饰符  被子类修改
+     * @param key String
+     * @return boolean
      */
     protected abstract boolean doContainsKey(String key);
 
     /**
      * 是否过期
+     * @param key       String
+     * @param existTime long
+     * @return boolean
      */
     protected abstract boolean isExpiry(String key, long existTime);
 
     /**
      * 读取缓存
+     * @param type  Type
+     * @param key   String
+     * @return T
      */
     protected abstract <T> T doLoad(Type type, String key);
 
     /**
      * 保存
+     * @param key   String
+     * @param value  T
+     * @return T
      */
     protected abstract <T> boolean doSave(String key, T value);
 
     /**
      * 删除缓存
+     * @param key   String
+     * @return boolean
      */
     protected abstract boolean doRemove(String key);
 
     /**
      * 清空缓存
+     * @return boolean
      */
     protected abstract boolean doClear();
 
     /**
      * 获取缓存大小
      *
-     * @return
+     * @return long
      */
     protected abstract long getSize();
 }

@@ -9,9 +9,9 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
+ * @author TGCity
  * xxx全局常用方法汇总
  * 分为 数据绑定方法区、页面跳转方法区、业务流程方法区、垃圾清理方法区、控件状态更改区、状态判断方法区、杂项专区
- * Created by Administrator on 2018/9/13.
  */
 
 @SuppressWarnings("ALL")
@@ -21,8 +21,6 @@ public class CommonUtils {
      * 判断返回的数据是否为空
      *
      * @param listHttpResult 解析完的服务器数据
-     * @param <T>
-     * @return
      */
     public static <T> boolean isEmptyResult(List<T> listHttpResult) {
         try {

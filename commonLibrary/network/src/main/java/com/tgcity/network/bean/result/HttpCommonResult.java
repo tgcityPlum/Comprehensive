@@ -1,18 +1,10 @@
 package com.tgcity.network.bean.result;
 
 /**
- * Created by Administrator on 2018/12/5.
+ * @author TGCity
  */
 
-public class HttpResultTZY<T> {
-    /**
-     * result : [{"uCode":"31_851_0_0","collegeCode":"4212","collegeId":851,"collegeName":"南京大学","year":2017,"isBen":true,"chooseNums":"456"},{"uCode":"31_851_0_0","collegeCode":"4211","collegeId":851,"collegeName":"南京大学","year":2017,"isBen":true,"chooseNums":"999"}]
-     * code :
-     * message :
-     * fullMessage :
-     * timestamp : 2018-12-05T09:24:58.1943617+08:00
-     * isSuccess : true
-     */
+public class HttpCommonResult<T> {
 
     private String code;
     private String message;
@@ -71,7 +63,7 @@ public class HttpResultTZY<T> {
 
     @Override
     public String toString() {
-        return "HttpResultTZY{" +
+        return "HttpCommonResult{" +
                 "code='" + code + '\'' +
                 ", message='" + message + '\'' +
                 ", fullMessage='" + fullMessage + '\'' +

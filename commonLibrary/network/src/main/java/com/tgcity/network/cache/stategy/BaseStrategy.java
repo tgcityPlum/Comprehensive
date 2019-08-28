@@ -17,7 +17,6 @@
 package com.tgcity.network.cache.stategy;
 
 
-
 import android.support.annotation.NonNull;
 
 import com.tgcity.network.cache.RxCache;
@@ -35,19 +34,20 @@ import io.reactivex.schedulers.Schedulers;
 
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 描述：实现缓存策略的基类
  */
 public abstract class BaseStrategy implements IStrategy {
 
     <T> Observable<CacheResult<T>> loadCache(final RxCache rxCache, Type type, final String apiName, final String requestData, final long time, final boolean needEmpty) {
-        Observable<CacheResult<T>> observable = rxCache.<T>load(type, apiName+requestData, time).flatMap(new Function<T, ObservableSource<CacheResult<T>>>() {
+        Observable<CacheResult<T>> observable = rxCache.<T>load(type, apiName + requestData, time).flatMap(new Function<T, ObservableSource<CacheResult<T>>>() {
 
+            @Override
             public ObservableSource<CacheResult<T>> apply(T t) throws Exception {
                 if (t == null) {
                     return Observable.error(new ApiException(ErrorMode.NO_CACHE));
                 }
-                return Observable.just(new CacheResult<T>(true,apiName,requestData, t));
+                return Observable.just(new CacheResult<T>(true, apiName, requestData, t));
             }
         });
         if (needEmpty) {
@@ -62,12 +62,22 @@ public abstract class BaseStrategy implements IStrategy {
         return observable;
     }
 
-    /*
-    * 因策略修改 改方法暂时不使用  先保留 后续迭代酌情考虑
-    * */
+    /**
+     * 因策略修改 改方法暂时不使用  先保留 后续迭代酌情考虑
+     *
+     * @param rxCache     RxCache
+     * @param apiName     String
+     * @param requestData String
+     * @param source      Observable
+     * @param needEmpty   boolean
+     * @param <T>         T
+     * @return T
+     */
     <T> Observable<CacheResult<T>> loadRemote2(final RxCache rxCache, final String apiName, final String requestData, Observable<T> source, final boolean needEmpty) {
         Observable<CacheResult<T>> observable = source
                 .map(new Function<T, CacheResult<T>>() {
+
+                    @Override
                     public CacheResult<T> apply(T t) throws Exception {
                         rxCache.save(apiName+requestData, t).subscribeOn(Schedulers.io())
                                 .subscribe(new Consumer<Boolean>() {
@@ -80,7 +90,7 @@ public abstract class BaseStrategy implements IStrategy {
                                         throwable.printStackTrace();
                                     }
                                 });
-                        return new CacheResult<T>(false,apiName,requestData, t);
+                        return new CacheResult<T>(false, apiName, requestData, t);
                     }
                 });
         if (needEmpty) {
@@ -95,13 +105,24 @@ public abstract class BaseStrategy implements IStrategy {
         return observable;
     }
 
-    //请求成功后：同步保存
+    /**
+     * 请求成功后：同步保存
+     * @param rxCache RxCache
+     * @param apiName String
+     * @param requestData String
+     * @param source Observable
+     * @param needEmpty boolean
+     * @param <T> T
+     * @return T
+     */
     <T> Observable<CacheResult<T>> loadRemote(final RxCache rxCache, final String apiName, final String requestData, Observable<T> source, final boolean needEmpty) {
 
         Observable<CacheResult<T>> observable = source
                 .flatMap(new Function<T, ObservableSource<CacheResult<T>>>() {
-                    public ObservableSource<CacheResult<T>> apply(final T t) throws Exception {
-                        return  rxCache.save(apiName+requestData, t).map(new Function<Boolean, CacheResult<T>>() {
+
+                    @Override
+                    public ObservableSource<CacheResult<T>> apply(final T t) {
+                        return rxCache.save(apiName + requestData, t).map(new Function<Boolean, CacheResult<T>>() {
                             @Override
                             public CacheResult<T> apply(@NonNull Boolean aBoolean) throws Exception {
                                 return new CacheResult<T>(false,apiName,requestData, t);
@@ -110,7 +131,7 @@ public abstract class BaseStrategy implements IStrategy {
                             @Override
                             public CacheResult<T> apply(@NonNull Throwable throwable) throws Exception {
 
-                                return new CacheResult<T>(false,apiName,requestData, t);
+                                return new CacheResult<T>(false, apiName, requestData, t);
                             }
                         });
                     }

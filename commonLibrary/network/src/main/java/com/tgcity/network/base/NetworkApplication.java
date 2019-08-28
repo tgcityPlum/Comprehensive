@@ -7,8 +7,13 @@ import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.network.greendao.helper.GreenDaoHelper;
 import com.tgcity.base.utils.SharedPreferencesUtils;
 
+/**
+ * @author TGCity
+ */
 public class NetworkApplication extends BaseApplication {
-    //静态单例
+    /**
+     * 静态单例
+     */
     private static NetworkApplication instances;
 
     @Override

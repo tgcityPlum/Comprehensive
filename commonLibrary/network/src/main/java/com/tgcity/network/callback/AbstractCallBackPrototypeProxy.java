@@ -28,26 +28,31 @@ import java.util.Map;
 import okhttp3.ResponseBody;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
- *
+ * @author TGCity
  * 回调代理
  */
-public abstract class CallBackPrototypeProxy<T extends R, R> implements IType<T> {
-    CallBack<R> mCallBack;
+public abstract class AbstractCallBackPrototypeProxy<T extends R, R> implements IType<T> {
 
-    public CallBackPrototypeProxy(CallBack<R> callBack) {
+    AbstractCallBack<R> mCallBack;
+
+    public AbstractCallBackPrototypeProxy(AbstractCallBack<R> callBack) {
         mCallBack = callBack;
     }
 
-    public CallBack getCallBack() {
+    public AbstractCallBack getCallBack() {
         return mCallBack;
     }
 
+    /**
+     * CallBack代理方式，获取需要解析的Type
+     * @return Type
+     */
     @Override
-    public Type getType() {//CallBack代理方式，获取需要解析的Type
+    public Type getType() {
         Type typeArguments = null;
         if (mCallBack != null) {
-            Type rawType = mCallBack.getRawType();//如果用户的信息是返回List需单独处理
+            //如果用户的信息是返回List需单独处理
+            Type rawType = mCallBack.getRawType();
             if (List.class.isAssignableFrom(CallBackUtils.getClass(rawType, 0)) || Map.class.isAssignableFrom(CallBackUtils.getClass(rawType, 0))) {
                 typeArguments = mCallBack.getType();
             } else if (CacheResult.class.isAssignableFrom(CallBackUtils.getClass(rawType, 0))) {

@@ -6,24 +6,63 @@ import android.os.Parcelable;
 import com.tgcity.base.utils.LogUtils;
 
 /**
+ * @author TGCity
  * 接口请求返回值信息
- * Created by Administrator on 2018/6/25.
  */
 
 public class NetworkResponseEntity implements Parcelable {
-    private String send;//发送的信息（GET模式下将为NULL）
-    private String message;//访问消息
-    private String url;//完整地址
-    private int code;//访问代码
-    private boolean isRedirect;//访问地址是否被重定向
-    private boolean isSuccessful;//访问是否成功
-    private boolean isHttps;//是否为https连接
-    private String protocol;//协议
-    private String method;//get or post
-    private String headers;//头部信息
-    private String content;//服务器返回内容
-    private long sendTime = 0;//发送时间
-    private long receiveTime = 0;//接收时间
+    /**
+     * 发送的信息（GET模式下将为NULL）
+     */
+    private String send;
+    /**
+     * 访问消息
+     */
+    private String message;
+    /**
+     * 完整地址
+     */
+    private String url;
+    /**
+     * 访问代码
+     */
+    private int code;
+    /**
+     * 访问地址是否被重定向
+     */
+    private boolean isRedirect;
+    /**
+     * 访问是否成功
+     */
+    private boolean isSuccessful;
+    /**
+     * 是否为https连接
+     */
+    private boolean isHttps;
+    /**
+     * 协议
+     */
+    private String protocol;
+    /**
+     * get or post
+     */
+    private String method;
+    /**
+     * 头部信息
+     */
+    private String headers;
+    /**
+     * 服务器返回内容
+     */
+    private String content;
+    /**
+     * 发送时间
+     */
+    private long sendTime = 0;
+    /**
+     * 接收时间
+     */
+    private long receiveTime = 0;
 
     public String getSend() {
         return send;

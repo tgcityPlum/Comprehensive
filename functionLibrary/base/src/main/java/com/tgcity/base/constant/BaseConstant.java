@@ -11,7 +11,7 @@ public class BaseConstant {
      */
     public static class Power{
         //app编译终极开关：是否处于debug模式 true-debug  false-release
-        private static final boolean IS_APP_DEBUG = true;
+        public static final boolean IS_APP_DEBUG = true;
         //logUtil的日志开关：是否开启日志  true-开启  false-关闭
         public static final boolean IS_LOG_UTIL_OPEN = IS_APP_DEBUG && true;
         //Activity的启动时间开关：是否显示启动时间  true-显示  false-不显示
@@ -34,8 +34,10 @@ public class BaseConstant {
      *   服务器域名
      */
     public class Service {
-        public final static long SERVICE_TRY_WAIT = 10 * 1000;//出错重试等待时间（暂时定为10秒）
-        public final static long SERVICE_TRY_INTERVAL = 1 * 1000;//出错重试时的间隔时间（暂时定为1秒）
+        //出错重试等待时间（暂时定为10秒）
+        public final static long SERVICE_TRY_WAIT = 10 * 1000;
+        //出错重试时的间隔时间（暂时定为1秒）
+        public final static long SERVICE_TRY_INTERVAL = 1 * 1000;
     }
 
     public class SP {

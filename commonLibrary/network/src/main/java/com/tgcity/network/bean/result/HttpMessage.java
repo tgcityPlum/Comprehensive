@@ -1,12 +1,9 @@
 package com.tgcity.network.bean.result;
 
+/**
+ * @author TGCity
+ */
 public class HttpMessage {
-
-    /**
-     * Code : 0
-     * Message : sample string 1
-     * Timestamp : 2016-10-10T15:52:45.9089248+08:00
-     */
 
     private int Code;
     private String Message;

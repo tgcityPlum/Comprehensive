@@ -25,7 +25,7 @@ import java.lang.reflect.Type;
 import okio.ByteString;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 缓存核心管理类
  * 1.采用LruDiskCache
  */
@@ -36,7 +36,6 @@ public class CacheCore {
     public CacheCore(LruDiskCache disk) {
         this.disk = CallBackUtils.checkNotNull(disk, "disk==null");
     }
-
 
     /**
      * 读取
@@ -64,15 +63,13 @@ public class CacheCore {
     /**
      * 是否包含
      *
-     * @param key
-     * @return
+     * @param key String
+     * @return boolean
      */
     public synchronized boolean containsKey(String key) {
         String cacheKey = ByteString.of(key.getBytes()).md5().hex();
         if (disk != null) {
-            if (disk.containsKey(cacheKey)) {
-                return true;
-            }
+            return disk.containsKey(cacheKey);
         }
         return false;
     }
@@ -80,7 +77,7 @@ public class CacheCore {
     /**
      * 删除缓存
      *
-     * @param key
+     * @param key String
      */
     public synchronized boolean remove(String key) {
         String cacheKey = ByteString.of(key.getBytes()).md5().hex();

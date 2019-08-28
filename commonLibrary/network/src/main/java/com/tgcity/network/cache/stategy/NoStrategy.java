@@ -29,11 +29,12 @@ import io.reactivex.functions.Function;
 
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 网络加载，不缓存
  * 如果次数超出规定限制 直接报错
  */
 public class NoStrategy implements IStrategy {
+
     @Override
     public <T> Observable<CacheResult<T>> execute(RxCache rxCache, final String apiName, final String requestData, long cacheTime, Observable<T> source, Type type) {
 
@@ -43,6 +44,8 @@ public class NoStrategy implements IStrategy {
 
         } else {
             return source.map(new Function<T, CacheResult<T>>() {
+
+                @Override
                 public CacheResult<T> apply(T t) throws Exception {
                     return new CacheResult<T>(false,apiName,requestData, t);
                 }

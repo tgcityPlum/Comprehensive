@@ -15,9 +15,9 @@ import com.tgcity.network.api.ApiService;
 import com.tgcity.network.api.ApiService5001;
 import com.tgcity.network.api.ApiService5101;
 import com.tgcity.network.base.NetworkConstant;
-import com.tgcity.network.bean.result.HttpResultTZY;
+import com.tgcity.network.bean.result.HttpCommonResult;
 import com.tgcity.network.cache.model.CacheMode;
-import com.tgcity.network.callback.SimpleCallBack;
+import com.tgcity.network.callback.AbstractSimpleCallBack;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import java.io.File;
@@ -30,12 +30,12 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpDate;
 
-/*
- * 作者：TGCity by Administrator on 2018/7/23
+/**
+ * @author TGCity
  * HttpData单例
  * 暴露使用
  * 需在Application初始化
- * */
+ */
 @SuppressWarnings("ALL")
 public class NetworkRetrofitUtils extends HttpRetrofitUtils {
 
@@ -46,13 +46,16 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
     public ApiService5101 service_tzy5101;
     public ApiService service_ImageDownload;
 
-    /*
+    /**
      * 双重判断加锁单例
      * 保证异步处理安全
-     * */
+     */
     private volatile static NetworkRetrofitUtils instance = null;
 
-    //获取单例
+    /**
+     * 获取单例
+     * @return NetworkRetrofitUtils
+     */
     public static NetworkRetrofitUtils getInstance() {
         if (instance == null) {
             synchronized (HttpDate.class) {
@@ -112,7 +115,7 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
         final SharedPreferencesUtils spUtils = NetworkConstant.sharedPreferencesUtils;
 
         if (getCacheVersion) {
-            cacheVersion(new SimpleCallBack<CacheVersionDto>() {
+            cacheVersion(new AbstractSimpleCallBack<CacheVersionDto>() {
                 @Override
                 public void onError(Throwable e) {
                     NetworkConstant.Cache_College = spUtils.getInt(BaseConstant.SP.CACHE_COLLEGE, 1);
@@ -144,13 +147,13 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
      *
      * @param callBack
      */
-    public void cacheVersion(SimpleCallBack<CacheVersionDto> callBack) {
-        Observable<CacheVersionDto> observable = service_tzy5101.querySiteSettings("AndroidCacheConfig").map(new Function<HttpResultTZY<SettingsDto>, CacheVersionDto>() {
+    public void cacheVersion(AbstractSimpleCallBack<CacheVersionDto> callBack) {
+        Observable<CacheVersionDto> observable = service_tzy5101.querySiteSettings("AndroidCacheConfig").map(new Function<HttpCommonResult<SettingsDto>, CacheVersionDto>() {
             @Override
-            public CacheVersionDto apply(HttpResultTZY<SettingsDto> pagedListResultDtoHttpResultTZY) throws Exception {
+            public CacheVersionDto apply(HttpCommonResult<SettingsDto> result) throws Exception {
                 CacheVersionDto cacheVersionDto = new CacheVersionDto();
                 Gson gson = new Gson();
-                cacheVersionDto = gson.fromJson(pagedListResultDtoHttpResultTZY.getResult().getSettingsJson(), CacheVersionDto.class);
+                cacheVersionDto = gson.fromJson(result.getResult().getSettingsJson(), CacheVersionDto.class);
                 return cacheVersionDto;
             }
         });
@@ -160,19 +163,32 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
                 .setCacheMode(CacheMode.NO_CACHE), callBack);
     }
 
-    // 获取微信小程序码
-    public void getwxacode(LifecycleTransformer lifecycleTransformer, String access_token, WeiXinBody weixinBody, final SimpleCallBack<ResponseBody> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_weixin.getwxacode(access_token, weixinBody))
+    /**
+     * 获取微信小程序码
+     *
+     * @param lifecycleTransformer LifecycleTransformer
+     * @param accessToken          String
+     * @param weixinBody           WeiXinBody
+     * @param callBack             AbstractSimpleCallBack
+     */
+    public void getwxacode(LifecycleTransformer lifecycleTransformer, String accessToken, WeiXinBody weixinBody, final AbstractSimpleCallBack<ResponseBody> callBack) {
+        toObservable(lifecycleTransformer, new Builder(service_weixin.getwxacode(accessToken, weixinBody))
                 .setApiName("getwxacode")
-                .setRequestData(access_token, weixinBody, NetworkConstant.Cache_Other)
+                .setRequestData(accessToken, weixinBody, NetworkConstant.Cache_Other)
                 .setHttpResultFormatting(false)
                 .setCacheTime(NetworkConstant.cache_a_second)
                 .setCacheMode(CacheMode.NO_CACHE), callBack);
 
     }
 
-    //图片上传
-    public void picturesUpload(String fileName, String path, SimpleCallBack<HttpResult<PictureDto>> callBack) {
+    /**
+     * 图片上传
+     *
+     * @param fileName String
+     * @param path     String
+     * @param callBack AbstractSimpleCallBack
+     */
+    public void picturesUpload(String fileName, String path, AbstractSimpleCallBack<HttpResult<PictureDto>> callBack) {
         File file = new File(path);
         String suffix = "jpg";
         try {

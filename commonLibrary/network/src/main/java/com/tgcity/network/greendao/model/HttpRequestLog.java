@@ -5,27 +5,37 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
-/*
-* 作者：TGCity by Administrator on 2018/7/23
-* 网络请求日志模型
-* */
+/**
+ * @author TGCity
+ * 网络请求日志模型
+ */
 @Entity
 public class HttpRequestLog {
 
-    //主键
+    /**
+     * 主键
+     */
     @Id(autoincrement = true)
     private Long id;
 
-    //接口名称
+    /**
+     * 接口名称
+     */
     private String apiName;
 
-    //请求数据
+    /**
+     * 请求数据
+     */
     private String requestData;
 
-    //创建时间
+    /**
+     * 创建时间
+     */
     private long createTime;
 
-    //请求状态
+    /**
+     * 请求状态
+     */
     private int type;
 
     @Generated(hash = 78361351)

@@ -10,7 +10,7 @@ import com.tgcity.base.network.bean.response.TestDataItemBean;
 import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.base.NetworkConstant;
 import com.tgcity.network.cache.model.CacheMode;
-import com.tgcity.network.callback.SimpleCallBack;
+import com.tgcity.network.callback.AbstractSimpleCallBack;
 import com.tgcity.network.retrofit.NetworkRetrofitUtils;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
@@ -42,7 +42,7 @@ public class NewsRetrofitUtils extends NetworkRetrofitUtils {
     }
 
     //测试数组
-    public void getTestList(String access_token, SimpleCallBack<HttpResult<List<TestDataItemBean>>> callBack) {
+    public void getTestList(String access_token, AbstractSimpleCallBack<HttpResult<List<TestDataItemBean>>> callBack) {
         toObservable(null, new Builder(service.getTestList(access_token))
                 .setApiName("getTestList")
                 .setRequestData(access_token, NetworkConstant.Cache_Other)
@@ -54,7 +54,7 @@ public class NewsRetrofitUtils extends NetworkRetrofitUtils {
     /*****************************************************************我是分割线，以下开始为新接口*******************************************************************************/
 
     //选科模块--选科专业明细查询
-    public void queryMajorChooseSubject(LifecycleTransformer lifecycleTransformer, int provinceId, String MajorCode, int year, SimpleCallBack<List<QueryMajorChooseSubjectOutput>> callBack) {
+    public void queryMajorChooseSubject(LifecycleTransformer lifecycleTransformer, int provinceId, String MajorCode, int year, AbstractSimpleCallBack<List<QueryMajorChooseSubjectOutput>> callBack) {
         toObservable(lifecycleTransformer, new Builder(service_tzy5001.queryMajorChooseSubject(provinceId, MajorCode, year))
                 .setApiName("queryMajorChooseSubject")
                 .setRequestData(provinceId, MajorCode, year, NetworkConstant.Cache_Other)
@@ -66,9 +66,9 @@ public class NewsRetrofitUtils extends NetworkRetrofitUtils {
     /*****************************************************************5001结束*******************************************************************************/
 
     //个人中心消息--根据类型获取消息列表
-    public void QueryMessages(LifecycleTransformer lifecycleTransformer, QueryMessagesInput input, SimpleCallBack<PagedListResultDto<QueryMessagesOutput>> callBack) {
-        toObservable(lifecycleTransformer, new Builder(service_tzy5101.QueryMessages(input))
-                .setApiName("QueryMessages")
+    public void QueryMessages(LifecycleTransformer lifecycleTransformer, QueryMessagesInput input, AbstractSimpleCallBack<PagedListResultDto<QueryMessagesOutput>> callBack) {
+        toObservable(lifecycleTransformer, new Builder(service_tzy5101.queryMessages(input))
+                .setApiName("queryMessages")
                 .setHttpResultFormatting(true)
                 .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
                 .setCacheMode(CacheMode.NO_CACHE), callBack);

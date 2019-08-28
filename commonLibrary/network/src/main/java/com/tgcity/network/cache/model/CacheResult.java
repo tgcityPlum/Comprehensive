@@ -20,7 +20,7 @@ package com.tgcity.network.cache.model;
 import java.io.Serializable;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 缓存对象
  * 暂不支持拓展
  * 如需修改拓展
@@ -28,13 +28,19 @@ import java.io.Serializable;
  */
 public class CacheResult<T> implements Serializable {
 
-    //是否使用的缓存
+    /**
+     * 是否使用的缓存
+     */
     public boolean isFromCache;
 
-    //接口名称
+    /**
+     * 接口名称
+     */
     public String apiName;
 
-    //请求数据
+    /**
+     * 请求数据
+     */
     public String requestData;
 
     public T data;

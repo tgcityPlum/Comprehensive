@@ -28,7 +28,7 @@ import java.lang.reflect.Type;
 
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  *  磁盘缓存实现类
  *  1.为了更好的扩展功能，统一使用BasicCache<br>
  *  2.将来做内存管理也可以继承BasicCache来统一处理
@@ -36,7 +36,6 @@ import java.lang.reflect.Type;
 public class LruDiskCache extends BaseCache {
     private IDiskConverter mDiskConverter;
     private DiskLruCache mDiskLruCache;
-
 
     public LruDiskCache(IDiskConverter diskConverter, File diskDir, int appVersion, long diskMaxSize) {
         this.mDiskConverter = CallBackUtils.checkNotNull(diskConverter, "diskConverter ==null");
@@ -112,32 +111,6 @@ public class LruDiskCache extends BaseCache {
     }
 
     @Override
-    protected boolean doRemove(String key) {
-        if (mDiskLruCache == null) {
-            return false;
-        }
-        try {
-            return mDiskLruCache.remove(key);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-
-    @Override
-    protected boolean doClear() {
-        boolean statu = false;
-        try {
-            mDiskLruCache.delete();
-            statu = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return statu;
-    }
-
-    @Override
     protected long getSize() {
         return mDiskLruCache.size();
     }
@@ -147,12 +120,12 @@ public class LruDiskCache extends BaseCache {
         if (mDiskLruCache == null) {
             return false;
         }
-        if (existTime > -1) {//-1表示永久性存储 不用进行过期校验
+        if (existTime > -1) {
+            //-1表示永久性存储 不用进行过期校验
             //为什么这么写，请了解DiskLruCache，看它的源码
             File file = new File(mDiskLruCache.getDirectory(), key + "." + 0);
-            if (isCacheDataFailure(file, existTime)) {//没有获取到缓存,或者缓存已经过期!
-                return true;
-            }
+            //没有获取到缓存,或者缓存已经过期!
+            return isCacheDataFailure(file, existTime);
         }
         return false;
     }
@@ -167,5 +140,30 @@ public class LruDiskCache extends BaseCache {
         long existTime = System.currentTimeMillis() - dataFile.lastModified();
         return existTime > time*1000;
     }
-    
+
+    @Override
+    protected boolean doRemove(String key) {
+        if (mDiskLruCache == null) {
+            return false;
+        }
+        try {
+            return mDiskLruCache.remove(key);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    protected boolean doClear() {
+        boolean statu = false;
+        try {
+            mDiskLruCache.delete();
+            statu = true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return statu;
+    }
+
 }

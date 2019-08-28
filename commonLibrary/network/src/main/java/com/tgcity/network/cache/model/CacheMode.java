@@ -17,8 +17,8 @@
 package com.tgcity.network.cache.model;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
  * 网络请求策略
+ * @author TGCity
  */
 public enum CacheMode {
     /**
@@ -28,19 +28,19 @@ public enum CacheMode {
     /**
      * 先请求网络，请求网络失败后再加载缓存
      */
-    FIRSTREMOTE("FirstRemoteStrategy"),
+    FIRST_REMOTE("FirstRemoteStrategy"),
 
     /**
      * 先加载缓存，缓存没有再去请求网络
      */
-    FIRSTCACHE("FirstCacheStategy"),
+    FIRST_CACHE("FirstCacheStrategy"),
 
     /**
      * 先使用缓存，不管是否存在，仍然请求网络，会先把缓存回调给你，
      * 等网络请求回来发现数据是一样的就不会再返回，否则再返回
      * （这样做的目的是防止数据是一样的你也需要刷新界面）
      */
-    CACHEANDREMOTEDISTINCT("CacheAndRemoteDistinctStrategy");
+    CACHE_AND_REMOTE_DISTINCT("CacheAndRemoteDistinctStrategy");
 
     private final String className;
 

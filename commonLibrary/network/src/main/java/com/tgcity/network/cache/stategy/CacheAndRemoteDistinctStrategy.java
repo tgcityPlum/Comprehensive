@@ -34,7 +34,7 @@ import io.reactivex.functions.Predicate;
 import okio.ByteString;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 先显示缓存，再请求网络
  * 如果次数超出规定限制 直接读取缓存
  */
@@ -53,7 +53,7 @@ public final class CacheAndRemoteDistinctStrategy extends BaseStrategy {
 
         } else {
 
-            HttpKeyOperationHelper.getInstance().addkey(apiName, requestData);
+            HttpKeyOperationHelper.getInstance().addKey(apiName, requestData);
 
             Observable<CacheResult<T>> cache = loadCache(rxCache, type, apiName,requestData, time,true);
             Observable<CacheResult<T>> remote = loadRemote(rxCache, apiName,requestData, source,false);
@@ -65,6 +65,8 @@ public final class CacheAndRemoteDistinctStrategy extends BaseStrategy {
                             return tCacheResult != null && tCacheResult.data != null;
                         }
                     }).distinctUntilChanged(new Function<CacheResult<T>, String>() {
+
+                        @Override
                         public String apply(@NonNull CacheResult<T> tCacheResult) throws Exception {
                             return  ByteString.of(tCacheResult.data.toString().getBytes()).md5().hex();
                         }

@@ -17,31 +17,24 @@
 package com.tgcity.network.callback;
 
 
-
-import com.tgcity.network.utils.CallBackUtils;
-
-import java.lang.reflect.Type;
+import com.tgcity.base.network.bean.result.HttpResult;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  *
- * 网络请求回调
+ * 提供回调代理
+ * 主要用于可以自定义ApiResult
  */
-public abstract class CallBack<T> implements IType<T> {
-    public abstract void onStart();
+public abstract class AbstractCallBackProxy<T extends HttpResult<R>, R> extends AbstractCallBackPrototypeProxy {
+    AbstractCallBack<R> mCallBack;
 
-    public abstract void onCompleted();
-
-    public abstract void onError(Throwable e);
-
-    public abstract void onNext(T t);
-
-    @Override
-    public Type getType() {//获取需要解析的泛型T类型
-        return CallBackUtils.findNeedClass(getClass());
+    public AbstractCallBackProxy(AbstractCallBack<R> callBack) {
+        super(callBack);
+        mCallBack = callBack;
     }
 
-    public Type getRawType() {//获取需要解析的泛型T raw类型
-        return CallBackUtils.findRawType(getClass());
+    @Override
+    public AbstractCallBack getCallBack() {
+        return mCallBack;
     }
 }

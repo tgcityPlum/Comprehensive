@@ -7,21 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author TGCity
+ */
 public class MD5Util {
 
     /**
-     * @param message
-     * @return
      * @Description: 生成MD5
-     * @author: tianpengw
+     * @param message String
+     * @return String
      */
     public static String getMD5(String message) {
         String md5 = "";
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5"); // 创建一个md5算法对象
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            // 创建一个md5算法对象
             byte[] messageByte = message.getBytes("UTF-8");
-            byte[] md5Byte = md.digest(messageByte); // 获得MD5字节数组,16*8=128位
-            md5 = bytesToHex(md5Byte); // 转换为16进制字符串
+            byte[] md5Byte = md.digest(messageByte);
+            // 获得MD5字节数组,16*8=128位
+            md5 = bytesToHex(md5Byte);
+            // 转换为16进制字符串
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,10 +34,9 @@ public class MD5Util {
     }
 
     /**
-     * @param bytes
-     * @return
      * @Description: 二进制转十六进制
-     * @author: tianpengw
+     * @param bytes byte
+     * @return String
      */
     public static String bytesToHex(byte[] bytes) {
         StringBuffer hexStr = new StringBuffer();
@@ -51,11 +55,10 @@ public class MD5Util {
     }
 
     /**
+     * @Description: 签名：请求参数排序并后面补充key值，最后进行MD5加密，返回大写结果
      * @param params 参数内容
      * @param key    key值
-     * @return
-     * @Description: 签名：请求参数排序并后面补充key值，最后进行MD5加密，返回大写结果
-     * @author: tianpengw
+     * @return String
      */
     public static String signatures(Map<String, Object> params, String key) {
         String signatures = "";

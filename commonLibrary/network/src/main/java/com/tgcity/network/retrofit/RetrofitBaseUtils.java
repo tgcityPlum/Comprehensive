@@ -10,11 +10,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 封装一个retrofit集成0kHttp3的抽象基类
- *
  * 如果需多个baseUrl 可设置多个mRetrofit 并添加get方法
- *
  */
 public abstract class RetrofitBaseUtils {
 
@@ -23,7 +21,7 @@ public abstract class RetrofitBaseUtils {
     /**
      * 获取Retrofit对象
      *
-     * @return
+     * @return Retrofit
      */
     protected static Retrofit getRetrofit() {
         if (null == mRetrofit) {
@@ -48,7 +46,7 @@ public abstract class RetrofitBaseUtils {
     /**
      * 获取Retrofit对象
      *
-     * @return
+     * @return Retrofit
      */
     protected static Retrofit getRetrofitWeiXin() {
         if (null == mOkHttpClient) {
@@ -58,7 +56,7 @@ public abstract class RetrofitBaseUtils {
         //Retrofit2后使用build设计模式
         mRetrofit = new Retrofit.Builder()
                 //设置服务器路径
-                .baseUrl(NetworkConstant.Service.SERVICE_WEIXIN)
+                .baseUrl(NetworkConstant.Service.SERVICE_WX)
                 //添加转化库，默认是Gson
                 .addConverterFactory(GsonConverterFactory.create())
                 //添加回调库，采用RxJava
@@ -72,7 +70,7 @@ public abstract class RetrofitBaseUtils {
     /**
      * 获取Retrofit对象
      *
-     * @return
+     * @return Retrofit
      */
     protected static Retrofit getRetrofitImage() {
         if (null == mOkHttpClient) {
@@ -96,7 +94,7 @@ public abstract class RetrofitBaseUtils {
     /**
      * 获取Retrofit对象
      *
-     * @return
+     * @return Retrofit
      */
     protected static Retrofit getRetrofitTZY5001() {
         if (null == mOkHttpClient) {
@@ -120,31 +118,7 @@ public abstract class RetrofitBaseUtils {
     /**
      * 获取Retrofit对象
      *
-     * @return
-     */
-    protected static Retrofit getRetrofitTZY5100() {
-        if (null == mOkHttpClient) {
-            mOkHttpClient = OkHttp3Utils.getOkHttpClient();
-        }
-
-        //Retrofit2后使用build设计模式
-        mRetrofit = new Retrofit.Builder()
-                //设置服务器路径
-                .baseUrl(NetworkConstant.Service.SERVICE_PART_5100)
-                //添加转化库，默认是Gson
-                .addConverterFactory(GsonConverterFactory.create())
-                //添加回调库，采用RxJava
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                //设置使用okhttp网络请求
-                .client(mOkHttpClient)
-                .build();
-        return mRetrofit;
-    }
-
-    /**
-     * 获取Retrofit对象
-     *
-     * @return
+     * @return Retrofit
      */
     protected static Retrofit getRetrofitTZY5101() {
         if (null == mOkHttpClient) {
@@ -165,29 +139,4 @@ public abstract class RetrofitBaseUtils {
         return mRetrofit;
     }
 
-
-
-    /**
-     * 获取Retrofit对象
-     *
-     * @return
-     */
-    protected static Retrofit getDefaultShareImage() {
-        if (null == mOkHttpClient) {
-            mOkHttpClient = OkHttp3Utils.getOkHttpClient();
-        }
-
-        //Retrofit2后使用build设计模式
-        mRetrofit = new Retrofit.Builder()
-                //设置服务器路径
-                .baseUrl("")
-                //添加转化库，默认是Gson
-                .addConverterFactory(GsonConverterFactory.create())
-                //添加回调库，采用RxJava
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                //设置使用okhttp网络请求
-                .client(mOkHttpClient)
-                .build();
-        return mRetrofit;
-    }
 }

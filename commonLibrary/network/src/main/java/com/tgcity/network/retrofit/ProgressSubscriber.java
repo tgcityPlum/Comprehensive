@@ -4,19 +4,19 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.tgcity.network.R;
-import com.tgcity.network.callback.SimpleCallBack;
+import com.tgcity.network.callback.AbstractSimpleCallBack;
 import com.tgcity.base.widget.dialog.NetworkDialogLoading;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
 /**
+ * @author TGCity
  * 用于在Http请求开始时，自动显示一个ProgressDialog
  * 在Http请求结束是，关闭ProgressDialog
  * 调用者自己对请求数据进行处理
- * Created by liukun on 16/3/10.
  */
-public class ProgressSubscriber<T> extends SimpleCallBack<T> {
+public class ProgressSubscriber<T> extends AbstractSimpleCallBack<T> {
 
     private SubscriberOnNextListener mSubscriberOnNextListener;
 

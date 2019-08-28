@@ -19,10 +19,14 @@ package com.tgcity.network.callback;
 import java.lang.reflect.Type;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  *
  * 获取类型接口
  */
 public interface IType<T> {
+    /**
+     * get Type
+     * @return Type
+     */
     Type getType();
 }

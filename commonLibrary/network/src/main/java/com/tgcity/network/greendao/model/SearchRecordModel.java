@@ -5,12 +5,15 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Keep;
 
 /**
- * Created by Administrator on 2018/12/3.
+ * @author TGCity
  */
 @Entity
 public class SearchRecordModel {
+    /**
+     * 主键
+     */
     @Id(autoincrement = true)
-    private Long id;//主键
+    private Long id;
     private int type;
     private String body;
 

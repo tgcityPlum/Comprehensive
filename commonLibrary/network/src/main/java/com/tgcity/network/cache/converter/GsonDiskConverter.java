@@ -33,7 +33,7 @@ import java.lang.reflect.Type;
 import java.util.ConcurrentModificationException;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * GSON-数据转换器
  * GSON-数据转换器其实就是存储字符串的操作
  */

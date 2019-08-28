@@ -21,11 +21,13 @@ import static okhttp3.internal.Util.UTF_8;
 
 //import com.xietong.network.utils.HttpsUtils;
 
-/*
- *作者：TGCity by Administrator on 2018/7/23
+/**
+ * @author TGCity
  * okHttp的配置
  * 以及公共请求头配置地址
+ *
  */
+
 public class OkHttp3Utils {
     private static OkHttpClient mOkHttpClient;
 
@@ -99,7 +101,7 @@ public class OkHttp3Utils {
             Request authorised = originalRequest.newBuilder()
                     .addHeader("Content-Type", "application/json; charset=utf-8")
                     .build();
-            if (NetworkConstant.Switch.isPrintNetworkLog) {
+            if (NetworkConstant.Switch.IS_PRINT_NETWORK_LOG) {
                 return response(chain.proceed(authorised));
             } else {
                 return chain.proceed(authorised);
@@ -153,7 +155,7 @@ public class OkHttp3Utils {
             networkResponseInfo.setContent(temp == null ? "" : temp);
 
         }
-        networkResponseInfo.print("---", NetworkConstant.Switch.isJsonFormat);
+        networkResponseInfo.print("---", NetworkConstant.Switch.IS_JSON_FORMAT);
         return response.newBuilder()
                 .body(ResponseBody.create(response.body().contentType(), networkResponseInfo.getContent()))
                 .build();

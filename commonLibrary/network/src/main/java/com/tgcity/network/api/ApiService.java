@@ -18,22 +18,36 @@ import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23 09：56
+ * @author TGCity
  * API接口
  */
 
 public interface ApiService {
 
-    //获取微信小程序二维码
+    /**
+     * 获取微信小程序二维码
+     * @param accessToken  String
+     * @param body WeiXinBody
+     * @return ResponseBody
+     */
     @POST("wxa/getwxacode")
-    Observable<ResponseBody> getwxacode(@Query("access_token") String access_token, @Body WeiXinBody weixinBody);
+    Observable<ResponseBody> getwxacode(@Query("access_token") String accessToken, @Body WeiXinBody body);
 
-    //图片上传
+    /**
+     * 图片上传
+     * @param name String
+     * @param file MultipartBody.Part
+     * @return HttpResult<PictureDto>
+     */
     @Multipart
     @POST("files/upload")
     Observable<HttpResult<PictureDto>> picturesUpload(@Query("seoFileName") String name, @Part MultipartBody.Part file);
 
-    //测试接口
+    /**
+     * 测试接口
+     * @param token String
+     * @return HttpResult<List<TestDataItemBean>>
+     */
     @GET("uz-appmgrv2/api/app/usercenter/list")
     Observable<HttpResult<List<TestDataItemBean>>> getTestList(@Query("access_token") String token);
 }

@@ -24,10 +24,11 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * Https工具类
  */
 public class HttpsUtils {
+
     public static class SSLParams {
         public SSLSocketFactory sSLSocketFactory;
         public X509TrustManager trustManager;

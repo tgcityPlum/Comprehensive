@@ -6,16 +6,16 @@ import android.support.annotation.CallSuper;
 
 import com.tgcity.base.network.retrofit.ApiException;
 import com.tgcity.network.base.NetworkConstant;
-import com.tgcity.network.bean.result.HttpResultTZY;
+import com.tgcity.network.bean.result.HttpCommonResult;
 import com.tgcity.network.cache.RxCache;
 import com.tgcity.network.cache.model.CacheMode;
 import com.tgcity.network.cache.model.CacheResult;
 import com.tgcity.base.network.cache.model.ErrorMode;
-import com.tgcity.network.callback.CallBackPrototypeProxy;
-import com.tgcity.network.callback.CallBackProxy;
-import com.tgcity.network.callback.CallBackProxyTZY;
-import com.tgcity.network.callback.SimpleCallBack;
-import com.tgcity.network.callback.SimpleType;
+import com.tgcity.network.callback.AbstractCallBackPrototypeProxy;
+import com.tgcity.network.callback.AbstractCallBackProxy;
+import com.tgcity.network.callback.AbstractSimpleCallBackProxy;
+import com.tgcity.network.callback.AbstractSimpleCallBack;
+import com.tgcity.network.callback.AbstractSimpleType;
 import com.tgcity.network.greendao.helper.HttpKeyOperationHelper;
 import com.tgcity.network.subsciber.CallBackSubsciber;
 import com.tgcity.network.utils.CommonUtils;
@@ -62,7 +62,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
     /**
      * 用于多数据链式或并发请求
      */
-    public <T> Observable toObservable(Builder builder, SimpleType<T> simpleType) {
+    public <T> Observable toObservable(Builder builder, AbstractSimpleType<T> abstractSimpleType) {
         RxCache rxCache = rxCacheBuilder
                 .apiName(builder.apiName)
                 .requestData(builder.requestData)
@@ -70,7 +70,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
                 .build();
         Observable observable;
 
-        CallBackPrototypeProxy proxy;
+        AbstractCallBackPrototypeProxy proxy;
         if (NetworkConstant.API_SERVICE_TZY.equals(builder.extraRemark)) {
             /**
              * 因为#{@link com.eagersoft.youzy.youzy.constants.AppConstant.TZY_URL}地址下的接口返回参数是由isSuccess来判断，
@@ -78,21 +78,21 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
              */
             if (builder.httpResultFormatting) {
                 observable = builder.observable.map(new HttpResultFuncTZY<T>());
-                proxy = new CallBackProxyTZY<HttpResultTZY<T>, T>(simpleType) {
+                proxy = new AbstractSimpleCallBackProxy<HttpCommonResult<T>, T>(abstractSimpleType) {
                 };
             } else {
                 observable = builder.observable;
-                proxy = new CallBackPrototypeProxy<T, T>(simpleType) {
+                proxy = new AbstractCallBackPrototypeProxy<T, T>(abstractSimpleType) {
                 };
             }
         } else {
             if (builder.httpResultFormatting) {
                 observable = builder.observable.map(new HttpResultFunc<T>());
-                proxy = new CallBackProxy<HttpResult<T>, T>(simpleType) {
+                proxy = new AbstractCallBackProxy<HttpResult<T>, T>(abstractSimpleType) {
                 };
             } else {
                 observable = builder.observable;
-                proxy = new CallBackPrototypeProxy<T, T>(simpleType) {
+                proxy = new AbstractCallBackPrototypeProxy<T, T>(abstractSimpleType) {
                 };
             }
         }
@@ -101,11 +101,11 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
 
     }
 
-    protected <T> void toObservable(Builder builder, SimpleCallBack<T> observer) {
+    protected <T> void toObservable(Builder builder, AbstractSimpleCallBack<T> observer) {
         this.toObservable(null, builder, observer);
     }
 
-    public <T> void toObservable(LifecycleTransformer lifecycleTransformer, Builder builder, SimpleCallBack<T> observer) {
+    public <T> void toObservable(LifecycleTransformer lifecycleTransformer, Builder builder, AbstractSimpleCallBack<T> observer) {
 
         RxCache rxCache = rxCacheBuilder
                 .apiName(builder.apiName)
@@ -114,7 +114,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
                 .build();
 
         Observable observable;
-        CallBackPrototypeProxy proxy;
+        AbstractCallBackPrototypeProxy proxy;
         if (NetworkConstant.API_SERVICE_TZY.equals(builder.extraRemark)) {
             /**
              * 因为#{@link com.eagersoft.youzy.youzy.constants.AppConstant.TZY_URL}地址下的接口返回参数是由isSuccess来判断，
@@ -122,21 +122,21 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
              */
             if (builder.httpResultFormatting) {
                 observable = builder.observable.map(new HttpResultFuncTZY<T>());
-                proxy = new CallBackProxyTZY<HttpResultTZY<T>, T>(observer) {
+                proxy = new AbstractSimpleCallBackProxy<HttpCommonResult<T>, T>(observer) {
                 };
             } else {
                 observable = builder.observable;
-                proxy = new CallBackPrototypeProxy<T, T>(observer) {
+                proxy = new AbstractCallBackPrototypeProxy<T, T>(observer) {
                 };
             }
         } else {
             if (builder.httpResultFormatting) {
                 observable = builder.observable.map(new HttpResultFunc<T>());
-                proxy = new CallBackProxy<HttpResult<T>, T>(observer) {
+                proxy = new AbstractCallBackProxy<HttpResult<T>, T>(observer) {
                 };
             } else {
                 observable = builder.observable;
-                proxy = new CallBackPrototypeProxy<T, T>(observer) {
+                proxy = new AbstractCallBackPrototypeProxy<T, T>(observer) {
                 };
             }
         }
@@ -154,10 +154,10 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
      * @param <T> Subscriber真正需要的数据类型，也就是Data部分的数据类型
      */
     @SuppressWarnings("JavadocReference")
-    public static class HttpResultFuncTZY<T> implements Function<HttpResultTZY<T>, T> {
+    public static class HttpResultFuncTZY<T> implements Function<HttpCommonResult<T>, T> {
 
         @Override
-        public T apply(HttpResultTZY<T> httpResult) {
+        public T apply(HttpCommonResult<T> httpResult) {
             if (!httpResult.isSuccess()) {
                 if ("0".equals(httpResult.getCode())) {
                     throw new ApiException(httpResult.getMessage(), ErrorMode.API_VISUALIZATION_MESSAGE.setErrorContent(httpResult.getMessage()));
@@ -216,7 +216,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
         public T apply(CacheResult<T> httpResult) throws Exception {
             if (!httpResult.isFromCache) {
                 //如果不是读取的缓存添加请求记录
-                HttpKeyOperationHelper.getInstance().addkey(httpResult.apiName, httpResult.requestData);
+                HttpKeyOperationHelper.getInstance().addKey(httpResult.apiName, httpResult.requestData);
             }
             return httpResult.data;
         }
@@ -225,9 +225,10 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
     /**
      * 插入观察者
      *
-     * @param observable
-     * @param observer
-     * @param <T>
+     * @param lifecycleTransformer LifecycleTransformer
+     * @param observable Observable
+     * @param observer DisposableObserver
+     * @param <T> T
      */
     public <T> void setSubscribe(LifecycleTransformer<CacheResult<T>> lifecycleTransformer, Observable<CacheResult<T>> observable, DisposableObserver<T> observer) {
 
@@ -235,16 +236,22 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
             observable
                     .compose(lifecycleTransformer)
                     .subscribeOn(Schedulers.io())
-                    .subscribeOn(Schedulers.newThread())//子线程访问网络
-                    .observeOn(AndroidSchedulers.mainThread())//回调到主线程
-                    .map(new HttpResultFuncCache<T>())//回到主线后在map  多线程写人数据库有风险
+                    //子线程访问网络
+                    .subscribeOn(Schedulers.newThread())
+                    //回调到主线程
+                    .observeOn(AndroidSchedulers.mainThread())
+                    //回到主线后在map  多线程写人数据库有风险
+                    .map(new HttpResultFuncCache<T>())
                     .subscribe(observer);
         } else {
             observable
                     .subscribeOn(Schedulers.io())
-                    .subscribeOn(Schedulers.newThread())//子线程访问网络
-                    .observeOn(AndroidSchedulers.mainThread())//回调到主线程
-                    .map(new HttpResultFuncCache<T>())//回到主线后在map  多线程写人数据库有风险
+                    //子线程访问网络
+                    .subscribeOn(Schedulers.newThread())
+                    //回调到主线程
+                    .observeOn(AndroidSchedulers.mainThread())
+                    //回到主线后在map  多线程写人数据库有风险
+                    .map(new HttpResultFuncCache<T>())
                     .subscribe(observer);
         }
 
@@ -264,21 +271,21 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
          * 初始化
          * 默认值
          *
-         * @param observable
+         * @param observable //回到主线后在map  多线程写人数据库有风险
          */
         public Builder(Observable observable) {
             this.observable = observable;
-            this.apiName = "youzyapiname";
-            this.requestData = "youzyrequestData";
+            this.apiName = "comprehensiveapiname";
+            this.requestData = "comprehensiverequestData";
             this.cacheTime = -1;
-            this.cacheMode = CacheMode.CACHEANDREMOTEDISTINCT;
+            this.cacheMode = CacheMode.CACHE_AND_REMOTE_DISTINCT;
             this.httpResultFormatting = true;
             this.extraRemark = "";
         }
 
         /**
          * @param apiName 接口名称
-         * @return
+         * @return Builder
          */
         public Builder setApiName(String apiName) {
             this.apiName = apiName;
@@ -288,7 +295,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
 
         /**
          * @param requestDatas 传入参数
-         * @return
+         * @return Builder
          */
         public Builder setRequestData(Object... requestDatas) {
             StringBuilder stringBuilder = new StringBuilder();
@@ -301,7 +308,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
 
         /**
          * @param cacheTime 缓存有效时间  -1 永久  默认
-         * @return
+         * @return Builder
          */
         public Builder setCacheTime(long cacheTime) {
             this.cacheTime = cacheTime;
@@ -310,7 +317,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
 
         /**
          * @param cacheMode 缓存策略
-         * @return
+         * @return Builder
          */
         public Builder setCacheMode(CacheMode cacheMode) {
             this.cacheMode = cacheMode;
@@ -319,7 +326,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
 
         /**
          * @param httpResultFormatting 是否需要格式化
-         * @return
+         * @return Builder
          */
         public Builder setHttpResultFormatting(boolean httpResultFormatting) {
             this.httpResultFormatting = httpResultFormatting;
@@ -329,8 +336,8 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
         /**
          * 设置额外备注
          *
-         * @param extraRemark
-         * @return
+         * @param extraRemark String
+         * @return Builder
          */
         public Builder setExtraRemark(String extraRemark) {
             this.extraRemark = extraRemark;
