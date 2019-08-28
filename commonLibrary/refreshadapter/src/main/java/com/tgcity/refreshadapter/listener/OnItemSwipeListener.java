@@ -3,9 +3,14 @@ package com.tgcity.refreshadapter.listener;
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 
+/**
+ * @author TGCity
+ */
 public interface OnItemSwipeListener {
     /**
      * Called when the swipe action start.
+     * @param viewHolder    ViewHolder
+     * @param pos   int
      */
     void onItemSwipeStart(RecyclerView.ViewHolder viewHolder, int pos);
 
@@ -13,12 +18,16 @@ public interface OnItemSwipeListener {
      * Called when the swipe action is over.
      * If you change the view on the start, you should reset is here, no matter the item has swiped or not.
      *
+     * @param viewHolder    ViewHolder
      * @param pos If the view is swiped, pos will be negative.
+     *
      */
     void clearView(RecyclerView.ViewHolder viewHolder, int pos);
 
     /**
      * Called when item is swiped, the view is going to be removed from the adapter.
+     * @param viewHolder    ViewHolder
+     * @param pos   int
      */
     void onItemSwiped(RecyclerView.ViewHolder viewHolder, int pos);
 

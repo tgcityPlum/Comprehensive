@@ -64,11 +64,14 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 
 /**
+ * @author TGCity
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends RecyclerView.Adapter<K> {
 
-    //load more
+    /**
+     * load more
+     */
     private boolean mNextLoadEnable = false;
     private boolean mLoadMoreEnable = false;
     private boolean mSetupViewType = true;
@@ -517,7 +520,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
         recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                if (onBindDataCompleteCallBack!=null){
+                if (onBindDataCompleteCallBack != null) {
                     onBindDataCompleteCallBack.onBindDataComplete();
                 }
                 recyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(this);

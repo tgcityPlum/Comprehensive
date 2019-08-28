@@ -7,8 +7,8 @@ import android.view.View;
 import com.tgcity.refreshadapter.BaseViewHolder;
 
 /**
+ * @author TGCity
  * 本回调是为了解决参数常量化的问题
- * Created by Administrator on 2019/3/4.
  */
 
 @SuppressWarnings("ALL")
@@ -61,7 +61,6 @@ public class OnTouchCallBack<T, K extends BaseViewHolder> implements View.OnTouc
     public boolean onTouch(View v, MotionEvent event) {
         return onTouch == null ? false : onTouch.onTouch(viewId, helper, item,event);
     }
-
 
     public interface OnTouch<T, K extends BaseViewHolder> {
         boolean onTouch(@IdRes int viewId, K helper, T item, MotionEvent event);

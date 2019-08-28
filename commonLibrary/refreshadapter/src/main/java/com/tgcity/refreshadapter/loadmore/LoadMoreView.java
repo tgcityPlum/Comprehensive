@@ -6,6 +6,7 @@ import android.support.annotation.LayoutRes;
 import com.tgcity.refreshadapter.BaseViewHolder;
 
 /**
+ * @author TGCity
  * 基类，负责切换各种状态
  */
 
@@ -49,6 +50,8 @@ public abstract class LoadMoreView {
                 visibleLoadFail(holder, false);
                 visibleLoadEnd(holder, false);
                 break;
+            default:
+                break;
         }
     }
 
@@ -82,7 +85,6 @@ public abstract class LoadMoreView {
      * No more data is hidden
      *
      * @return true for no more data hidden load more
-     * @deprecated Use {@link BaseQuickAdapter#loadMoreEnd(boolean)} instead.
      */
     @Deprecated
     public boolean isLoadEndGone() {
@@ -92,7 +94,7 @@ public abstract class LoadMoreView {
     /**
      * load more layout
      *
-     * @return
+     * @return int
      */
     public abstract
     @LayoutRes
@@ -101,7 +103,7 @@ public abstract class LoadMoreView {
     /**
      * loading view
      *
-     * @return
+     * @return int
      */
     protected abstract
     @IdRes
@@ -110,7 +112,7 @@ public abstract class LoadMoreView {
     /**
      * load fail view
      *
-     * @return
+     * @return int
      */
     protected abstract
     @IdRes
@@ -119,7 +121,7 @@ public abstract class LoadMoreView {
     /**
      * load end view, you can return 0
      *
-     * @return
+     * @return int
      */
     protected abstract
     @IdRes

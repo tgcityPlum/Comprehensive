@@ -14,6 +14,9 @@ import com.tgcity.refreshadapter.listener.OnItemSwipeListener;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author TGCity
+ */
 public abstract class BaseItemDraggableAdapter<T, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {
 
     private static final int NO_TOGGLE_VIEW = 0;
@@ -158,7 +161,7 @@ public abstract class BaseItemDraggableAdapter<T, K extends BaseViewHolder> exte
 
     /**
      * <p>Enable swipe items.</p>
-     * You should attach {@link ItemTouchHelper} which construct with {@link ItemDragAndSwipeCallback} to the Recycler when you enable this.
+     * You should attach {@link ItemTouchHelper} which construct with {@link } to the Recycler when you enable this.
      */
     public void enableSwipeItem() {
         itemSwipeEnabled = true;

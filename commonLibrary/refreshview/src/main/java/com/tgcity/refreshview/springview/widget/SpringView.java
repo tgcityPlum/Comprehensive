@@ -16,10 +16,10 @@ import android.widget.OverScroller;
 import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.base.network.retrofit.ApiException;
 import com.tgcity.refreshview.R;
-import com.tgcity.refreshview.springview.listener.AppBarStateChangeListener;
+import com.tgcity.refreshview.springview.listener.AbstractAppBarStateChangeListener;
 
 /**
- * Created by liaoinstan on 2016/3/11.
+ * @author TGCity
  */
 @SuppressWarnings("ALL")
 public class SpringView extends ViewGroup {
@@ -87,7 +87,7 @@ public class SpringView extends ViewGroup {
 
 
     //记录AppBarLayout的当前状态（展开或折叠）
-    private AppBarStateChangeListener.State appbarState = AppBarStateChangeListener.State.EXPANDED;
+    private AbstractAppBarStateChangeListener.State appbarState = AbstractAppBarStateChangeListener.State.EXPANDED;
     private boolean appBarCouldScroll = false;
 
     public void clear() {
@@ -159,7 +159,7 @@ public class SpringView extends ViewGroup {
         AppBarLayout appBarLayout = SpringHelper.findAppBarLayout(this);
         appBarCouldScroll = SpringHelper.couldScroll(appBarLayout);
         if (appBarLayout != null) {
-            appBarLayout.addOnOffsetChangedListener(new AppBarStateChangeListener() {
+            appBarLayout.addOnOffsetChangedListener(new AbstractAppBarStateChangeListener() {
                 @Override
                 public void onStateChanged(AppBarLayout appBarLayout, State state) {
                     appbarState = state;
@@ -245,7 +245,9 @@ public class SpringView extends ViewGroup {
         if (headerHander != null) {
             //设置下拉最大高度，只有在>0时才生效，否则使用默认值
             int xh = headerHander.getDragMaxHeight(header);
-            if (xh > 0) MAX_HEADER_PULL_HEIGHT = xh;
+            if (xh > 0) {
+                MAX_HEADER_PULL_HEIGHT = xh;
+            }
             //设置下拉临界高度，只有在>0时才生效，否则默认为header的高度
             int h = headerHander.getDragLimitHeight(header);
             HEADER_LIMIT_HEIGHT = h > 0 ? h : header.getMeasuredHeight();
@@ -254,19 +256,25 @@ public class SpringView extends ViewGroup {
             HEADER_SPRING_HEIGHT = sh > 0 ? sh : HEADER_LIMIT_HEIGHT;
         } else {
             //不是动态设置的头部，设置默认值
-            if (header != null) HEADER_LIMIT_HEIGHT = header.getMeasuredHeight();
+            if (header != null) {
+                HEADER_LIMIT_HEIGHT = header.getMeasuredHeight();
+            }
             HEADER_SPRING_HEIGHT = HEADER_LIMIT_HEIGHT;
         }
         //设置尾部参数，和上面一样
         if (footerHander != null) {
             int xh = footerHander.getDragMaxHeight(footer);
-            if (xh > 0) MAX_FOOTER_PULL_HEIGHT = xh;
+            if (xh > 0) {
+                MAX_FOOTER_PULL_HEIGHT = xh;
+            }
             int h = footerHander.getDragLimitHeight(footer);
             FOOTER_LIMIT_HEIGHT = h > 0 ? h : footer.getMeasuredHeight();
             int sh = footerHander.getDragSpringHeight(footer);
             FOOTER_SPRING_HEIGHT = sh > 0 ? sh : FOOTER_LIMIT_HEIGHT;
         } else {
-            if (footer != null) FOOTER_LIMIT_HEIGHT = footer.getMeasuredHeight();
+            if (footer != null) {
+                FOOTER_LIMIT_HEIGHT = footer.getMeasuredHeight();
+            }
             FOOTER_SPRING_HEIGHT = FOOTER_LIMIT_HEIGHT;
         }
         setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
@@ -288,8 +296,12 @@ public class SpringView extends ViewGroup {
                 contentLay.bringToFront();
             } else if (type == Type.DRAG) {
                 //drag模式需要把头尾部分放在最前端
-                if (header != null) header.bringToFront();
-                if (footer != null) footer.bringToFront();
+                if (header != null) {
+                    header.bringToFront();
+                }
+                if (footer != null) {
+                    footer.bringToFront();
+                }
             }
         }
     }
@@ -320,14 +332,14 @@ public class SpringView extends ViewGroup {
                 //TODO:列表不满一屏的时候存在拖拽粘滞的情况，有待优化，主要问题是如何将springView已经得到的事件传递给Appbar？
                 if (appBarCouldScroll) {
                     if (isTop && isBottom) {
-                        if (appbarState == AppBarStateChangeListener.State.EXPANDED && dy < 0) {
+                        if (appbarState == AbstractAppBarStateChangeListener.State.EXPANDED && dy < 0) {
                             break;
-                        } else if (appbarState == AppBarStateChangeListener.State.COLLAPSED && dy > 0) {
+                        } else if (appbarState == AbstractAppBarStateChangeListener.State.COLLAPSED && dy > 0) {
                             break;
                         }
                     }
                     //appBarLayout处于展开状态 || appBarLayout处于折叠状态并且手势上向上拉，则SpirngView处理滑动事件，否则不处理
-                    if (appbarState == AppBarStateChangeListener.State.EXPANDED || appbarState == AppBarStateChangeListener.State.COLLAPSED && dy < 0) {
+                    if (appbarState == AbstractAppBarStateChangeListener.State.EXPANDED || appbarState == AbstractAppBarStateChangeListener.State.COLLAPSED && dy < 0) {
                     } else {
                         break;
                     }
@@ -379,15 +391,19 @@ public class SpringView extends ViewGroup {
                     doMove();
                     //下拉的时候显示header并隐藏footer，上拉的时候相反
                     if (isTop()) {
-                        if (header != null && header.getVisibility() != View.VISIBLE)
+                        if (header != null && header.getVisibility() != View.VISIBLE) {
                             header.setVisibility(View.VISIBLE);
-                        if (footer != null && footer.getVisibility() != View.INVISIBLE)
+                        }
+                        if (footer != null && footer.getVisibility() != View.INVISIBLE) {
                             footer.setVisibility(View.INVISIBLE);
+                        }
                     } else if (isBottom()) {
-                        if (header != null && header.getVisibility() != View.INVISIBLE)
+                        if (header != null && header.getVisibility() != View.INVISIBLE) {
                             header.setVisibility(View.INVISIBLE);
-                        if (footer != null && footer.getVisibility() != View.VISIBLE)
+                        }
+                        if (footer != null && footer.getVisibility() != View.VISIBLE) {
                             footer.setVisibility(View.VISIBLE);
+                        }
                     }
                     if (dy > EXCEPTION_REFRESH) {
                         //初始化布局
@@ -484,7 +500,9 @@ public class SpringView extends ViewGroup {
 
     //执行位移操作
     private void doMove() {
-        if (!mScroller.isFinished()) mScroller.forceFinished(true);
+        if (!mScroller.isFinished()) {
+            mScroller.forceFinished(true);
+        }
         //根据下拉高度计算位移距离，（越拉越慢）
         int movedy;
         if (dy > 0) {
@@ -495,45 +513,73 @@ public class SpringView extends ViewGroup {
         scrollBy(0, (int) (-movedy));
 
         if (type == Type.OVERLAP) {
-            if (footer != null) footer.setTranslationY(-footer.getHeight() + getScrollY());
-            if (header != null) header.setTranslationY(header.getHeight() + getScrollY());
+            if (footer != null) {
+                footer.setTranslationY(-footer.getHeight() + getScrollY());
+            }
+            if (header != null) {
+                header.setTranslationY(header.getHeight() + getScrollY());
+            }
         } else if (type == Type.DRAG) {
-            if (contentLay != null) contentLay.setTranslationY(getScrollY());
+            if (contentLay != null) {
+                contentLay.setTranslationY(getScrollY());
+            }
         }
     }
 
     //回调自定义header/footer callonFingerRemoval接口
     private void callonFingerRemoval() {
-        if (headerHander != null) headerHander.onFingerRemoval(header);
-        if (footerHander != null) footerHander.onFingerRemoval(footer);
+        if (headerHander != null) {
+            headerHander.onFingerRemoval(header);
+        }
+        if (footerHander != null) {
+            footerHander.onFingerRemoval(footer);
+        }
     }
 
     //回调自动以header/footer callFinishResetAnim接口
     private void callFinishResetAnim() {
-        if (headerHander != null) headerHander.onFinishResetAnim();
-        if (footerHander != null) footerHander.onFinishResetAnim();
+        if (headerHander != null) {
+            headerHander.onFinishResetAnim();
+        }
+        if (footerHander != null) {
+            footerHander.onFinishResetAnim();
+        }
     }
 
     //回调自定义header/footer OnDropAnim接口
     private void callOnDropAnim() {
-        if (getScrollY() < 0)
-            if (headerHander != null) headerHander.onDropAnim(header, -getScrollY());
-        if (getScrollY() > 0)
-            if (footerHander != null) footerHander.onDropAnim(footer, -getScrollY());
+        if (getScrollY() < 0) {
+            if (headerHander != null) {
+                headerHander.onDropAnim(header, -getScrollY());
+            }
+        }
+        if (getScrollY() > 0) {
+            if (footerHander != null) {
+                footerHander.onDropAnim(footer, -getScrollY());
+            }
+        }
     }
 
     private boolean _firstDrag = true;
 
     //回调自定义header/footer OnPreMove接口
     private void onPreMove() {
-        if (headerHander != null) headerHander.onPreMove(header);
-        if (footerHander != null) footerHander.onPreMove(footer);
+        if (headerHander != null) {
+            headerHander.onPreMove(header);
+        }
+        if (footerHander != null) {
+            footerHander.onPreMove(footer);
+        }
     }
 
     //回调自定义header/footer onMoving接口
     private void onMoving() {
-        if (headerHander != null) headerHander.onMoving();
-        if (footerHander != null) footerHander.onMoving();
+        if (headerHander != null) {
+            headerHander.onMoving();
+        }
+        if (footerHander != null) {
+            footerHander.onMoving();
+        }
     }
 
 
@@ -541,13 +587,21 @@ public class SpringView extends ViewGroup {
     private void callOnPreDrag() {
         if (_firstDrag) {
             if (isTop()) {
-                if (listener != null) listener.onPreDrag(true);
-                if (headerHander != null) headerHander.onPreDrag(header);
+                if (listener != null) {
+                    listener.onPreDrag(true);
+                }
+                if (headerHander != null) {
+                    headerHander.onPreDrag(header);
+                }
 
                 _firstDrag = false;
             } else if (isBottom()) {
-                if (listener != null) listener.onPreDrag(false);
-                if (footerHander != null) footerHander.onPreDrag(footer);
+                if (listener != null) {
+                    listener.onPreDrag(false);
+                }
+                if (footerHander != null) {
+                    footerHander.onPreDrag(footer);
+                }
                 _firstDrag = false;
             }
         }
@@ -559,16 +613,24 @@ public class SpringView extends ViewGroup {
         if (scrollY < 0) {
             //下拉
             if (Math.abs(scrollY) >= HEADER_LIMIT_HEIGHT && Math.abs(lastScrollY) < HEADER_LIMIT_HEIGHT) {
-                if (headerHander != null) headerHander.onLimitDes(header, false);
+                if (headerHander != null) {
+                    headerHander.onLimitDes(header, false);
+                }
             } else if (Math.abs(scrollY) <= HEADER_LIMIT_HEIGHT && Math.abs(lastScrollY) > HEADER_LIMIT_HEIGHT) {
-                if (headerHander != null) headerHander.onLimitDes(header, true);
+                if (headerHander != null) {
+                    headerHander.onLimitDes(header, true);
+                }
             }
         } else {
             //上拉
             if (Math.abs(scrollY) >= HEADER_LIMIT_HEIGHT && Math.abs(lastScrollY) < HEADER_LIMIT_HEIGHT) {
-                if (footerHander != null) footerHander.onLimitDes(header, true);
+                if (footerHander != null) {
+                    footerHander.onLimitDes(header, true);
+                }
             } else if (Math.abs(scrollY) <= HEADER_LIMIT_HEIGHT && Math.abs(lastScrollY) > HEADER_LIMIT_HEIGHT) {
-                if (footerHander != null) footerHander.onLimitDes(header, false);
+                if (footerHander != null) {
+                    footerHander.onLimitDes(header, false);
+                }
             }
         }
         lastScrollY = scrollY;
@@ -581,10 +643,16 @@ public class SpringView extends ViewGroup {
             lastScrollY = getScrollY();
             callOnDropAnim();
             if (type == Type.OVERLAP) {
-                if (header != null) header.setTranslationY(header.getHeight() + getScrollY());
-                if (footer != null) footer.setTranslationY(-footer.getHeight() + getScrollY());
+                if (header != null) {
+                    header.setTranslationY(header.getHeight() + getScrollY());
+                }
+                if (footer != null) {
+                    footer.setTranslationY(-footer.getHeight() + getScrollY());
+                }
             } else if (type == Type.DRAG) {
-                if (contentLay != null) contentLay.setTranslationY(getScrollY());
+                if (contentLay != null) {
+                    contentLay.setTranslationY(getScrollY());
+                }
             }
             invalidate();
         }
@@ -708,12 +776,16 @@ public class SpringView extends ViewGroup {
     private void callOnFinishAnim() {
         if (callFreshORload != 0) {
             if (callFreshORload == 1) {
-                if (headerHander != null) headerHander.onFinishAnim();
+                if (headerHander != null) {
+                    headerHander.onFinishAnim();
+                }
                 if (give == Give.BOTTOM || give == Give.NONE) {
                     listener.onRefresh();
                 }
             } else if (callFreshORload == 2) {
-                if (footerHander != null) footerHander.onFinishAnim();
+                if (footerHander != null) {
+                    footerHander.onFinishAnim();
+                }
                 if (give == Give.TOP || give == Give.NONE) {
                     if (!isLoadingMore) {
                         isLoadingMore = true;
@@ -748,7 +820,9 @@ public class SpringView extends ViewGroup {
         hasCallRefresh = false;
         callFreshORload = 1;
         needResetAnim = true;
-        if (headerHander != null) headerHander.onStartAnim();
+        if (headerHander != null) {
+            headerHander.onStartAnim();
+        }
         mScroller.startScroll(0, getScrollY(), 0, -getScrollY() - HEADER_SPRING_HEIGHT, MOVE_TIME);
         invalidate();
     }
@@ -762,16 +836,18 @@ public class SpringView extends ViewGroup {
         } else {
             if (isTopOverLimit()) {
                 callFreshORload();
-                if (give == Give.BOTH || give == Give.TOP)
+                if (give == Give.BOTH || give == Give.TOP) {
                     resetRefreshPosition();
-                else
+                } else{
                     resetPosition();
+                }
             } else if (isBottomOverLimit()) {
                 callFreshORload();
-                if (give == Give.BOTH || give == Give.BOTTOM)
+                if (give == Give.BOTH || give == Give.BOTTOM){
                     resetRefreshPosition();
-                else
+                }else{
                     resetPosition();
+                }
             } else {
                 resetPosition();
             }
@@ -781,10 +857,14 @@ public class SpringView extends ViewGroup {
     private void callFreshORload() {
         if (isTop()) {  //下拉
             callFreshORload = 1;
-            if (headerHander != null) headerHander.onStartAnim();
+            if (headerHander != null) {
+                headerHander.onStartAnim();
+            }
         } else if (isBottom()) {
             callFreshORload = 2;
-            if (footerHander != null) footerHander.onStartAnim();
+            if (footerHander != null) {
+                footerHander.onStartAnim();
+            }
         }
     }
 
@@ -845,8 +925,12 @@ public class SpringView extends ViewGroup {
         this.type = type;
         requestLayout();
         needChange = false;
-        if (header != null) header.setTranslationY(0);
-        if (footer != null) footer.setTranslationY(0);
+        if (header != null) {
+            header.setTranslationY(0);
+        }
+        if (footer != null){
+            footer.setTranslationY(0);
+        }
     }
 
     //#############################################

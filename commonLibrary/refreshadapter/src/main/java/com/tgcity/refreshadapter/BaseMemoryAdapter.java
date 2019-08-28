@@ -9,8 +9,8 @@ import com.tgcity.base.utils.imageloader.ImageHelper;
 import java.util.List;
 
 /**
+ * @author TGCity
  * 本层专门处理适配器内存占用
- * Created by Administrator on 2019/2/21.
  */
 
 public abstract class BaseMemoryAdapter<T, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {
@@ -28,7 +28,8 @@ public abstract class BaseMemoryAdapter<T, K extends BaseViewHolder> extends Bas
                 case RecyclerView.SCROLL_STATE_SETTLING:
                     ImageHelper.pause(BaseApplication.getInstances().getApplicationContext());
                     break;
-
+                default:
+                    break;
             }
         }
 
@@ -54,15 +55,14 @@ public abstract class BaseMemoryAdapter<T, K extends BaseViewHolder> extends Bas
     /**
      * 清理垃圾
      */
-    public void clear(){
+    @Override
+    public void clear() {
         super.clear();
         if (getRecyclerView() != null) {
             getRecyclerView().removeOnScrollListener(onScrollListener);
         }
         onScrollListener = null;
     }
-
-
 
 
 }

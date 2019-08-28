@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 
 import com.tgcity.refreshadapter.entity.IExpandable;
 import com.tgcity.refreshadapter.entity.MultiItemEntity;
-import com.tgcity.refreshadapter.entity.SectionMultiEntity;
+import com.tgcity.refreshadapter.entity.AbstractSectionMultiEntity;
 
 import java.util.List;
 
 /**
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
-public abstract class BaseSectionMultiItemQuickAdapter<T extends SectionMultiEntity, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {
+public abstract class BaseSectionMultiItemQuickAdapter<T extends AbstractSectionMultiEntity, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {
 
     /**
      * layouts indexed with their types

@@ -9,6 +9,9 @@ import com.tgcity.refreshadapter.BaseItemDraggableAdapter;
 import com.tgcity.refreshadapter.BaseQuickAdapter;
 import com.tgcity.refreshadapter.R;
 
+/**
+ * @author TGCity
+ */
 public class ItemDragAndSwipeCallback extends ItemTouchHelper.Callback {
 
 //    private static final String TAG = ItemDragAndSwipeCallback.class.getSimpleName();

@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author TGCity
  * 本层存在的目的是原库中未对监听事件做复用处理而导致了无端的内存消耗，故本层使用view的tag绑定使监听对象绑定到对应的view中，从而达到一个监听对象复用的目的
- * Created by Administrator on 2019/2/21.
  */
 
 @SuppressWarnings("ALL")
@@ -39,6 +39,7 @@ public abstract class BaseListenerEventAdapter<T, K extends BaseViewHolder> exte
     /**
      * 清理垃圾
      */
+    @Override
     public void clear() {
         super.clear();
         if (viewList != null) {

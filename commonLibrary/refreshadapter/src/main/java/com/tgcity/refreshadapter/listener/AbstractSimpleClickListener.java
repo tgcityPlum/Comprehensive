@@ -21,14 +21,15 @@ import static com.tgcity.refreshadapter.BaseQuickAdapter.LOADING_VIEW;
 
 /**
  * This can be useful for applications that wish to implement various forms of click and longclick and childView click
- * manipulation of item views within the RecyclerView. SimpleClickListener may intercept
- * a touch interaction already in progress even if the SimpleClickListener is already handling that
+ * manipulation of item views within the RecyclerView. AbstractSimpleClickListener may intercept
+ * a touch interaction already in progress even if the AbstractSimpleClickListener is already handling that
  * gesture stream itself for the purposes of scrolling.
  *
+ * @author TGCit
  * @see RecyclerView.OnItemTouchListener
  */
-public abstract class SimpleClickListener implements RecyclerView.OnItemTouchListener {
-    public static String TAG = "SimpleClickListener";
+public abstract class AbstractSimpleClickListener implements RecyclerView.OnItemTouchListener {
+    public static String TAG = "AbstractSimpleClickListener";
 
     private GestureDetectorCompat mGestureDetector;
     private RecyclerView recyclerView;

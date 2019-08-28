@@ -9,6 +9,7 @@ import static com.tgcity.refreshadapter.BaseMultiItemQuickAdapter.TYPE_NOT_FOUND
 
 
 /**
+ * @author TGCity
  * help you to achieve multi type easily
  * more information: https://github.com/CymChad/BaseRecyclerViewAdapterHelper/issues/968
  */

@@ -2,6 +2,9 @@ package com.tgcity.refreshadapter.loadmore;
 
 import com.tgcity.refreshadapter.R;
 
+/**
+ * @author TGCity
+ */
 public final class SimpleLoadMoreView extends LoadMoreView {
 
     @Override

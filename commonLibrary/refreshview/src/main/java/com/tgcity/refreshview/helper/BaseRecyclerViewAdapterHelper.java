@@ -13,12 +13,17 @@ import com.tgcity.refreshadapter.listener.OnItemSwipeListener;
 import com.tgcity.refreshadapter.loadmore.LoadMoreView;
 
 /**
+ * @author TGCity
  * 为了方便起见参考BaseRecyclerViewAdapter官方文档做了个常用功能的一键调用,方便统一管理
  * https://www.jianshu.com/p/b343fcff51b0
  */
 
 public class BaseRecyclerViewAdapterHelper {
-    private static BaseRecyclerViewAdapterHelper mInstance; //单例
+
+    /**
+     * 单例
+     */
+    private static BaseRecyclerViewAdapterHelper mInstance;
 
     public static BaseRecyclerViewAdapterHelper getInstance() {
         if (mInstance == null) {

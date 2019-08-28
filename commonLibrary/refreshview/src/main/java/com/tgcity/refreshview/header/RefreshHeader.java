@@ -21,7 +21,7 @@ import com.tgcity.refreshview.springview.container.BaseHeader;
 import com.tgcity.refreshview.springview.widget.SpringView;
 
 /**
- * Created by Administrator on 2016/3/21.
+ * @author TGCity
  */
 public class RefreshHeader extends BaseHeader {
     private Context context;

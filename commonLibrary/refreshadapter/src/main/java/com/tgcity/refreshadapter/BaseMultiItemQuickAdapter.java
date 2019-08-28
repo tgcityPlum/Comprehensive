@@ -11,6 +11,7 @@ import com.tgcity.refreshadapter.entity.MultiItemEntity;
 import java.util.List;
 
 /**
+ * @author TGCity
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public abstract class BaseMultiItemQuickAdapter<T extends MultiItemEntity, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {

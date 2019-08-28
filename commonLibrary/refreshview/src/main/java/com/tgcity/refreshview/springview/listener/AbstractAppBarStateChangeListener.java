@@ -3,12 +3,15 @@ package com.tgcity.refreshview.springview.listener;
 import android.support.design.widget.AppBarLayout;
 
 /**
- * thanks jianghejie
+ * @author TGCity
  */
 
-public abstract class AppBarStateChangeListener implements AppBarLayout.OnOffsetChangedListener {
+public abstract class AbstractAppBarStateChangeListener implements AppBarLayout.OnOffsetChangedListener {
 
     public enum State {
+        /**
+         *  EXPANDED  COLLAPSED  IDLE
+         */
         EXPANDED,
         COLLAPSED,
         IDLE
@@ -36,6 +39,11 @@ public abstract class AppBarStateChangeListener implements AppBarLayout.OnOffset
         }
     }
 
+    /**
+     * onStateChanged
+     * @param appBarLayout  AppBarLayout
+     * @param state State
+     */
     public abstract void onStateChanged(AppBarLayout appBarLayout, State state);
 }
 

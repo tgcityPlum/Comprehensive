@@ -13,7 +13,7 @@ import com.tgcity.refreshview.R;
 import com.tgcity.refreshview.springview.widget.SpringView;
 
 /**
- * Created by Administrator on 2016/3/21.
+ * @author TGCity
  */
 public class DefaultFooter extends BaseFooter {
     private Context context;

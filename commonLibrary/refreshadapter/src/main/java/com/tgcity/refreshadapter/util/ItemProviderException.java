@@ -1,6 +1,7 @@
 package com.tgcity.refreshadapter.util;
 
 /**
+ * @author TGCity
  * @description: ItemProviderException
  */
 

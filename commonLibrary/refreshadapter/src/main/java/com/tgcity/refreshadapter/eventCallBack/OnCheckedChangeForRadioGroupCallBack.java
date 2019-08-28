@@ -6,8 +6,8 @@ import android.widget.RadioGroup;
 import com.tgcity.refreshadapter.BaseViewHolder;
 
 /**
+ * @author TGCity
  * 本回调是为了解决参数常量化的问题
- * Created by Administrator on 2019/3/4.
  */
 
 @SuppressWarnings("ALL")
@@ -64,6 +64,14 @@ public class OnCheckedChangeForRadioGroupCallBack<T, K extends BaseViewHolder> i
     }
 
     public interface OnCheckedChange<T, K extends BaseViewHolder> {
+
+        /**
+         * onCheckedChange
+         * @param viewId    int
+         * @param helper    K
+         * @param item      T
+         * @param checkedId int
+         */
         void onCheckedChange(@IdRes int viewId, K helper, T item, int checkedId);
     }
 }

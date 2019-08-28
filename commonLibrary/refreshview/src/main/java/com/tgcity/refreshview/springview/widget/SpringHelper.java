@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 
 /**
- * Created by liaoinstan on 2017/8/15.
+ * @author TGCity
  * 为处理SpringView中的一些逻辑提供的帮助类
  */
 
@@ -46,9 +46,15 @@ class SpringHelper {
         return appBarLayout;
     }
 
-    //检查appBarLayout是否可以滚动
+    /**
+     * 检查appBarLayout是否可以滚动
+     * @param appBarLayout  AppBarLayout
+     * @return  boolean
+     */
     public static boolean couldScroll(AppBarLayout appBarLayout) {
-        if (appBarLayout == null) return false;
+        if (appBarLayout == null){
+            return false;
+        }
         boolean couldScroll = false;
         for (int i = 0; i < appBarLayout.getChildCount(); i++) {
             View child = appBarLayout.getChildAt(i);
@@ -75,7 +81,11 @@ class SpringHelper {
         }
     }
 
-    //检查当前View是否是可以滚动的View（限定垂直方向）
+    /**
+     * 检查当前View是否是可以滚动的View（限定垂直方向）
+     * @param view  View
+     * @return  boolean
+     */
     public static boolean isViewCouldScroll(View view) {
         //如果是以下的view ,则直接返回true
         if (view instanceof ListView
@@ -90,7 +100,11 @@ class SpringHelper {
         }
     }
 
-    //递归查找当前view和所有子view，找到可滚动的view，找不到则返回null
+    /**
+     * 递归查找当前view和所有子view，找到可滚动的view，找不到则返回null
+     * @param view  View
+     * @return  View
+     */
     public static View findViewCouldScroll(View view) {
         if (isViewCouldScroll(view)) {
             return view;

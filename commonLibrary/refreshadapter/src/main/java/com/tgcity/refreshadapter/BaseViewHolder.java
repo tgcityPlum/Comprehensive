@@ -44,6 +44,7 @@ import java.util.Set;
 
 
 /**
+ * @author TGCity
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public class BaseViewHolder extends RecyclerView.ViewHolder {

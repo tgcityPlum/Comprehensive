@@ -18,6 +18,7 @@ import com.tgcity.refreshview.springview.widget.SpringView;
 import java.util.List;
 
 /**
+ * @author TGCity
  * 刷新工具类
  */
 public class RefreshViewUtils {

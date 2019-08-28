@@ -6,6 +6,7 @@ import android.view.View;
 
 
 /**
+ * @author TGCity
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public class ScaleInAnimation implements BaseAnimation {

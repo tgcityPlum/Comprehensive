@@ -5,6 +5,7 @@ import android.view.View;
 import com.tgcity.refreshview.springview.widget.SpringView;
 
 /**
+ * @author TGCity
  * 这个类为所有尾部的虚基类，实现自定义的尾巴需继承自该类
  * 该类实现了SpringView.DragHander接口，为3个高度接口提供了默认的返回值
  */

@@ -15,12 +15,20 @@ import com.tgcity.base.network.cache.model.ErrorMode;
 import com.tgcity.refreshview.R;
 import com.tgcity.refreshview.springview.widget.SpringView;
 
+/**
+ * @author TGCity
+ *
+ */
 public class DefaultHeader extends BaseHeader {
     private Context context;
     private int rotationSrc;
     private int arrowSrc;
 
-    private boolean isRefresh;//是否处于刷新状态（判定规则：当手指触摸到控件并准备向下拖动的时候就开始算刷新状态，当手指放开且刷新动画运行完毕的时候则不在刷新状态）
+    /**
+     * 是否处于刷新状态（判定规则：当手指触摸到控件并准备向下拖动的时候就开始算刷新状态，
+     * 当手指放开且刷新动画运行完毕的时候则不在刷新状态）
+     */
+    private boolean isRefresh;
     private long freshTime;
 
     private  int ROTATE_ANIM_DURATION = 180;
@@ -91,10 +99,10 @@ public class DefaultHeader extends BaseHeader {
     @Override
     public View getView(LayoutInflater inflater, ViewGroup viewGroup) {
         View view = inflater.inflate(R.layout.default_header, viewGroup, true);
-        headerTitle = (TextView) view.findViewById(R.id.default_header_title);
-        headerTime = (TextView) view.findViewById(R.id.default_header_time);
-        headerArrow = (ImageView) view.findViewById(R.id.default_header_arrow);
-        headerProgressbar = (ProgressBar) view.findViewById(R.id.default_header_progressbar);
+        headerTitle = view.findViewById(R.id.default_header_title);
+        headerTime = view.findViewById(R.id.default_header_time);
+        headerArrow = view.findViewById(R.id.default_header_arrow);
+        headerProgressbar = view.findViewById(R.id.default_header_progressbar);
 
         headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
         headerArrow.setImageResource(arrowSrc);
@@ -158,7 +166,9 @@ public class DefaultHeader extends BaseHeader {
         headerTitle.setText("下拉刷新");
         headerArrow.setVisibility(View.VISIBLE);
         headerProgressbar.setVisibility(View.INVISIBLE);
-        if (onChangeListener != null) onChangeListener.onFinishAnim();
+        if (onChangeListener != null){
+            onChangeListener.onFinishAnim();
+        }
     }
 
     @Override

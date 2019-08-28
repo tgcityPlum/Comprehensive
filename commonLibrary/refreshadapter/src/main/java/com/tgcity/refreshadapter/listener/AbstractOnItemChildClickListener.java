@@ -5,12 +5,13 @@ import android.view.View;
 import com.tgcity.refreshadapter.BaseQuickAdapter;
 
 /**
- * A convenience class to extend when you only want to OnItemChildClickListener for a subset
- * of all the SimpleClickListener. This implements all methods in the
- * {@link SimpleClickListener}
- **/
+ * @author TGCity
+ * A convenience class to extend when you only want to AbstractOnItemChildClickListener for a subset
+ * of all the AbstractSimpleClickListener. This implements all methods in the
+ * {@link AbstractSimpleClickListener}
+ */
 
-public abstract class OnItemChildClickListener extends SimpleClickListener {
+public abstract class AbstractOnItemChildClickListener extends AbstractSimpleClickListener {
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 
@@ -31,5 +32,11 @@ public abstract class OnItemChildClickListener extends SimpleClickListener {
 
     }
 
+    /**
+     * onSimpleItemChildClick
+     * @param adapter   BaseQuickAdapter
+     * @param view      View
+     * @param position  int
+     */
     public abstract void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position);
 }

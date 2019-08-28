@@ -5,6 +5,7 @@ import android.util.SparseArray;
 import com.tgcity.refreshadapter.provider.BaseItemProvider;
 
 /**
+ * @author TGCity
  * https://github.com/chaychan
  */
 

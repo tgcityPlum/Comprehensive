@@ -6,9 +6,11 @@ import android.view.View;
 
 
 /**
+ * @author TGCity
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public class SlideInBottomAnimation implements BaseAnimation {
+
     @Override
     public Animator[] getAnimators(View view) {
         return new Animator[]{

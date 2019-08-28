@@ -1,7 +1,7 @@
 package com.tgcity.refreshview.helper;
 
 /**
- * Created by Administrator on 2019/2/21.
+ * @author TGCity
  */
 
 public class RefreshViewConstant {
@@ -12,6 +12,9 @@ public class RefreshViewConstant {
 
     public static enum AdapterStatus {
 
+        /**
+         * complete
+         */
         complete,
         fail,
         noMore

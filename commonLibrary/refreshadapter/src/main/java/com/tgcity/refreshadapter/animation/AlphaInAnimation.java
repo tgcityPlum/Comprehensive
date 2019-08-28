@@ -7,6 +7,7 @@ import android.view.View;
 
 /**
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+ * @author TGCity
  */
 public class AlphaInAnimation implements BaseAnimation {
     private static final float DEFAULT_ALPHA_FROM = 0f;

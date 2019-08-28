@@ -2,6 +2,9 @@ package com.tgcity.refreshadapter.util;
 
 import android.view.MotionEvent;
 
+/**
+ * @author TGCity
+ */
 public class TouchEventUtil {
 
     public static String getTouchAction(int actionId) {
@@ -21,6 +24,8 @@ public class TouchEventUtil {
                 break;
             case MotionEvent.ACTION_OUTSIDE:
                 actionName = "ACTION_OUTSIDE";
+                break;
+            default:
                 break;
         }
         return actionName;
