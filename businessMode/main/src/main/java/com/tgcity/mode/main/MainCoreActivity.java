@@ -1,4 +1,4 @@
-package com.tgcity.main;
+package com.tgcity.mode.main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,9 +10,8 @@ import android.text.TextUtils;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.activity.BaseCommonActivity;
-import com.tgcity.base.constant.ARouteConstant;
-import com.tgcity.mian.R;
-import com.tgcity.mode.index.HomeFragment;
+import com.tgcity.base.constant.RouteConstant;
+import com.tgcity.mode.home.index.HomeFragment;
 import com.tgcity.mode.news.testfragment.NewsFragment;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * main模块--主页
  */
-@Route(path = ARouteConstant.MainMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.MainMode.MAIN_FRAGMENT)
 public class MainCoreActivity extends BaseCommonActivity {
     //底部列表控件
     private RecyclerView mRvBottom;
@@ -117,19 +116,19 @@ public class MainCoreActivity extends BaseCommonActivity {
     private List<TabTitle> getBottomSetting() {
         //本来这里应该要读取配置文件，然后配置文字和颜色，还有图标,暂时写死
         titleObjectList.add(new TabTitle(
-                ARouteConstant.HomeMode.MAIN_FRAGMENT,
+                RouteConstant.HomeMode.MAIN_FRAGMENT,
                 R.string.tag_name_tab3,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab1, R.mipmap.a_tabbar_home_p)));
 
         titleObjectList.add(new TabTitle(
-                ARouteConstant.NewsMode.MAIN_FRAGMENT,
+                RouteConstant.NewsMode.MAIN_FRAGMENT,
                 R.string.tag_name_tab1,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab2, R.mipmap.a_tabbar_trade_p)));
 
         /*titleObjectList.add(new TabTitle(
-                ARouteConstant.AppMode.MAIN_FRAGMENT,
+                RouteConstant.AppMode.MAIN_FRAGMENT,
                 R.string.tag_name_tab2,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(this, R.mipmap.a_tabbar_tab3, R.mipmap.a_tabbar_market_p)));

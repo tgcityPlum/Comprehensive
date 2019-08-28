@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tgcity.mode.home">
+    package="com.tgcity.mode.main">
     <!-- 设置权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,5 +23,6 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainCoreActivity"/>
     </application>
 </manifest>

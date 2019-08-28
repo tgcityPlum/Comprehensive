@@ -1,11 +1,11 @@
-package com.tgcity.mode.home;
+package com.tgcity.mode.home.testweb;
 
 import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.widget.titlebar.TitleBar;
-import com.tgcity.home.R;
+import com.tgcity.mode.home.R;
 import com.tgcity.web.WebViewInit;
 import com.tgcity.web.WebViewLayout;
 import com.tgcity.web.WebViewManager;

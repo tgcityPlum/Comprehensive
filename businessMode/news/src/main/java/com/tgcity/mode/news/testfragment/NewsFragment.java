@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.tgcity.base.constant.ARouteConstant;
+import com.tgcity.base.constant.RouteConstant;
 import com.tgcity.mode.news.R;
 
-@Route(path = ARouteConstant.NewsMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.NewsMode.MAIN_FRAGMENT)
 public class NewsFragment extends Fragment {
 
     @Nullable

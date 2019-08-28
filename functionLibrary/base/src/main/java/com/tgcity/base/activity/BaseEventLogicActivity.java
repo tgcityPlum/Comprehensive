@@ -9,6 +9,7 @@ import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.LogUtils;
 
 /**
+ * @author TGCity
  * 基础的activity类
  * --处理事件逻辑
  */
@@ -75,7 +76,7 @@ public abstract class BaseEventLogicActivity extends BaseBindRouterActivity {
      * 输出当前界面调用方法的日志
      */
     private void logBaseEventLogicActivity(String message) {
-        if (BaseConstant.Power.isBaseEventLogicActivityLogShow) {
+        if (BaseConstant.Power.IS_BASE_EVENT_LOGIN_ACTIVITY_LOG_SHOW) {
             LogUtils.d(message);
         }
     }

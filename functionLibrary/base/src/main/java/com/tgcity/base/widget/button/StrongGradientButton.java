@@ -13,69 +13,118 @@ import android.util.AttributeSet;
 import com.tgcity.base.R;
 
 /**
+ * @author TGCity
  * copy了StrongButton，扩展了渐变色
  */
 public class StrongGradientButton extends AppCompatButton {
-    //边框宽度
+
+    /**
+     * 边框宽度
+     */
     private float mStrokeDashWidth = 0;
-    //与边框之间的间隙
+    /**
+     * 与边框之间的间隙
+     */
     private float mStrokeDashGap = 0;
-
-    //用来存放各种交互动作
+    /**
+     * 用来存放各种交互动作
+     */
     private int[][] states = new int[4][];
-    //字体颜色集合
+    /**
+     * 字体颜色集合
+     */
     private ColorStateList mTextColorStateList;
-    //各种状态集合背景
+    /**
+     * 各种状态集合背景
+     */
     private StateListDrawable mStateBackground;
-
-    //正常状态下背景
+    /**
+     * 正常状态下背景
+     */
     private GradientDrawable mNormalBackground;
-    //触摸状态下背景
+    /**
+     * 触摸状态下背景
+     */
     private GradientDrawable mPressedBackground;
-    //禁用状态下背景
+    /**
+     * 禁用状态下背景
+     */
     private GradientDrawable mUnableBackground;
-
-    //左上角半径
+    /**
+     * 左上角半径
+     */
     private float mTopLeftRadius;
-    //右上角半径
+    /**
+     * 右上角半径
+     */
     private float mTopRightRadius;
-    //左下角半径
+    /**
+     * 左下角半径
+     */
     private float mBottomLeftRadius;
-    //右下角半径
+    /**
+     * 右下角半径
+     */
     private float mBottomRightRadius;
-
-    //正常状态下渐变开始背景颜色
+    /**
+     * 正常状态下渐变开始背景颜色
+     */
     private int mNormalStartBackgroundColor = getResources().getColor(R.color.strong_gradient_button_normal_start_background_color);
-    //正常状态下渐变结束背景颜色
+    /**
+     * 正常状态下渐变结束背景颜色
+     */
     private int mNormalEndBackgroundColor = getResources().getColor(R.color.strong_gradient_button_normal_end_background_color);
-    //触摸状态下渐变开始背景颜色
+    /**
+     * 触摸状态下渐变开始背景颜色
+     */
     private int mPressedStartBackgroundColor = getResources().getColor(R.color.strong_gradient_button_press_start_background_color);
-    //触摸状态下渐变结束背景颜色
+    /**
+     * 触摸状态下渐变结束背景颜色
+     */
     private int mPressedEndBackgroundColor = getResources().getColor(R.color.strong_gradient_button_press_end_background_color);
-    //禁用状态下渐变开始背景颜色
+    /**
+     * 禁用状态下渐变开始背景颜色
+     */
     private int mUnableStartBackgroundColor = getResources().getColor(R.color.strong_gradient_button_unable_start_background_color);
-    //禁用状态下渐变结束背景颜色
+    /**
+     * 禁用状态下渐变结束背景颜色
+     */
     private int mUnableEndBackgroundColor = getResources().getColor(R.color.strong_gradient_button_unable_end_background_color);
-
-    //正常状态下边框宽度
+    /**
+     * 正常状态下边框宽度
+     */
     private float mNormalStrokeWidth = 0;
-    //触摸状态下边框宽度
+    /**
+     * 触摸状态下边框宽度
+     */
     private float mPressedStrokeWidth = 0;
-    //禁止状态下边框宽度
+    /**
+     * 禁止状态下边框宽度
+     */
     private float mUnableStrokeWidth = 0;
-
-    //正常状态下边框颜色
+    /**
+     * 正常状态下边框颜色
+     */
     private int mNormalStrokeColor = getResources().getColor(R.color.strong_gradient_button_normal_stroke_color);
-    //触摸状态下边框颜色
+    /**
+     * 触摸状态下边框颜色
+     */
     private int mPressedStrokeColor = getResources().getColor(R.color.strong_gradient_button_press_stroke_color);
-    //禁止状态下边框颜色
+    /**
+     * 禁止状态下边框颜色
+     */
     private int mUnableStrokeColor = getResources().getColor(R.color.strong_gradient_button_unable_stroke_color);
-
-    //触摸状态下文字颜色
+    /**
+     * 触摸状态下文字颜色
+     */
     private int mPressedTextColor = getResources().getColor(R.color.strong_gradient_button_normal_text_color);
-    //正常状态下文字颜色
+    /**
+     * 正常状态下文字颜色
+     */
     private int mNormalTextColor = getResources().getColor(R.color.strong_gradient_button_press_text_color);
-    //禁止状态下文字颜色
+    /**
+     * 禁止状态下文字颜色
+     */
     private int mUnableTextColor = getResources().getColor(R.color.strong_gradient_button_unable_text_color);
 
     public StrongGradientButton(Context context) {
@@ -175,7 +224,7 @@ public class StrongGradientButton extends AppCompatButton {
         //禁止状态
         states[3] = new int[]{-android.R.attr.state_enabled};
         Drawable drawable = getBackground();
-        if (drawable != null && drawable instanceof StateListDrawable) {
+        if (drawable instanceof StateListDrawable) {
             mStateBackground = (StateListDrawable) drawable;
         } else {
             mStateBackground = new StateListDrawable();
@@ -223,13 +272,13 @@ public class StrongGradientButton extends AppCompatButton {
         return this;
     }
 
-
     /**
      * 召唤神龙
      */
     private void go() {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
-            setStateListAnimator(null);//消除阴影
+            //消除阴影
+            setStateListAnimator(null);
         }
         mStateBackground.addState(states[0], mPressedBackground);
         mStateBackground.addState(states[1], mPressedBackground);

@@ -1,5 +1,8 @@
 package com.tgcity.base.network.bean.response;
 
+/**
+ * @author TGCity
+ */
 public class SettingsDto {
 
     private String id;

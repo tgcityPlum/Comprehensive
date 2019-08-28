@@ -23,7 +23,7 @@
         <attr name="unableStrokeWidth_Gradient" format="dimension" />
     </declare-styleable>
 
-    <declare-styleable name="ProgressActivity">
+    <declare-styleable name="BaseProgressActivity">
 
         <attr name="loadingProgressBarWidth" format="dimension" />
         <attr name="loadingProgressBarHeight" format="dimension" />

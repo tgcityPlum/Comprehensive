@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.google.gson.Gson;
 import com.tgcity.base.constant.BaseConstant;
-import com.tgcity.base.network.bean.request.WeixinBody;
+import com.tgcity.base.network.bean.request.WeiXinBody;
 import com.tgcity.base.network.bean.response.CacheVersionDto;
 import com.tgcity.base.network.bean.response.PictureDto;
 import com.tgcity.base.network.bean.response.SettingsDto;
@@ -161,7 +161,7 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
     }
 
     // 获取微信小程序码
-    public void getwxacode(LifecycleTransformer lifecycleTransformer, String access_token, WeixinBody weixinBody, final SimpleCallBack<ResponseBody> callBack) {
+    public void getwxacode(LifecycleTransformer lifecycleTransformer, String access_token, WeiXinBody weixinBody, final SimpleCallBack<ResponseBody> callBack) {
         toObservable(lifecycleTransformer, new Builder(service_weixin.getwxacode(access_token, weixinBody))
                 .setApiName("getwxacode")
                 .setRequestData(access_token, weixinBody, NetworkConstant.Cache_Other)

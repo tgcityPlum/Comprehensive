@@ -1,11 +1,26 @@
 package com.tgcity.base.network.bean.request;
 
+/**
+ * @author TGCity
+ */
 public class QueryMessagesInput {
 
-    private int userNumId;//用户NumId
-    private int type;//消息类型（0=系统消息，1=资讯推送，2=社区消息）
-    private int pageIndex;//当前页
-    private int pageSize;//多少条
+    /**
+     * 用户NumId
+     */
+    private int userNumId;
+    /**
+     * 消息类型（0=系统消息，1=资讯推送，2=社区消息）
+     */
+    private int type;
+    /**
+     * 当前页
+     */
+    private int pageIndex;
+    /**
+     * 多少条
+     */
+    private int pageSize;
 
     public int getUserNumId() {
         return userNumId;

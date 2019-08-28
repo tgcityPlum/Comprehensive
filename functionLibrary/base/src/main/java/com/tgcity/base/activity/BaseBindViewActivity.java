@@ -15,19 +15,27 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
+ * @author TGCity
  * 基础的activity类
  * --绑定view层
  */
 public abstract class BaseBindViewActivity extends BaseOrientationActivity {
-    //根布局控件
+    /**
+     * 根布局控件
+     */
     private View rootView;
-    //空布局，销毁时置空使用
+    /**
+     * 空布局，销毁时置空使用
+     */
     private View nullView;
-    //Context
+    /**
+     * Context
+     */
     private Context mContext;
-    //ButterKnife unBinder
+    /**
+     * ButterKnife unBinder
+     */
     private Unbinder unBind;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +59,7 @@ public abstract class BaseBindViewActivity extends BaseOrientationActivity {
 
     /**
      * abstract get layout id
+     * @return the layout of activity
      */
     public abstract int getViewLayout();
 
@@ -59,7 +68,7 @@ public abstract class BaseBindViewActivity extends BaseOrientationActivity {
      */
     private void setButterKnifeBind() {
         unBind = ButterKnife.bind(this);
-        if (BaseConstant.Power.isBaseBindViewActivityLogShow) {
+        if (BaseConstant.Power.IS_BASE_BIND_VIEW_ACTIVITY_LOG_SHOW) {
             LogUtils.d(getString(R.string.base_bind_view_activity_current_butterKnife));
         }
     }

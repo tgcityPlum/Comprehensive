@@ -1109,10 +1109,10 @@ public class SpringView extends ViewGroup {
             if (ErrorMode.NO_NETWORK.equals(((ApiException) e).errorMode)) {
                 setErrorTitleAndDesc(getResources().getString(R.string.ERROR_NO_NETWORK_TITLE), getResources().getString(R.string.ERROR_NO_NETWORK_DESC));
             }
-            if (ErrorMode.SINGNATURE_FAILURE_TIME.equals(((ApiException) e).errorMode)) {
+            if (ErrorMode.SIGNATURE_FAILURE_TIME.equals(((ApiException) e).errorMode)) {
                 setErrorTitleAndDesc(getResources().getString(R.string.ERROR_SINGNATURE_FAILURE_TIME_TITLE), getResources().getString(R.string.ERROR_SINGNATURE_FAILURE_TIME_DESC));
             }
-            if (ErrorMode.SINGNATURE_FAILURE_SSL.equals(((ApiException) e).errorMode)) {
+            if (ErrorMode.SIGNATURE_FAILURE_SSL.equals(((ApiException) e).errorMode)) {
                 setErrorTitleAndDesc(getResources().getString(R.string.ERROR_SINGNATURE_FAILURE_SSL_TITLE), getResources().getString(R.string.ERROR_SINGNATURE_FAILURE_SSL_DESC));
             }
             if (ErrorMode.CONNECT_TIME_OUT.equals(((ApiException) e).errorMode)) {

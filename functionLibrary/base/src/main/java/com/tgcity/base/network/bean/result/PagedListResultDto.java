@@ -3,6 +3,9 @@ package com.tgcity.base.network.bean.result;
 
 import java.util.List;
 
+/**
+ * @author TGCity
+ */
 public class PagedListResultDto<T> {
 
     private int totalCount;

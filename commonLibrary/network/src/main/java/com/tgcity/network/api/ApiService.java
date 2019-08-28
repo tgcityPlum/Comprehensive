@@ -1,6 +1,6 @@
 package com.tgcity.network.api;
 
-import com.tgcity.base.network.bean.request.WeixinBody;
+import com.tgcity.base.network.bean.request.WeiXinBody;
 import com.tgcity.base.network.bean.response.PictureDto;
 import com.tgcity.base.network.bean.response.TestDataItemBean;
 import com.tgcity.base.network.bean.result.HttpResult;
@@ -26,7 +26,7 @@ public interface ApiService {
 
     //获取微信小程序二维码
     @POST("wxa/getwxacode")
-    Observable<ResponseBody> getwxacode(@Query("access_token") String access_token, @Body WeixinBody weixinBody);
+    Observable<ResponseBody> getwxacode(@Query("access_token") String access_token, @Body WeiXinBody weixinBody);
 
     //图片上传
     @Multipart

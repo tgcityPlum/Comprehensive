@@ -9,10 +9,13 @@ import com.tgcity.base.utils.LogUtils;
 import me.jessyan.autosize.AutoSizeConfig;
 
 /**
+ * @author TGCity
  * 基础的Application
  */
 public class BaseApplication extends Application {
-    //静态单例
+    /**
+     * 静态单例
+     */
     private static BaseApplication instances;
 
     @Override
@@ -22,16 +25,16 @@ public class BaseApplication extends Application {
             instances = this;
         }
         //设置LogUtils开关
-        LogUtils.logSwitch = BaseConstant.Power.isLogUtilOpen;
+        LogUtils.logSwitch = BaseConstant.Power.IS_LOG_UTIL_OPEN;
         //初始化屏幕适配
         AutoSizeConfig.getInstance()
                 .setCustomFragment(true)
-                .setLog(BaseConstant.Power.isAutoSizeLogShow)
+                .setLog(BaseConstant.Power.IS_AUTO_SIZE_LOG_SHOW)
                 .getUnitsManager()
                 .setSupportDP(true)
                 .setSupportSP(true);
         //设置路由
-        if (BaseConstant.Power.isRouterLogShow){
+        if (BaseConstant.Power.IS_ROUTER_LOG_SHOW){
             ARouter.openLog();
             ARouter.openDebug();
         }

@@ -1,22 +1,22 @@
 package com.tgcity.base.network.bean.response;
 
 /**
+ * @author TGCity
  * 个人中心--根据类型获取消息列表的数据模型
  */
 public class QueryMessagesOutput {
 
-    //系统通知， 资讯推送 ，社区消息返回字段
-    private String id;//ObjectId
-    private int numId;//NumId
-    private String title;//消息标题
-    private String content;//消息内容
-    private String link;//链接（如需要跳转页面时使用）
-    private String remark;//备注（特殊情况下使用，自定义参数列表）
-    private int receiverId;//接收者Id
-    private boolean isRead;//是否已读
-    private String creationTime;//创建时间
-    private String creationTimeFormat;//时间格式化
-    private int foreignKeyId;//项目ID
+    private String id;
+    private int numId;
+    private String title;
+    private String content;
+    private String link;
+    private String remark;
+    private int receiverId;
+    private boolean isRead;
+    private String creationTime;
+    private String creationTimeFormat;
+    private int foreignKeyId;
 
     public String getId() {
         return id;

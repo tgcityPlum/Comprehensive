@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 /**
  * 清理控件的工具类
+ * @author TGCity
  */
 public class ClearViewUtils {
     /**

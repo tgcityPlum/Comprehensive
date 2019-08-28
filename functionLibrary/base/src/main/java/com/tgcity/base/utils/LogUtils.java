@@ -36,7 +36,8 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 /**
- *  日志操作
+ * @author TGCity
+ * 日志操作
  */
 public class LogUtils {
     public static final int V = Log.VERBOSE;
@@ -190,12 +191,16 @@ public class LogUtils {
     }
 
     private static void log(final int type, boolean showLeftBorder, final String tag, final Object... contents) {
-        if (!logSwitch||contents == null) {
+        if (!logSwitch || contents == null) {
             return;
         }
-        if (!CONFIG.mLogSwitch || (!CONFIG.mLog2ConsoleSwitch && !CONFIG.mLog2FileSwitch)) return;
+        if (!CONFIG.mLogSwitch || (!CONFIG.mLog2ConsoleSwitch && !CONFIG.mLog2FileSwitch)) {
+            return;
+        }
         int type_low = type & 0x0f, type_high = type & 0xf0;
-        if (type_low < CONFIG.mConsoleFilter && type_low < CONFIG.mFileFilter) return;
+        if (type_low < CONFIG.mConsoleFilter && type_low < CONFIG.mFileFilter) {
+            return;
+        }
         final TagHead tagHead = processTagAndHead(tag);
         String body = processBody(type_high, contents);
         if (CONFIG.mLog2ConsoleSwitch && type_low >= CONFIG.mConsoleFilter && type_high != FILE) {
@@ -269,7 +274,9 @@ public class LogUtils {
 
     private static String getFileName(final StackTraceElement targetElement) {
         String fileName = targetElement.getFileName();
-        if (fileName != null) return fileName;
+        if (fileName != null) {
+            return fileName;
+        }
         // If name of file is null, should add
         // "-keepattributes SourceFile,LineNumberTable" in proguard file.
         String className = targetElement.getClassName();
@@ -289,7 +296,9 @@ public class LogUtils {
         if (contents != null) {
             if (contents.length == 1) {
                 Object object = contents[0];
-                if (object != null) body = object.toString();
+                if (object != null) {
+                    body = object.toString();
+                }
                 if (type == JSON) {
                     body = formatJson(body);
                 } else if (type == XML) {
@@ -388,7 +397,9 @@ public class LogUtils {
             for (String aHead : head) {
                 Log.println(type, tag, CONFIG.mLogBorderSwitch ? (showLeftBorder ? LEFT_BORDER : "") + aHead : aHead);
             }
-            if (CONFIG.mLogBorderSwitch) Log.println(type, tag, MIDDLE_BORDER);
+            if (CONFIG.mLogBorderSwitch) {
+                Log.println(type, tag, MIDDLE_BORDER);
+            }
         }
     }
 
@@ -490,11 +501,17 @@ public class LogUtils {
 
     private static boolean createOrExistsFile(final String filePath) {
         File file = new File(filePath);
-        if (file.exists()) return file.isFile();
-        if (!createOrExistsDir(file.getParentFile())) return false;
+        if (file.exists()) {
+            return file.isFile();
+        }
+        if (!createOrExistsDir(file.getParentFile())) {
+            return false;
+        }
         try {
             boolean isCreate = file.createNewFile();
-            if (isCreate) printDeviceInfo(filePath);
+            if (isCreate) {
+                printDeviceInfo(filePath);
+            }
             return isCreate;
         } catch (IOException e) {
             e.printStackTrace();
@@ -535,7 +552,9 @@ public class LogUtils {
     }
 
     private static boolean isSpace(final String s) {
-        if (s == null) return true;
+        if (s == null) {
+            return true;
+        }
         for (int i = 0, len = s.length(); i < len; ++i) {
             if (!Character.isWhitespace(s.charAt(i))) {
                 return false;
@@ -571,7 +590,9 @@ public class LogUtils {
             }
         });
         try {
-            if (submit.get()) return;
+            if (submit.get()) {
+                return;
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

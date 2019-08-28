@@ -1,18 +1,21 @@
 package com.tgcity.base.network.cache.model;
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23 09：49
+ * @author TGCity
  * 所有请求错误
  */
 public enum ErrorMode {
 
+    /**
+     * 请求过于频繁
+     */
     OVERLOAD("请求过于频繁", "请稍后再试"),
     NO_CACHE("未找到缓存", "请连接网络后重试"),
     NO_NETWORK("没有找到网络", "请检查网络后重试"),
     NO_AUTHORITY("您没有权限查看该数据",null ),
 
-    SINGNATURE_FAILURE_TIME("当前系统时间不正确", "请设置成标准北京时间后重试"),
-    SINGNATURE_FAILURE_SSL("证书签名失败", null),
+    SIGNATURE_FAILURE_TIME("当前系统时间不正确", "请设置成标准北京时间后重试"),
+    SIGNATURE_FAILURE_SSL("证书签名失败", null),
 
     CONNECT_TIME_OUT("连接超时", "请检查网络后重试"),
     UNKNOWN_HOST("无法连接主机地址", null),
@@ -25,7 +28,7 @@ public enum ErrorMode {
     API_NO_VISUALIZATION_MESSAGE("接口非可视化消息", null),
     API_OTHER_ERROR("API其他错误", null),
     HTTP_OTHER_ERROR("HTTP其他错误", null),
-    DATA_FORMATE_ERROR("数据解析出错", null),
+    DATA_FORMAT_ERROR("数据解析出错", null),
     TYPE_CAST_ERROR("类型转换出错", null);
 
     private int errorCode;
@@ -62,10 +65,10 @@ public enum ErrorMode {
     }
 
     public String getErrorMessage() {
-        return errorTitle + "\n" + getFormateContent();
+        return errorTitle + "\n" + getFormatContent();
     }
 
-    protected String getFormateContent() {
+    protected String getFormatContent() {
         return errorContent == null || "".equals(errorContent) ? "" : "," + errorContent;
     }
 

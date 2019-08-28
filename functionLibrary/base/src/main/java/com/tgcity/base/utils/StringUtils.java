@@ -3,6 +3,7 @@ package com.tgcity.base.utils;
 import java.text.NumberFormat;
 
 /**
+ * @author TGCity
  *  字符串相关工具类
  */
 public final class StringUtils {

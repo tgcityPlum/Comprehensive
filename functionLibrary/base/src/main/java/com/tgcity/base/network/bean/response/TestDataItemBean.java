@@ -2,6 +2,9 @@ package com.tgcity.base.network.bean.response;
 
 import java.util.List;
 
+/**
+ * @author TGCity
+ */
 public class TestDataItemBean {
     private long appId;
     private String appIdentify;

@@ -1,4 +1,4 @@
-package com.tgcity.mode.index;
+package com.tgcity.mode.home.index;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.tgcity.base.constant.ARouteConstant;
-import com.tgcity.home.R;
+import com.tgcity.base.constant.RouteConstant;
+import com.tgcity.mode.home.R;
 
-@Route(path = ARouteConstant.HomeMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.HomeMode.MAIN_FRAGMENT)
 public class HomeFragment extends Fragment {
 
     @Nullable

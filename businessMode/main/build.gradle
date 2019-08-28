@@ -1,6 +1,6 @@
 def isIntegratedMode = isIntegratedMode.toBoolean()
 def modeType = MODE_TYPE as int
-def isMainMode = !isIntegratedMode && modeType == 2
+def isMainMode = !isIntegratedMode && modeType == 3
 
 if (isMainMode) {
     apply plugin: 'com.android.application'

@@ -1,4 +1,4 @@
-package com.tgcity.launch.guide;
+package com.tgcity.mode.launch.guide;
 
 import android.os.Handler;
 
@@ -7,18 +7,17 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.activity.BaseCommonActivity;
-import com.tgcity.base.constant.ARouteConstant;
-import com.tgcity.base.constant.BaseConstant;
+import com.tgcity.base.constant.RouteConstant;
 import com.tgcity.base.utils.LogUtils;
 import com.tgcity.base.utils.SharedPreferencesUtils;
-import com.tgcity.launch.R;
+import com.tgcity.mode.launch.R;
 
 import pl.droidsonroids.gif.GifImageView;
 
 /**
  * launch模块--启动界面
  */
-@Route(path = ARouteConstant.LaunchMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.LaunchMode.MAIN_FRAGMENT)
 public class GuideActivity extends BaseCommonActivity {
     //Gif动画
     private GifImageView gifView;
@@ -67,7 +66,7 @@ public class GuideActivity extends BaseCommonActivity {
      * 跳转main模块主页
      */
     private void toJumpMainMode() {
-        ARouter.getInstance().build(ARouteConstant.MainMode.MAIN_FRAGMENT).navigation(getContext(), new NavigationCallback() {
+        ARouter.getInstance().build(RouteConstant.MainMode.MAIN_FRAGMENT).navigation(getContext(), new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
                 LogUtils.e("onFound");

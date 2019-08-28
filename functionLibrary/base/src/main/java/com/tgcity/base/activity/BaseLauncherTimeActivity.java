@@ -8,16 +8,19 @@ import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.utils.LogUtils;
 
 /**
+ * @author TGCity
  * 基础的activity
  * --处理Activity的启动时间
  */
 public abstract class BaseLauncherTimeActivity extends BaseImmersionBarActivity {
-    //time
+    /**
+     * time
+     */
     private long currentTime;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (BaseConstant.Power.isLauncherTimeActivityLogShow) {
+        if (BaseConstant.Power.IS_LAUNCHER_TIME_ACTIVITY_LOG_SHOW) {
             currentTime = System.currentTimeMillis();
         }
 
@@ -28,7 +31,7 @@ public abstract class BaseLauncherTimeActivity extends BaseImmersionBarActivity 
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
 
-        if (hasFocus && BaseConstant.Power.isLauncherTimeActivityLogShow) {
+        if (hasFocus && BaseConstant.Power.IS_LAUNCHER_TIME_ACTIVITY_LOG_SHOW) {
             LogUtils.d(getString(R.string.base_memory_activity_current_page_name, getCurrentPage(), getLocalClassName(), transformTime(System.currentTimeMillis() - currentTime)));
         }
     }
@@ -40,7 +43,8 @@ public abstract class BaseLauncherTimeActivity extends BaseImmersionBarActivity 
     private String transformTime(long timeMillis) {
         String time;
 
-        if (timeMillis >= 1000) {//大于或等于1s
+        if (timeMillis >= 1000) {
+            //大于或等于1s
             if (timeMillis >= 60000) {
                 time = timeMillis / 60000 + "min";
             } else {

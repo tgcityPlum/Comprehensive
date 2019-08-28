@@ -1,6 +1,7 @@
 package com.tgcity.base.utils.check;
 
 /**
+ * @author TGCity
  * 连点的校验
  */
 

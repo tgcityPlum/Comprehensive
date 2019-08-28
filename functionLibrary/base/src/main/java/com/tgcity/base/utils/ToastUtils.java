@@ -8,12 +8,8 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 /**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/9/29
- *     desc  : 吐司相关工具类
- * </pre>
+ * @author TGCity
+ * 吐司相关工具类
  */
 public final class ToastUtils {
 

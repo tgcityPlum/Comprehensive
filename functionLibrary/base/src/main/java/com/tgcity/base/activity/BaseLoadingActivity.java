@@ -6,11 +6,14 @@ import com.tgcity.base.utils.LogUtils;
 import com.tgcity.base.widget.dialog.BaseDialogLoading;
 
 /**
+ * @author TGCity
  * 基础的activity
  * --处理加载指示器
  */
 public class BaseLoadingActivity extends AppCompatActivity {
-    //BaseDialogLoading
+    /**
+     * BaseDialogLoading
+     */
     private BaseDialogLoading mBaseDialogLoading;
 
     /**

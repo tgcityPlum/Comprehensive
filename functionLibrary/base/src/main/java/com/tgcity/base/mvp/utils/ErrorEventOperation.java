@@ -10,18 +10,17 @@ import com.tgcity.base.utils.IntentUtils;
 import com.tgcity.base.utils.ToastUtils;
 
 /**
+ * @author TGCity
  * error工具类,用于区分是那种错误类型的操作并提供相应的回调给调用者
- * Created by Administrator on 2018/7/24.
  */
 
 public class ErrorEventOperation {
 
-
     /**
      * 判断是否为ApiException
      *
-     * @param throwable
-     * @return
+     * @param throwable throwable
+     * @return ApiException
      */
     public static ApiException deposit(Throwable throwable) {
         return throwable instanceof ApiException ? (ApiException) throwable : null;
@@ -30,8 +29,8 @@ public class ErrorEventOperation {
     /**
      * 拿到ErrorMode
      *
-     * @param throwable
-     * @return
+     * @param throwable Throwable
+     * @return ErrorMode
      */
     public static ErrorMode depositReturnErrorMode(Throwable throwable) {
         return throwable instanceof ApiException ? ((ApiException) throwable).errorMode : null;
@@ -53,7 +52,7 @@ public class ErrorEventOperation {
 
     }
 
-    public static void operation(Throwable throwable, onErrorEventOperationCallBack onErrorEventOperationCallBack) {
+    public static void operation(Throwable throwable, OnErrorEventOperationCallBack onErrorEventOperationCallBack) {
         operation(depositReturnErrorMode(throwable), onErrorEventOperationCallBack);
 
     }
@@ -73,10 +72,10 @@ public class ErrorEventOperation {
     /**
      * 错误处理
      *
-     * @param errorMode
+     * @param errorMode ErrorMode
      * @param onErrorEventOperationCallBack 暴露一个接口给调用者手动处理，如果为空，则视为自动处理
      */
-    public static void operation(ErrorMode errorMode, onErrorEventOperationCallBack onErrorEventOperationCallBack) {
+    public static void operation(ErrorMode errorMode, OnErrorEventOperationCallBack onErrorEventOperationCallBack) {
         if (errorMode == null) {
             return;
         }
@@ -104,14 +103,14 @@ public class ErrorEventOperation {
             } else {
                 BaseApplication.getInstances().startActivity(IntentUtils.getNetworkIntent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
-        } else if (ErrorMode.SINGNATURE_FAILURE_TIME == errorMode) {
+        } else if (ErrorMode.SIGNATURE_FAILURE_TIME == errorMode) {
             if (onErrorEventOperationCallBack != null) {
-                onErrorEventOperationCallBack.onSingnatureFailTime();
+                onErrorEventOperationCallBack.onSignatureFailTime();
             } else {
                 BaseApplication.getInstances().startActivity(IntentUtils.getDateIntent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
 
-        } else if (ErrorMode.SINGNATURE_FAILURE_SSL == errorMode) {
+        } else if (ErrorMode.SIGNATURE_FAILURE_SSL == errorMode) {
             if (onErrorEventOperationCallBack != null) {
                 onErrorEventOperationCallBack.onOther(errorMode);
             }
@@ -123,9 +122,9 @@ public class ErrorEventOperation {
             if (onErrorEventOperationCallBack != null) {
                 onErrorEventOperationCallBack.onOther(errorMode);
             }
-        } else if (ErrorMode.DATA_FORMATE_ERROR == errorMode) {
+        } else if (ErrorMode.DATA_FORMAT_ERROR == errorMode) {
             if (onErrorEventOperationCallBack != null) {
-                onErrorEventOperationCallBack.onDataFormateError();
+                onErrorEventOperationCallBack.onDataFormatError();
             }
         } else if (ErrorMode.TYPE_CAST_ERROR == errorMode) {
             if (onErrorEventOperationCallBack != null) {
@@ -141,24 +140,53 @@ public class ErrorEventOperation {
     /**
      * 错误处理回调
      */
-    public interface onErrorEventOperationCallBack {
+    public interface OnErrorEventOperationCallBack {
 
+        /**
+         * no authority
+         */
         void onNoAuthority();
 
+        /**
+         * visual message
+         * @param msg message
+         */
         void onVisualizationMsg(String msg);
 
+        /**
+         * over load
+         */
         void onOverLoad();
 
+        /**
+         * no network
+         */
         void onNoNetWork();
 
-        void onSingnatureFailTime();
+        /**
+         * signature fail time
+         */
+        void onSignatureFailTime();
 
+        /**
+         * time out
+         */
         void onTimeOut();
 
+        /**
+         * other
+         * @param errorMode1 ErrorMode
+         */
         void onOther(ErrorMode errorMode1);
 
-        void onDataFormateError();
+        /**
+         * data format error
+         */
+        void onDataFormatError();
 
+        /**
+         * cast error
+         */
         void onCastError();
     }
 }

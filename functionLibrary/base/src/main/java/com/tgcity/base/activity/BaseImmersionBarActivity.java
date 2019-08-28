@@ -14,16 +14,23 @@ import com.tgcity.base.utils.LogUtils;
 import com.tgcity.base.widget.titlebar.TitleBar;
 
 /**
+ * @author TGCity
  * 基础的activity
  * --处理Activity的沉浸式状态栏
  */
 public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
-    //Immersion对象
+    /**
+     * Immersion对象
+     */
     private ImmersionBar mImmersionBar;
-    //标题栏对象
+    /**
+     * 标题栏对象
+     */
     private View mToolBar;
     private View mTitleBar;
-    //背景颜色
+    /**
+     * 背景颜色
+     */
     private int mDefaultColor = -110;
 
     @Override
@@ -62,13 +69,14 @@ public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
      * 设置沉浸式
      */
     public void autoImmersionBar() {
-        if (BaseConstant.Power.isBaseImmersionBarActivityLogShow) {
+        if (BaseConstant.Power.IS_BASE_IMMERSION_BAR_ACTIVITY_LOG_SHOW) {
             LogUtils.d(getString(R.string.base_memory_activity_current_page_name, getCurrentPage(), getLocalClassName(), getString(R.string.base_immersion_bar_activity_autoImmersionBar)));
         }
         mImmersionBar = ImmersionBar.with(this);
         //根据布局文件中 R.id.titleBar 寻找titleBar对象
         mTitleBar = findViewById(R.id.titleBar);
-        if (mTitleBar != null) {//寻找titleBar对象
+        if (mTitleBar != null) {
+            //寻找titleBar对象
             //判断标题栏是否为titleBar
             if (mTitleBar instanceof TitleBar) {
                 mToolBar = findViewById(R.id.toolBar);
@@ -80,9 +88,10 @@ public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
                     return;
                 }
                 mImmersionBar.titleBar(mToolBar);
-
-                Drawable drawable = mToolBar.getBackground();//首先获取内部的toolBar色值
-                if (drawable == null) {//不存在再取titleBar色值
+                //首先获取内部的toolBar色值
+                Drawable drawable = mToolBar.getBackground();
+                if (drawable == null) {
+                    //不存在再取titleBar色值
                     drawable = mTitleBar.getBackground();
                 }
 
@@ -91,10 +100,11 @@ public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
                 mImmersionBar.titleBar(mTitleBar);
             }
             mImmersionBar.init();
-        } else {//未寻找titleBar对象
+        } else {
+            //未寻找titleBar对象
             //根据布局文件中 R.id.toolBar 寻找toolBar对象
             mToolBar = findViewById(R.id.toolBar);
-            if (mToolBar != null){
+            if (mToolBar != null) {
                 //设置背景色
                 Drawable drawable = mToolBar.getBackground();
                 immersionBarColor(drawable);
@@ -109,17 +119,17 @@ public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
      * 设置沉浸式背景色
      */
     private void immersionBarColor(Drawable drawable) {
-        if (drawable == null){
+        if (drawable == null) {
             return;
         }
 
-        if (drawable instanceof ColorDrawable){
-            int color = ((ColorDrawable)drawable).getColor();
+        if (drawable instanceof ColorDrawable) {
+            int color = ((ColorDrawable) drawable).getColor();
             //如果比#dddddd的色值深，则使用深色的状态栏文字,如果系统不支持，则使用透明度来显示
-            if (color > -2236963){
-                mImmersionBar.statusBarDarkFont(true,0.5f);
-            }else {
-                mImmersionBar.statusBarDarkFont(false,0.5f);
+            if (color > -2236963) {
+                mImmersionBar.statusBarDarkFont(true, 0.5f);
+            } else {
+                mImmersionBar.statusBarDarkFont(false, 0.5f);
             }
         }
     }
@@ -128,8 +138,8 @@ public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
      * 手动添加沉浸式
      * --当布局中的标题栏是自定义时，调用该方法
      */
-    public void immersionBarByUser(View view){
-        immersionBarByUser(view,getDefaultColor());
+    public void immersionBarByUser(View view) {
+        immersionBarByUser(view, getDefaultColor());
     }
 
     /**
@@ -145,8 +155,8 @@ public abstract class BaseImmersionBarActivity extends BaseEventLogicActivity {
     public void immersionBarByUser(View view, int color, boolean statusBarFlag) {
         mImmersionBar = ImmersionBar.with(this);
 
-        if (view != null){
-            mImmersionBar.titleBar(view,true);
+        if (view != null) {
+            mImmersionBar.titleBar(view, true);
         }
     }
 

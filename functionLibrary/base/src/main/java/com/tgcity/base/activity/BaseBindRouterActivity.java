@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
+ * @author TGCity
  * 基础的activity类
  * --绑定路由
  */

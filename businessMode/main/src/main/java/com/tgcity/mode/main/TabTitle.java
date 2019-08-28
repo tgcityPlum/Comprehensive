@@ -1,4 +1,4 @@
-package com.tgcity.main;
+package com.tgcity.mode.main;
 
 import android.graphics.drawable.StateListDrawable;
 

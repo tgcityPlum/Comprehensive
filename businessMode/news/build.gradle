@@ -1,6 +1,6 @@
 def isIntegratedMode = isIntegratedMode.toBoolean()
 def modeType = MODE_TYPE as int
-def isNewsMode = !isIntegratedMode && modeType == 4
+def isNewsMode = !isIntegratedMode && modeType == 5
 
 if (isNewsMode) {
     apply plugin: 'com.android.application'

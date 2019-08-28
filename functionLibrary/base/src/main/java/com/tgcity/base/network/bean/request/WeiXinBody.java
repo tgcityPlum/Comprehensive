@@ -1,10 +1,10 @@
 package com.tgcity.base.network.bean.request;
 
 /**
- * Created by Administrator on 2018/9/11.
+ * @author TGCity
  */
 
-public class WeixinBody {
+public class WeiXinBody {
     private String path;
     private int width;
     private boolean auto_color;

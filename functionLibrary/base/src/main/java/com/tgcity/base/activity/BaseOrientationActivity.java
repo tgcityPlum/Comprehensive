@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 /**
+ * @author TGCity
  * 基础的activity类
  * --管理Activity的屏幕方向
  */

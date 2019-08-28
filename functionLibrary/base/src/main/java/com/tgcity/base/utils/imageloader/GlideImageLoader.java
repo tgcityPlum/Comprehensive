@@ -1,9 +1,11 @@
 package com.tgcity.base.utils.imageloader;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,13 +22,15 @@ import com.bumptech.glide.request.transition.Transition;
 
 
 /**
- * @Describe glide 加载程序
+ * @author TGCity
+ * glide 加载程序
  *
  * 请根据实际需要拓展
  * 初版 仅仅实现简单展示
  */
-public class GlideImageLoader extends ImageLoader{
+public class GlideImageLoader extends BaseImageLoader {
 
+    @SuppressLint("CheckResult")
     @Override
     public void display(final ImageView imageView, String path, int loadingResId, int failResId, int width, int height, final DisplayDelegate delegate) {
         final String finalPath = getPath(path);
@@ -84,7 +88,7 @@ public class GlideImageLoader extends ImageLoader{
         final String finalPath = getPath(path);
         Glide.with(activity).asBitmap().load(finalPath).into(new SimpleTarget<Bitmap>() {
             @Override
-            public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+            public void onResourceReady(@NonNull Bitmap resource, Transition<? super Bitmap> transition) {
                 if (delegate != null) {
                     delegate.onSuccess(finalPath, resource);
                 }
@@ -112,7 +116,7 @@ public class GlideImageLoader extends ImageLoader{
     /**
      * 清理View中的图片
      * @param view    要被清理的View
-     * @param context
+     * @param context  context
      */
     @Override
     public void clear(View view, Context context) {

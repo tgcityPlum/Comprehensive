@@ -15,11 +15,15 @@ import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 
 /**
+ * @author TGCity
  * 基础的activity
  * --管理activity的生命周期
  */
 public abstract class BaseLifecycleActivity extends BaseMemoryActivity implements LifecycleProvider<ActivityEvent> {
-    //BehaviorSubject
+
+    /**
+     * BehaviorSubject
+     */
     private BehaviorSubject<ActivityEvent> mBehaviorSubject = BehaviorSubject.create();
 
     @Override

@@ -1,6 +1,7 @@
 package com.tgcity.base.constant;
 
 /**
+ * @author TGCity
  * 基础的静态常量
  */
 public class BaseConstant {
@@ -10,23 +11,23 @@ public class BaseConstant {
      */
     public static class Power{
         //app编译终极开关：是否处于debug模式 true-debug  false-release
-        private static final boolean isAppDebug = true;
+        private static final boolean IS_APP_DEBUG = true;
         //logUtil的日志开关：是否开启日志  true-开启  false-关闭
-        public static final boolean isLogUtilOpen = isAppDebug && true;
+        public static final boolean IS_LOG_UTIL_OPEN = IS_APP_DEBUG && true;
         //Activity的启动时间开关：是否显示启动时间  true-显示  false-不显示
-        public static final boolean isLauncherTimeActivityLogShow = isAppDebug && true;
+        public static final boolean IS_LAUNCHER_TIME_ACTIVITY_LOG_SHOW = IS_APP_DEBUG && true;
         //Activity的事件逻辑开关：是否显示事件开关  true-显示  false-不显示
-        public static final boolean isBaseEventLogicActivityLogShow = isAppDebug && true;
+        public static final boolean IS_BASE_EVENT_LOGIN_ACTIVITY_LOG_SHOW = IS_APP_DEBUG && true;
         //Activity的绑定view层开关：是否显示绑定开关  true-显示  false-不显示
-        public static final boolean isBaseBindViewActivityLogShow = isAppDebug && true;
+        public static final boolean IS_BASE_BIND_VIEW_ACTIVITY_LOG_SHOW = IS_APP_DEBUG && true;
         //监听系统内存状况的开关：是否显示内存状况  true-显示  false-不显示
-        public static final boolean isBaseMemoryActivityLogShow = isAppDebug && true;
+        public static final boolean IS_BASE_MEMORY_ACTIVITY_LOG_SHOW = IS_APP_DEBUG && true;
         //Activity的沉浸式状态栏开关：是否显示沉浸式状态栏开关  true-显示  false-不显示
-        public static final boolean isBaseImmersionBarActivityLogShow = isAppDebug && true;
+        public static final boolean IS_BASE_IMMERSION_BAR_ACTIVITY_LOG_SHOW = IS_APP_DEBUG && true;
         //尺寸适配日志开关：是否显示尺寸适配日志开关  true-显示  false-不显示
-        public static final boolean isAutoSizeLogShow = isAppDebug && true;
+        public static final boolean IS_AUTO_SIZE_LOG_SHOW = IS_APP_DEBUG && true;
         //路由日志开关：是否显示日志开关  true-显示  false-不显示
-        public static final boolean isRouterLogShow = isAppDebug && true;
+        public static final boolean IS_ROUTER_LOG_SHOW = IS_APP_DEBUG && true;
     }
 
     /**

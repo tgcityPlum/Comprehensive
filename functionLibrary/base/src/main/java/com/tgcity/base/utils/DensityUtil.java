@@ -8,7 +8,7 @@ import android.util.TypedValue;
 import android.view.WindowManager;
 
 /**
- * Created by Administrator on 2016/3/24.
+ * @author TGCity
  */
 public class DensityUtil {
     /**
@@ -48,6 +48,7 @@ public class DensityUtil {
         context.getWindowManager().getDefaultDisplay().getMetrics(metric);
         return metric.widthPixels;
     }
+
     public static int getScreenWidthPixels(Context context) {
         DisplayMetrics metric = new DisplayMetrics();
         ((WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE))
@@ -63,6 +64,7 @@ public class DensityUtil {
         context.getWindowManager().getDefaultDisplay().getMetrics(metric);
         return metric.heightPixels;
     }
+
     public static int getScreenHeightPixels(Context context) {
         DisplayMetrics metric = new DisplayMetrics();
         ((WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE))

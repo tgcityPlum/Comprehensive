@@ -7,37 +7,63 @@ import android.os.SystemClock;
 import java.util.Random;
 
 /**
+ * @author TGCity
  * 游戏定时器,Copy了系统的CountDownTimer在此基础上修改而来
  * 增加了模拟随机间隔时间，暂停继续，解决了内存泄漏的问题
- * Created by leilei on 2017/6/11.
  */
 @SuppressWarnings("ALL")
-public abstract class GameCountDownTimerUtils {
-    //消息发送间隔时间，取安卓平台发生卡顿的底线，所以本定时器的最大精度为正负16
+public class GameCountDownTimerUtils {
+    /**
+     * 消息发送间隔时间，取安卓平台发生卡顿的底线，所以本定时器的最大精度为正负16
+     */
     private long delay = 16;
-    //消息标识符
+    /**
+     * 消息标识符
+     */
     private int MSG = 1;
-    //启动到停止的毫秒数，也就是执行完成的总时间间隔
+    /**
+     * 启动到停止的毫秒数，也就是执行完成的总时间间隔
+     */
     private long mMillisInFuture;
-    //计时间隔
+    /**
+     * 计时间隔
+     */
     private long mCountdownInterval;
-    //随机数生成器
+    /**
+     * 随机数生成器
+     */
     private Random random;
-    //随机范围
+    /**
+     * 随机范围
+     */
     private int randomLowTime;
-    //随机范围
+    /**
+     * 随机范围
+     */
     private int randomHeightTime;
-    //是否使用随机模式
+    /**
+     * 是否使用随机模式
+     */
     private boolean isRandomIntervalTime = false;
-    //未来某一时刻停止的毫秒数
+    /**
+     * 未来某一时刻停止的毫秒数
+     */
     private long mStopTimeInFuture;
-    //是否已取消
+    /**
+     * 是否已取消
+     */
     private boolean mCancelled = false;
-    //预期最小的生成的随机执行时间
+    /**
+     * 预期最小的生成的随机执行时间
+     */
     private int randomTimeOffset = 1000;
-    //如果生成的时间比预定的时间小，是否重新递归生成新的间隔时间
+    /**
+     * 如果生成的时间比预定的时间小，是否重新递归生成新的间隔时间
+     */
     private boolean createTime = false;
-    //是否已经结束
+    /**
+     * 是否已经结束
+     */
     private boolean isFinished = true;
 
     public GameCountDownTimerUtils(long millisInFuture, long countDownInterval) {
@@ -129,7 +155,7 @@ public abstract class GameCountDownTimerUtils {
     /**
      * 继续计时
      */
-    public void continue_() {
+    public void continueTime() {
         mCancelled = false;
         MSG++;//防止原来的标识符干扰，所以将标识符+1以与原来的做区分
         mHandler.sendMessage(mHandler.obtainMessage(MSG));
@@ -213,10 +239,14 @@ public abstract class GameCountDownTimerUtils {
 
                         if (millisLeft < mCountdownInterval) {
                             delay = millisLeft - lastTickDuration;
-                            if (delay < 0) delay = 0;
+                            if (delay < 0) {
+                                delay = 0;
+                            }
                         } else {
                             delay = mCountdownInterval - lastTickDuration;
-                            while (delay < 0) delay += mCountdownInterval;
+                            while (delay < 0) {
+                                delay += mCountdownInterval;
+                            }
                         }
                     }
                     //继续发送消息，不至于handler死掉,但是会带来内存泄漏的风险，这里加上判断当剩余时间达到0时不再发送消息
@@ -232,7 +262,11 @@ public abstract class GameCountDownTimerUtils {
         }
     };
 
-    public abstract void onTick(long millisUntilFinished, int second);
+    public void onTick(long millisUntilFinished, int second){
 
-    public abstract void onFinish();
+    };
+
+    public void onFinish(){
+
+    };
 }

@@ -16,12 +16,12 @@ import com.tgcity.base.utils.IntentUtils;
 import com.tgcity.base.utils.LogUtils;
 
 /**
+ * @author TGCity
  * 在ProgressActivity上做了个简单的二次封装，加入了自动判断错误类型的功能
  * 警告：为ProgressActivity加入了自定义布局，使用本控件时在未设置setLayout()之前禁止调用showCustom()方法！
- * Created by Administrator on 2018/7/24.
  */
 
-public class ProgressView extends ProgressActivity {
+public class ProgressView extends BaseProgressActivity {
 
     private int normalErrorButtonTextColor = getResources().getColor(R.color.color_FF6C4B);
     private int stopErrorButtonTextColor = getResources().getColor(R.color.color_aaaaaa);
@@ -62,17 +62,6 @@ public class ProgressView extends ProgressActivity {
         }
     }
 
-    public void clear() {
-        normalErrorButtonTextColor = 0;
-        stopErrorButtonTextColor = 0;
-        if (gameCountDownTimerUtils != null) {
-            gameCountDownTimerUtils.clear();
-        }
-        gameCountDownTimerUtils = null;
-        normalErrorButtonBackground = null;
-        stopErrorButtonBackground = null;
-    }
-
     /**
      * 错误判断
      */
@@ -82,7 +71,7 @@ public class ProgressView extends ProgressActivity {
                 //内部处理
                 new OnDataErrorCallBack() {
                     @Override
-                    public void onDataFormateError() {
+                    public void onDataFormatError() {
                         LogUtils.e(throwable.getLocalizedMessage());
                     }
 
@@ -109,7 +98,7 @@ public class ProgressView extends ProgressActivity {
                 }
             });
         } else {
-            ErrorEventOperation.operation(errorMode, new ErrorEventOperation.onErrorEventOperationCallBack() {
+            ErrorEventOperation.operation(errorMode, new ErrorEventOperation.OnErrorEventOperationCallBack() {
                 @Override
                 public void onNoAuthority() {
                     reset();
@@ -165,7 +154,7 @@ public class ProgressView extends ProgressActivity {
                 }
 
                 @Override
-                public void onSingnatureFailTime() {
+                public void onSignatureFailTime() {
                     reset();
                     showError(getResources().getDrawable(R.drawable.monkey_cry), getResources().getString(R.string.ERROR_SINGNATURE_FAILURE_TIME_TITLE), getResources().getString(R.string.ERROR_SINGNATURE_FAILURE_TIME_DESC), getResources().getString(R.string.ERROR_NO_NETWORK_BUTTON), new View.OnClickListener() {
                         @Override
@@ -207,10 +196,10 @@ public class ProgressView extends ProgressActivity {
                 }
 
                 @Override
-                public void onDataFormateError() {
+                public void onDataFormatError() {
                     //内部单独处理
                     if (onDataErrorCallBack != null) {
-                        onDataErrorCallBack.onDataFormateError();
+                        onDataErrorCallBack.onDataFormatError();
                     }
                     reset();
                     showError(getResources().getDrawable(R.drawable.monkey_cry), getResources().getString(R.string.ERROR_FORMATE_DATA_TITLE), errorMode.getErrorTitle(), getResources().getString(R.string.ERROR_DEFAULT_BUTTON), new View.OnClickListener() {
@@ -292,17 +281,44 @@ public class ProgressView extends ProgressActivity {
 
     }
 
+    @Override
+    public void clear() {
+        normalErrorButtonTextColor = 0;
+        stopErrorButtonTextColor = 0;
+        if (gameCountDownTimerUtils != null) {
+            gameCountDownTimerUtils.clear();
+        }
+        gameCountDownTimerUtils = null;
+        normalErrorButtonBackground = null;
+        stopErrorButtonBackground = null;
+    }
+
     public interface OnProgressViewCallBack {
 
+        /**
+         * retry
+         */
         void onReTry();
 
+        /**
+         * other
+         *
+         * @param errorMode ErrorMode
+         */
         void onOther(ErrorMode errorMode);
 
     }
 
     public interface OnDataErrorCallBack {
-        void onDataFormateError();
 
+        /**
+         *data format error
+         */
+        void onDataFormatError();
+
+        /**
+         *cast error
+         */
         void onCastError();
     }
 }

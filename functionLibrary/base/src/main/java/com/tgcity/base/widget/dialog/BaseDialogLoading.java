@@ -11,13 +11,38 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.tgcity.base.R;
 
+/**
+ * @author TGCity
+ */
 public class BaseDialogLoading extends Dialog {
-    //loading image
+
+    /**
+     * loading image
+     */
     private ImageView loadingProgress;
-    //loading context
+    /**
+     * loading context
+     */
     private TextView loadingText;
-    //context
+    /**
+     * context
+     */
     private Context mContext;
+
+    public BaseDialogLoading(Context context) {
+        super(context);
+        this.mContext = context;
+    }
+
+    public BaseDialogLoading(Context context, int theme) {
+        super(context, theme);
+        this.mContext = context;
+    }
+
+    protected BaseDialogLoading(Context context, boolean cancelable, OnCancelListener cancelListener) {
+        super(context, cancelable, cancelListener);
+        this.mContext = context;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +61,10 @@ public class BaseDialogLoading extends Dialog {
         }
     }
 
-    public BaseDialogLoading(Context context) {
-        super(context);
-        this.mContext = context;
-    }
-
-    public BaseDialogLoading(Context context, int theme) {
-        super(context, theme);
-        this.mContext = context;
-    }
-
-    protected BaseDialogLoading(Context context, boolean cancelable, OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
-        this.mContext = context;
-    }
-
     /**
      * show dialog
      */
+    @Override
     public void show() {
         if (!isShowing()) {
             try {
@@ -76,7 +87,6 @@ public class BaseDialogLoading extends Dialog {
         }
     }
 
-
     /**
      * clear view
      */
@@ -85,4 +95,5 @@ public class BaseDialogLoading extends Dialog {
         loadingText = null;
         loadingProgress = null;
     }
+
 }

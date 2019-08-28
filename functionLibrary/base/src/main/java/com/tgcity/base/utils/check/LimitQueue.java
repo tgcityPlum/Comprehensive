@@ -3,6 +3,9 @@ package com.tgcity.base.utils.check;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * @author TGCity
+ */
 public class LimitQueue<E>  {
 
     private int limitedSize;

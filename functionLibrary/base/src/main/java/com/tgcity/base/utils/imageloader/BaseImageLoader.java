@@ -9,11 +9,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 /**
- * 作者：小超 by Administrator on 2018/10/10 10：07
+ * @author TGCity
  * ImageLoader基类 方便拓展 以及更换图片框架
  */
-public abstract class ImageLoader {
-    protected String getPath(String path) {
+public abstract class BaseImageLoader {
+
+    String getPath(String path) {
         if (path == null) {
             path = "";
         }
@@ -24,7 +25,7 @@ public abstract class ImageLoader {
         return path;
     }
 
-    protected Activity getActivity(View view) {
+    Activity getActivity(View view) {
         Context context = view.getContext();
         while (context instanceof ContextWrapper) {
             if (context instanceof Activity) {
@@ -41,7 +42,7 @@ public abstract class ImageLoader {
 
     public abstract void display(ImageView imageView, Bitmap bitmap);
 
-    public abstract void download(Activity activity,String path, DownloadDelegate delegate);
+    public abstract void download(Activity activity, String path, DownloadDelegate delegate);
 
     public abstract void pause(Context activity);
 

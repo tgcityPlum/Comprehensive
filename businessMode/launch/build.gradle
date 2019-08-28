@@ -62,6 +62,7 @@ dependencies {
     //引入 base main
     implementation project(':functionLibrary:base')
     implementation project(':businessMode:main')
+    implementation project(':businessMode:login')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

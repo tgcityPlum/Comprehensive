@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tgcity.mian">
+    package="com.tgcity.mode.main">
 
     <application>
-        <activity android:name="com.tgcity.main.MainCoreActivity"></activity>
+        <activity android:name=".MainCoreActivity"/>
     </application>
 
 </manifest>

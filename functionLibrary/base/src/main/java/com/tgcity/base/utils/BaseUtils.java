@@ -6,28 +6,33 @@ import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+/**
+ * @author TGCity
+ */
 public class BaseUtils {
     /**
      * 释放imageview中的图片
      *
-     * @param imageView 要被释放的imageview
-     * @param viewGroup 要被释放的imageview的父容器
+     * @param imageView 要被释放的imageView
+     * @param viewGroup 要被释放的imageView的父容器
      */
-    public static void releaseImageViewResouce(ImageView imageView, ViewGroup viewGroup) {
+    public static void releaseImageViewResource(ImageView imageView, ViewGroup viewGroup) {
         if (imageView == null) {
             return;
         }
         Drawable drawable = imageView.getDrawable();
-        if (drawable != null && drawable instanceof BitmapDrawable) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            Bitmap bitmap = bitmapDrawable.getBitmap();
-//            if (bitmap != null && !bitmap.isRecycled()) {//会导致正在使用中的bitmap也会被清理掉
+        if (drawable instanceof BitmapDrawable) {
+//            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+//            Bitmap bitmap = bitmapDrawable.getBitmap();
+//            if (bitmap != null && !bitmap.isRecycled()) {
+// 会导致正在使用中的bitmap也会被清理掉
 //                bitmap.recycle();
 //            }
-            bitmap = null;
-            bitmapDrawable = null;
-            //将imageView从父容器移除，并将imag置为null
-            if (viewGroup != null && imageView != null) {
+//            bitmap = null;
+//            bitmapDrawable = null;
+
+            if (viewGroup != null) {
+                //将imageView从父容器移除，并将imag置为null
                 viewGroup.removeView(imageView);
                 imageView.clearColorFilter();
                 imageView.setImageDrawable(null);

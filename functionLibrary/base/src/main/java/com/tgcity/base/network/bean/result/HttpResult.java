@@ -1,6 +1,7 @@
 package com.tgcity.base.network.bean.result;
 
 /**
+ * @author TGCity
  * 服务器返回的基础类，此处进行拆分
  * @param <T> 核心的类，支持List
  */

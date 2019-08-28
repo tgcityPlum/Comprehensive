@@ -1,4 +1,4 @@
-package com.tgcity.mode.base;
+package com.tgcity.mode.home.base;
 
 import com.tgcity.base.application.BaseApplication;
 

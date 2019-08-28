@@ -2,6 +2,9 @@ package com.tgcity.base.utils.check;
 
 import java.util.Calendar;
 
+/**
+ * @author TGCity
+ */
 public class OneClick {
     private String methodName;
     private static final int CLICK_DELAY_TIME = 1000;

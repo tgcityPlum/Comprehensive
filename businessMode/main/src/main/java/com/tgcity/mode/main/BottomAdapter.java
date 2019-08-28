@@ -1,4 +1,4 @@
-package com.tgcity.main;
+package com.tgcity.mode.main;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tgcity.mian.R;
 
 import java.util.List;
 

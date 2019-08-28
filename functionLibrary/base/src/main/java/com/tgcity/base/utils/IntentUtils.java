@@ -11,12 +11,8 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 
 /**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/9/23
- *     desc  : 意图相关工具类
- * </pre>
+ * @author TGCity
+ * 意图相关工具类
  */
 public final class IntentUtils {
 
@@ -26,15 +22,10 @@ public final class IntentUtils {
 
     /**
      * 判断intent和它的bundle是否为空
-     *
-     * @param intent
-     * @return
      */
     public static boolean isBundleEmpty(Intent intent) {
         return (intent == null) && (intent.getExtras() == null);
     }
-
-
 
     /**
      * 获取卸载App的意图
@@ -52,7 +43,7 @@ public final class IntentUtils {
      * 获取打开App的意图
      *
      * @param packageName 包名
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getLaunchAppIntent(Context context, String packageName) {
         return context.getPackageManager().getLaunchIntentForPackage(packageName);
@@ -62,7 +53,7 @@ public final class IntentUtils {
      * 获取App具体设置的意图
      *
      * @param packageName 包名
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getAppDetailsSettingsIntent(String packageName) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -74,7 +65,7 @@ public final class IntentUtils {
      * 获取分享文本的意图
      *
      * @param content 分享文本
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getShareTextIntent(String content) {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -89,7 +80,7 @@ public final class IntentUtils {
      *
      * @param content 分享文本
      * @param uri     图片uri
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getShareImageIntent(String content, Uri uri) {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -104,7 +95,7 @@ public final class IntentUtils {
      *
      * @param packageName 包名
      * @param className   全类名
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getComponentIntent(String packageName, String className) {
         return getComponentIntent(packageName, className, null);
@@ -116,7 +107,7 @@ public final class IntentUtils {
      * @param packageName 包名
      * @param className   全类名
      * @param bundle      bundle
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getComponentIntent(String packageName, String className, Bundle bundle) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -130,12 +121,13 @@ public final class IntentUtils {
      * 获取关机的意图
      * <p>需添加权限 {@code <uses-permission android:name="android.permission.SHUTDOWN"/>}</p>
      *
-     * @return intent
+     * @return intent Intent
      */
     public static Intent getShutdownIntent() {
         Intent intent = new Intent(Intent.ACTION_SHUTDOWN);
         return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     }
+
     /**
      * 获取直接拨号意图
      *
@@ -145,6 +137,7 @@ public final class IntentUtils {
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
         return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     }
+
     /**
      * 获取跳至拨号界面意图
      *
@@ -154,6 +147,7 @@ public final class IntentUtils {
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
         return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     }
+
     /**
      * 获取拨打电话意图
      * <p>需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}</p>
@@ -195,7 +189,7 @@ public final class IntentUtils {
     /**
      * 获取选择照片的Intent
      *
-     * @return
+     * @return Intent
      */
     public static Intent getPickIntentWithGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -205,7 +199,7 @@ public final class IntentUtils {
     /**
      * 获取从文件中选择照片的Intent
      *
-     * @return
+     * @return Intent
      */
     public static Intent getPickIntentWithDocuments() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -304,7 +298,7 @@ public final class IntentUtils {
     /**
      * 获取时间设置意图
      *
-     * @return
+     * @return Intent
      */
     public static Intent getDateIntent() {
         Intent intent = new Intent(Settings.ACTION_DATE_SETTINGS);
@@ -314,7 +308,7 @@ public final class IntentUtils {
     /**
      * 获取桌面意图
      *
-     * @return
+     * @return Intent
      */
     public static Intent getHomeDesktopIntent() {
         Intent intent = new Intent(Intent.ACTION_MAIN, null);
@@ -325,7 +319,7 @@ public final class IntentUtils {
     /**
      * 获取网络意图
      *
-     * @return
+     * @return Intent
      */
     public static Intent getNetworkIntent() {
         Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS, null);
@@ -335,7 +329,7 @@ public final class IntentUtils {
     /**
      * 获取GPS意图
      *
-     * @return
+     * @return Intent
      */
     public static Intent getGPSIntent() {
         Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS, null);
@@ -345,7 +339,7 @@ public final class IntentUtils {
     /**
      * 获取跳转到APP详情页意图(储存,流量,权限,通知等)
      *
-     * @param context
+     * @param context Context
      */
     public static Intent getAppDetailSettingIntent(Context context) {
         Intent localIntent = new Intent();
@@ -364,10 +358,11 @@ public final class IntentUtils {
 
     /**
      * 获取跳转到浏览器意图
+     *
      * @param url
      * @return
      */
-    public static Intent getBrowserIntent(String url){
+    public static Intent getBrowserIntent(String url) {
         return new Intent().setAction("android.intent.action.VIEW").setData(Uri.parse(url));
     }
 

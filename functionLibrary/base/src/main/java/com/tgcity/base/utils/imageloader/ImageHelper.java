@@ -11,19 +11,20 @@ import android.widget.ImageView;
 
 
 /**
- * @Describe Image辅助类
+ * @author TGCity
+ * Image辅助类
  */
 public class ImageHelper {
     private static final String TAG = ImageHelper.class.getSimpleName();
-    private static ImageLoader sImageLoader;
+    private static BaseImageLoader sImageLoader;
 
-    private static final ImageLoader getImageLoader() {
+    private static BaseImageLoader getImageLoader() {
         if (sImageLoader == null) {
             synchronized (ImageHelper.class) {
                 if (sImageLoader == null) {
                     if (isClassExists("com.bumptech.glide.Glide")) {
                         sImageLoader = new GlideImageLoader();
-                    }else {
+                    } else {
                         throw new RuntimeException("必须在你的build.gradle文件中配置「Glide、Picasso、universal-image-loader、XUtils3」中的某一个图片加载库的依赖");
                     }
                 }
@@ -31,19 +32,21 @@ public class ImageHelper {
         }
         return sImageLoader;
     }
+
     /**
-     * 设置开发者自定义 ImageLoader
+     * 设置开发者自定义 BaseImageLoader
      *
-     * @param imageLoader
+     * @param imageLoader BaseImageLoader
      */
-    public static void setImageLoader(ImageLoader imageLoader) {
+    public static void setImageLoader(BaseImageLoader imageLoader) {
         sImageLoader = imageLoader;
     }
 
     /**
-    * 检查类是否存在
-    * */
-    private static final boolean isClassExists(String classFullName) {
+     * 检查类是否存在
+     * @param classFullName classFullName
+     */
+    private static boolean isClassExists(String classFullName) {
         try {
             Class.forName(classFullName);
             return true;
@@ -54,15 +57,16 @@ public class ImageHelper {
 
     /**
      * 加载网络图片
-     * @param imageView
-     * @param path
+     *
+     * @param imageView  ImageView
+     * @param path  String
      */
     public static void display(ImageView imageView, String path) {
-        display(imageView,0,path);
+        display(imageView, 0, path);
     }
 
     public static void display(ImageView imageView, @DrawableRes int placeholderResId, String path) {
-        display(imageView,placeholderResId,path,0);
+        display(imageView, placeholderResId, path, 0);
     }
 
     public static void display(ImageView imageView, @DrawableRes int placeholderResId, String path, int size) {
@@ -73,33 +77,35 @@ public class ImageHelper {
         display(imageView, placeholderResId, path, width, height, null);
     }
 
-    public static void display(ImageView imageView, @DrawableRes int placeholderResId, String path, int width, int height, final ImageLoader.DisplayDelegate delegate) {
+    public static void display(ImageView imageView, @DrawableRes int placeholderResId, String path, int width, int height, final BaseImageLoader.DisplayDelegate delegate) {
         display(imageView, placeholderResId, placeholderResId, path, width, height, delegate);
     }
 
-    public static void display(ImageView imageView, @DrawableRes int loadingResId, @DrawableRes int failResId, String path, int width, int height, final ImageLoader.DisplayDelegate delegate) {
+    public static void display(ImageView imageView, @DrawableRes int loadingResId, @DrawableRes int failResId, String path, int width, int height, final BaseImageLoader.DisplayDelegate delegate) {
         getImageLoader().display(imageView, path, loadingResId, failResId, width, height, delegate);
     }
 
 
     /**
      * 加载本地资源
-     * @param imageView
-     * @param resourceId
+     *
+     * @param imageView  ImageView
+     * @param resourceId  Integer
      */
-    public static void display(ImageView imageView,Integer resourceId) {
+    public static void display(ImageView imageView, Integer resourceId) {
         getImageLoader().display(imageView, resourceId);
     }
 
-    public static void display(ImageView imageView,Bitmap bitmap) {
+    public static void display(ImageView imageView, Bitmap bitmap) {
         getImageLoader().display(imageView, bitmap);
     }
+
     /**
-    * 下载图片
-    * */
-    public static void download(Activity activity,String path, final ImageLoader.DownloadDelegate delegate) {
+     * 下载图片
+     */
+    public static void download(Activity activity, String path, final BaseImageLoader.DownloadDelegate delegate) {
         try {
-            getImageLoader().download(activity,path, delegate);
+            getImageLoader().download(activity, path, delegate);
         } catch (Exception e) {
             Log.d(TAG, "下载图片失败：" + e.getMessage());
         }
@@ -108,7 +114,7 @@ public class ImageHelper {
     /**
      * 暂停加载
      *
-     * @param context
+     * @param context  Context
      */
     public static void pause(Context context) {
         getImageLoader().pause(context);
@@ -116,7 +122,8 @@ public class ImageHelper {
 
     /**
      * 继续加载
-     * @param context
+     *
+     * @param context  Context
      */
     public static void resume(Context context) {
         getImageLoader().resume(context);
@@ -124,11 +131,12 @@ public class ImageHelper {
 
     /**
      * 清理View中的图片
+     *
      * @param view    要被清理的View
-     * @param context
+     * @param context  Context
      */
     public static void clear(View view, Context context) {
-        getImageLoader().clear(view,context);
+        getImageLoader().clear(view, context);
     }
 
 }

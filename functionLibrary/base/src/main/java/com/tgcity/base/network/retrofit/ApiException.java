@@ -4,7 +4,6 @@ import android.net.ParseException;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializer;
-import com.google.gson.JsonSyntaxException;
 import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.base.utils.LogUtils;
 import com.tgcity.base.network.cache.model.ErrorMode;
@@ -20,7 +19,7 @@ import retrofit2.HttpException;
 
 
 /**
- * 作者：TGCity by Administrator on 2018/7/23
+ * @author TGCity
  * 异常处理类
  */
 public class ApiException extends RuntimeException {
@@ -77,7 +76,7 @@ public class ApiException extends RuntimeException {
                     apiException = new ApiException(httpResult.getMessage(), ErrorMode.API_NO_VISUALIZATION_MESSAGE);
                     break;
                 case 300:
-                    apiException = new ApiException(ErrorMode.SINGNATURE_FAILURE_TIME);
+                    apiException = new ApiException(ErrorMode.SIGNATURE_FAILURE_TIME);
                     break;
                 default:
                     apiException = new ApiException(httpResult.getMessage(), ErrorMode.HTTP_OTHER_ERROR);
@@ -102,29 +101,33 @@ public class ApiException extends RuntimeException {
             return ex;
         } else if (e instanceof JsonParseException
                 || e instanceof JSONException
-                || e instanceof JsonSyntaxException
                 || e instanceof JsonSerializer
                 || e instanceof NotSerializableException
-                || e instanceof ParseException) {//数据解析出错
-
-            ex = new ApiException(e.getMessage(), ErrorMode.DATA_FORMATE_ERROR);
+                || e instanceof ParseException) {
+            //数据解析出错
+            ex = new ApiException(e.getMessage(), ErrorMode.DATA_FORMAT_ERROR);
             return ex;
-        } else if (e instanceof ClassCastException) {//类型转换错误
+        } else if (e instanceof ClassCastException) {
+            //类型转换错误
             ex = new ApiException(e.getMessage(), ErrorMode.TYPE_CAST_ERROR);
             return ex;
-        } else if (e instanceof ConnectException) {//连接失败
+        } else if (e instanceof ConnectException) {
+            //连接失败
             ex = new ApiException(ErrorMode.CONNECT_TIME_OUT);
             return ex;
-        } else if (e instanceof javax.net.ssl.SSLHandshakeException) {//证书验证失败
-            ex = new ApiException(ErrorMode.SINGNATURE_FAILURE_SSL);
+        } else if (e instanceof javax.net.ssl.SSLHandshakeException) {
+            //证书验证失败
+            ex = new ApiException(ErrorMode.SIGNATURE_FAILURE_SSL);
             return ex;
-        } else if (e instanceof ConnectTimeoutException) {//连接超时
+        } else if (e instanceof ConnectTimeoutException) {
+            //连接超时
             ex = new ApiException(ErrorMode.CONNECT_TIME_OUT);
             return ex;
         } else if (e instanceof java.net.SocketTimeoutException) {
             ex = new ApiException(ErrorMode.CONNECT_TIME_OUT);
             return ex;
-        } else if (e instanceof UnknownHostException) {//无法解析该域名
+        } else if (e instanceof UnknownHostException) {
+            //无法解析该域名
             ex = new ApiException(ErrorMode.UNKNOWN_HOST);
             return ex;
         } else {

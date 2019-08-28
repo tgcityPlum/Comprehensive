@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.tgcity.mode.home.TestWebActivity;
+import com.tgcity.mode.home.testweb.TestWebActivity;
 
 /**
  * home模块--启动页面

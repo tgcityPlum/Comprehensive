@@ -2,12 +2,15 @@ package com.tgcity.base.network.bean.response;
 
 import java.util.List;
 
+/**
+ * @author TGCity
+ */
 public class QueryMajorChooseSubjectOutput {
 
-    private MajorBean major;//选科查询返回的实体
-    private String subject;//选科科目
-    private CollegeBean college;//
-    private List<ContainMajorsBean> containMajors;//
+    private MajorBean major;
+    private String subject;
+    private CollegeBean college;
+    private List<ContainMajorsBean> containMajors;
 
     public MajorBean getMajor() {
         return major;

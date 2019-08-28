@@ -1,17 +1,36 @@
 package com.tgcity.base.network.bean.response;
-/*
-*
-* 缓存配置模型
-*
-* */
+
+/**
+ * @author TGCit
+ * 缓存配置模型
+ */
 public class CacheVersionDto {
 
-    private int College;//院校缓存版本
-    private int Major;//专业缓存版本
-    private int PCL;//省控线缓存版本
-    private int Other;//其它缓存版本
-    private String LastModificationTime;//修改时间
-    private String LastModificationUserName;//修改人姓名（清数据缓存的时候自动更新）
+    /**
+     * 院校缓存版本
+     */
+    private int College;
+    /**
+     * 专业缓存版本
+     */
+    private int Major;
+    /**
+     * 省控线缓存版本
+     */
+    private int PCL;
+    /**
+     * 其它缓存版本
+     */
+    private int Other;
+    /**
+     * 修改时间
+     */
+    private String LastModificationTime;
+    /**
+     * 修改人姓名（清数据缓存的时候自动更新）
+     */
+    private String LastModificationUserName;
+
     private int Id;
 
     public int getCollege() {

@@ -1,5 +1,7 @@
 package com.tgcity.base.activity;
 
+import android.annotation.SuppressLint;
+
 import com.bumptech.glide.Glide;
 import com.tgcity.base.R;
 import com.tgcity.base.constant.BaseConstant;
@@ -14,6 +16,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
+ * @author TGCity
  * 基础的activity类
  * --监听系统内存的状况
  * ----参考地址：https://mp.weixin.qq.com/s?__biz=MzIxNjc0ODExMA==&mid=2247484311&idx=1&sn=1fe0416bed4137dd45c6e9c153bb14f4&chksm=97851ab6a0f293a0cde28ff6d1091b2232e1758e9845a05549d01c62f412def742985d642630&scene=21#wechat_redirect
@@ -25,6 +28,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      *
      * @param level level flag
      */
+    @SuppressLint("SwitchIntDef")
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
@@ -40,7 +44,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
                 onTrimMemoryRunningCritical();
                 break;
             case TRIM_MEMORY_UI_HIDDEN:
-                onTrimMemoryUIHidden();
+                onTrimMemoryUiHidden();
                 break;
             default:
                 break;
@@ -92,11 +96,16 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      * the UI should be released at this point to allow memory to be better
      * managed.
      */
-    private void onTrimMemoryUIHidden() {
+    private void onTrimMemoryUiHidden() {
         //可以清理一些用户不需要看到但又不重要，显示之后又可以复原的东西
         logBaseMemoryActivity(getString(R.string.base_memory_activity_ui_hidden));
     }
 
+    /**
+     * get current activity page
+     *
+     * @return the current activity name
+     */
     public abstract String getCurrentPage();
 
     public String getCurrentPageName(String message) {
@@ -107,7 +116,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
      * 输出当前界面调用方法的日志
      */
     private void logBaseMemoryActivity(String message) {
-        if (BaseConstant.Power.isBaseMemoryActivityLogShow) {
+        if (BaseConstant.Power.IS_BASE_MEMORY_ACTIVITY_LOG_SHOW) {
             LogUtils.d(message);
         }
     }
@@ -121,7 +130,7 @@ public abstract class BaseMemoryActivity extends BaseLoadingActivity {
         // TODO: 2019/6/28 待测试
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+            public void subscribe(ObservableEmitter<String> emitter) {
                 Glide.get(BaseMemoryActivity.this).clearDiskCache();
             }
         }).subscribeOn(Schedulers.io())
