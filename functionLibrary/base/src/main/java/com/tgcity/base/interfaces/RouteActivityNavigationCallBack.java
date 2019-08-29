@@ -5,12 +5,16 @@ package com.tgcity.base.interfaces;
  * @date 2019/8/28
  * @describe    jump activity bu route arrival
  */
-public interface RouteActivtyArrivalBack {
+public interface RouteActivityNavigationCallBack {
 
     /**
      * Arrival Back
      */
     void onArrivalBack();
 
+    /**
+     * Lost Back
+     */
+    void onLostBack();
 
 }

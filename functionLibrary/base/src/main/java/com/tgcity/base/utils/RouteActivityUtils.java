@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.constant.RouteConstant;
-import com.tgcity.base.interfaces.RouteActivtyArrivalBack;
+import com.tgcity.base.interfaces.RouteActivityNavigationCallBack;
 
 /**
  * @author TGCity
@@ -18,7 +18,7 @@ public class RouteActivityUtils {
     /**
      * 跳转main模块主页
      */
-    public static void toJumpMainModeIndexActivity(Context context, final RouteActivtyArrivalBack arrivalBack) {
+    public static void toJumpMainModeIndexActivity(Context context, final RouteActivityNavigationCallBack callBack) {
         final String path = RouteConstant.MainMode.MAIN_FRAGMENT;
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
@@ -29,12 +29,13 @@ public class RouteActivityUtils {
             @Override
             public void onLost(Postcard postcard) {
                 LogUtils.e(path + " onLost");
+                callBack.onLostBack();
             }
 
             @Override
             public void onArrival(Postcard postcard) {
                 LogUtils.e(path + " onArrival");
-                arrivalBack.onArrivalBack();
+                callBack.onArrivalBack();
             }
 
             @Override
@@ -47,7 +48,7 @@ public class RouteActivityUtils {
     /**
      * 跳转登录模块主页
      */
-    public static void toJumpLoginModeIndexActivity(Context context, final RouteActivtyArrivalBack arrivalBack) {
+    public static void toJumpLoginModeIndexActivity(Context context, final RouteActivityNavigationCallBack arrivalBack) {
         final String path = RouteConstant.LoginMode.MAIN_FRAGMENT;
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override

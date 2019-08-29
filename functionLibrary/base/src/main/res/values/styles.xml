@@ -30,6 +30,11 @@
         <item name="android:textColor">@color/color_666666</item>
     </style>
 
+    <style name="size_12_color_666666">
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textColor">@color/color_666666</item>
+    </style>
+
     <!--    text and color style ending   -->
 
     <!--    view style starting   -->

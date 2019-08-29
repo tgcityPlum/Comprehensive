@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">launch</string>
+    <string name="guide_countdown_time">%d&#160;跳过</string>
 </resources>

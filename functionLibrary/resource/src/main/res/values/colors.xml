@@ -10,6 +10,8 @@
     <color name="color_line">#fafafa</color><!--分割线的颜色-->
     <color name="title_bag">#FF6C4B</color>
     <color name="color_launch">#F6F3EF</color>
+    <color name="color_guide_time">#5AAAAAAA</color>
+
     <!--    app color ending  -->
 
     <!--    StrongGradientButton color starting  -->
@@ -38,5 +40,7 @@
     <color name="color_E9302D">#E9302D</color>
     <color name="color_EEEEEE">#EEEEEE</color>
     <color name="color_FF6C4B">#FF6C4B</color>
+
+
 
 </resources>

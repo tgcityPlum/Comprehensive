@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity> <!-- ******* 自动适配UI-开始  ui设计均基于375x667设计 此处请勿修改  ******* -->
+        <activity android:name=".MainActivity"></activity>
+        <!-- ******* 自动适配UI-开始  ui设计均基于375x667设计 此处请勿修改  ******* -->
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
