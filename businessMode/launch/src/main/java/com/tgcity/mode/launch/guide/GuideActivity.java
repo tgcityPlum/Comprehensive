@@ -55,7 +55,7 @@ public class GuideActivity extends BaseCommonActivity {
      * 0: jump by gif time
      * 1: jump by countdown time
      */
-    private int jumpActivityType = 0;
+    private int jumpActivityType = BaseConstant.ItemType.LEVEL_0;
 
     /**
      * jump click type
@@ -88,9 +88,9 @@ public class GuideActivity extends BaseCommonActivity {
     protected void onResume() {
         super.onResume();
 
-        if (jumpActivityType == 0) {
+        if (jumpActivityType == BaseConstant.ItemType.LEVEL_0) {
             jumpByGifTime();
-        } else if (jumpActivityType == 1) {
+        } else if (jumpActivityType == BaseConstant.ItemType.LEVEL_1) {
             tvTime.setVisibility(View.VISIBLE);
             jumpByCountdownTime();
         }

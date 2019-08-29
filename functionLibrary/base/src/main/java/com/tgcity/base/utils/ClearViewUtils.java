@@ -20,7 +20,6 @@ public class ClearViewUtils {
     /**
      * 清理各种View中子View的资源、回调、数据或引用等，可扩展
      */
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void clearAll(View target) {
         //上来首先无脑切断背景及各种引用
         clearListener(target);
@@ -224,29 +223,33 @@ public class ClearViewUtils {
     /**
      * 清理指定View的各种事件
      */
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void clearListener(View view) {
         if (view == null) {
             return;
         }
 
         try {//防止某些机型SDK被改动过而找不到方法
-            if (!(view instanceof AdapterView)) {//AdapterView 不能设置 onClickListener,否则直接抛异常
+            if (!(view instanceof AdapterView)) {
+                //AdapterView 不能设置 onClickListener,否则直接抛异常
                 view.setOnClickListener(null);
             }
             view.setOnFocusChangeListener(null);
             view.setOnTouchListener(null);
-            view.setOnScrollChangeListener(null);
-            view.setOnContextClickListener(null);
             view.setOnLongClickListener(null);
             view.setOnDragListener(null);
             view.setOnSystemUiVisibilityChangeListener(null);
-            view.setOnApplyWindowInsetsListener(null);
-            view.setOnCapturedPointerListener(null);
             view.setOnCreateContextMenuListener(null);
             view.setOnHoverListener(null);
             view.setOnKeyListener(null);
             view.setOnGenericMotionListener(null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                view.setOnScrollChangeListener(null);
+                view.setOnContextClickListener(null);
+                view.setOnApplyWindowInsetsListener(null);
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                view.setOnCapturedPointerListener(null);
+            }
         } catch (NoSuchMethodError e) {
             e.printStackTrace();
         }

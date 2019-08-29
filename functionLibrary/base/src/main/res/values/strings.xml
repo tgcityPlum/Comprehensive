@@ -1,7 +1,6 @@
 <resources>
     <!--    Flag about the app with starting    -->
     <string name="app_name">base</string>
-    <string name="exit_app">再按一次退出应用</string>
     <!--    Flag about the app with ending    -->
 
     <!--    Flag in the subclass of activity with starting  -->
@@ -41,5 +40,10 @@
     <string name="ERROR_FORMATE_DATA_TITLE">返回数据解析错误</string>
     <string name="ERROR_CLASS_CAST_TITLE">类转换错误</string>
 
+    <!-- dialog message -->
+    <string name="exit_app">再按一次退出应用</string>
+    <string name="dialog_title">提示</string>
+    <string name="dialog_fix">确定</string>
+    <string name="dialog_cancel">取消</string>
 
 </resources>

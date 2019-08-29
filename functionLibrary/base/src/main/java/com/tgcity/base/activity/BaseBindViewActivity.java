@@ -59,6 +59,7 @@ public abstract class BaseBindViewActivity extends BaseOrientationActivity {
 
     /**
      * abstract get layout id
+     *
      * @return the layout of activity
      */
     public abstract int getViewLayout();
@@ -89,9 +90,7 @@ public abstract class BaseBindViewActivity extends BaseOrientationActivity {
             unBind = null;
         }
         //destroy rootView
-        if (rootView != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            ClearViewUtils.clearAll(rootView);
-        }
+        ClearViewUtils.clearAll(rootView);
 
         nullView = new View(mContext);
         setContentView(nullView);

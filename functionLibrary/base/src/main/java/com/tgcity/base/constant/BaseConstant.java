@@ -59,4 +59,13 @@ public class BaseConstant {
         //launch mode
         public static final String CACHE_IS_LOGIN = "Cache_Is_Login";//是否已经登录
     }
+
+    /**
+     * 用来区分item类型
+     */
+    public class ItemType {
+        public static final int LEVEL_0 = 0;
+        public static final int LEVEL_1 = 1;
+        public static final int LEVEL_2 = 2;
+    }
 }

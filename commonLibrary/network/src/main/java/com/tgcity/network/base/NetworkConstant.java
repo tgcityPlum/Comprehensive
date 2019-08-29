@@ -61,12 +61,7 @@ public class NetworkConstant {
      */
     public static long cache_a_second = 1;
 
-    /*********************************************用来区分item类型*********************************************/
-    public class ItemType {
-        public static final int LEVEL_0 = 0;
-        public static final int LEVEL_1 = 1;
-        public static final int LEVEL_2 = 2;
-    }
+
 
     /*********************************************程序内部通讯消息相关*********************************************/
     //跳转xxx

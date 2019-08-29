@@ -7,12 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.activity.BaseCommonActivity;
+import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.constant.RouteConstant;
+import com.tgcity.base.widget.dialog.FragmentNewDesignDialogAsk;
 import com.tgcity.mode.home.index.HomeFragment;
 import com.tgcity.mode.news.testfragment.NewsFragment;
 
@@ -52,6 +55,19 @@ public class MainCoreActivity extends BaseCommonActivity {
      * 第一次点击时间
      */
     private long firstTime = 0;
+
+    /**
+     * click back type
+     * 0: direct quit app
+     * 1: quit app with toast
+     * 2: quit app with dialog
+     */
+    private int clickBackType = BaseConstant.ItemType.LEVEL_1;
+
+    /**
+     * quit app dialog
+     */
+    private FragmentNewDesignDialogAsk quitAppDialog;
 
     @Override
     public int getViewLayout() {
@@ -151,16 +167,52 @@ public class MainCoreActivity extends BaseCommonActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            long secondTime = System.currentTimeMillis();
-            long intervalTime = 2000;
-            if (secondTime - firstTime < intervalTime) {
-                System.exit(0);
-            } else {
-                Toast.makeText(getApplicationContext(), getString(R.string.exit_app), Toast.LENGTH_SHORT).show();
-                firstTime = System.currentTimeMillis();
+
+            if (clickBackType == BaseConstant.ItemType.LEVEL_1) {
+                quitAppWithToast();
+                return true;
             }
-            return true;
+
+            if (clickBackType == BaseConstant.ItemType.LEVEL_2) {
+                quitAppWithDialog();
+                return true;
+            }
+
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    private void quitAppWithDialog() {
+        if (quitAppDialog == null) {
+            quitAppDialog = new FragmentNewDesignDialogAsk();
+        }
+        quitAppDialog.show(getSupportFragmentManager(), new FragmentNewDesignDialogAsk.OnOperationCallBack() {
+            @Override
+            public void onCancel(FragmentNewDesignDialogAsk fragmentNewDesignDialogAsk) {
+                fragmentNewDesignDialogAsk.dismiss();
+            }
+
+            @Override
+            public void onFix(FragmentNewDesignDialogAsk fragmentNewDesignDialogAsk) {
+                fragmentNewDesignDialogAsk.dismissAllowingStateLoss();
+                finish();
+            }
+        }, (fragmentNewDesignDialogAsk, title, content, cancel, fix) -> {
+            title.setText(getString(R.string.dialog_title));
+            content.setText(getString(R.string.exit_app));
+            fix.setText(getString(R.string.dialog_fix));
+            cancel.setText(getString(R.string.dialog_cancel));
+        });
+    }
+
+    private void quitAppWithToast() {
+        long secondTime = System.currentTimeMillis();
+        long intervalTime = 2000;
+        if (secondTime - firstTime < intervalTime) {
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.exit_app), Toast.LENGTH_SHORT).show();
+            firstTime = System.currentTimeMillis();
+        }
     }
 }
