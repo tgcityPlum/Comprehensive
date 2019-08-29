@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_45"
     android:minHeight="?attr/actionBarSize"
-    app:contentInsetStart="0dp">
+    app:contentInsetStart="@dimen/dp_0">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <!--left image view-->
         <ImageView
             android:id="@+id/leftBackImg"
             android:layout_width="@dimen/dp_40"
@@ -22,7 +22,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+        <!--center text view-->
         <TextView
             android:id="@+id/title"
             style="@style/size_18_color_212121_bold"
@@ -40,7 +40,7 @@
             app:layout_constraintStart_toEndOf="@+id/leftBackImg"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="标题" />
-
+        <!--right image view-->
         <ImageView
             android:id="@+id/rightImgMenu"
             android:layout_width="@dimen/dp_40"
@@ -51,7 +51,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+        <!--right text view-->
         <TextView
             android:id="@+id/rightTextMenu"
             android:layout_width="@dimen/dp_60"

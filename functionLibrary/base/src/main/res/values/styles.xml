@@ -18,25 +18,6 @@
     </style>
     <!--    application theme ending   -->
 
-    <!--    text and color style starting   -->
-    <style name="size_18_color_212121_bold">
-        <item name="android:textSize">@dimen/sp_18</item>
-        <item name="android:textColor">@color/color_212121</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="size_14_color_666666">
-        <item name="android:textSize">@dimen/sp_14</item>
-        <item name="android:textColor">@color/color_666666</item>
-    </style>
-
-    <style name="size_12_color_666666">
-        <item name="android:textSize">@dimen/sp_12</item>
-        <item name="android:textColor">@color/color_666666</item>
-    </style>
-
-    <!--    text and color style ending   -->
-
     <!--    view style starting   -->
     <style name="ClubToolbar" parent="Widget.AppCompat.Toolbar">
         <!-- 设置该属性解决空白部分-->
