@@ -5,7 +5,7 @@
 
 --java                                  
 ----com.tgcity.mode.web
-------index                              //web common activity
+------index                             //web common activity
 
 ----debug                               //package below java used by release
 ------activity                            
