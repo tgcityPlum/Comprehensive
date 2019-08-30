@@ -1,6 +1,6 @@
-//def isIntegratedMode = isIntegratedMode.toBoolean()
-def isIntegratedMode = true
-def isJitPack = true
+def isIntegratedMode = isIntegratedMode.toBoolean()
+//def isIntegratedMode = true
+def isJitPack = false
 
 
 if (isIntegratedMode) {
@@ -89,10 +89,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
     implementation project(':functionLibrary:base')
-
-    if (isIntegratedMode) {
-//        implementation project(':businessMode:launch')
-    }
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

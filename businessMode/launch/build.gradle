@@ -1,7 +1,7 @@
-//def isIntegratedMode = isIntegratedMode.toBoolean()
-//def modeType = MODE_TYPE as int
-//def isLaunchMode = !isIntegratedMode && modeType == 1
-def isLaunchMode = false
+def isIntegratedMode = isIntegratedMode.toBoolean()
+def modeType = MODE_TYPE as int
+def isLaunchMode = !isIntegratedMode && modeType == 1
+//def isLaunchMode = false
 
 if (isLaunchMode) {
     apply plugin: 'com.android.application'
