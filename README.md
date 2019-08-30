@@ -1,10 +1,10 @@
 # 搭建项目
 ## 说明
 >项目主基调是模块化开发，分离出business,common和function,基本上将app架空，模块之间通过ARoute进行通信，整个项目分为app层，业务层，控件层，功能层  
-1\. app层不处理核心业务，只负责打包时的配置功能
-2\. 业务层处理项目的核心业务，比如 launch,login,home,news,mine等核心业务，每个业务完全解耦，通过ARoute进行通信
-3\. 控件层处理一些主要的公共控件，比如 refreshview,webview,network,mvp等，每个控件相对独立，引用功能层资源
-4\. 功能层处理一些基本的功能，比如 baseactivity，baseapplication，dp，color等
+1\. app层不处理核心业务，只负责打包时的配置功能  
+2\. 业务层处理项目的核心业务，比如 launch,login,home,news,mine等核心业务，每个业务完全解耦，通过ARoute进行通信  
+3\. 控件层处理一些主要的公共控件，比如 refreshview,webview,network,mvp等，每个控件相对独立，引用功能层资源  
+4\. 功能层处理一些基本的功能，比如 baseactivity，baseapplication，dp，color等  
 5\. 模块化开启在gradle.properties进行配置
 ## 模块结构
 ![avatar](/picture/comprehensive.png)
