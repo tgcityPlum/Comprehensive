@@ -63,7 +63,7 @@ dependencies {
     //引入 base web
     implementation project(':functionLibrary:base')
     //引入 webLibrary
-    implementation project(':commonLibrary:web')
+    implementation project(':commonLibrary:webview')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
