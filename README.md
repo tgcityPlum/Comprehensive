@@ -1,6 +1,9 @@
-# 尝试搭建项目
+# 搭建项目
 ## 说明
->项目主基调是MVP
+>项目主基调是模块化开发，分离出business,common和function,基本上将app架空，MVP
+
+## 模块结构
+![avatar](/picture/comprehensive.png)
 
 ## 遗留问题
 1\. 在library中，butterKnife在MVP模式中无法兼容，找不到R2文件

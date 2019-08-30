@@ -2,7 +2,7 @@ package com.tgcity.base.constant;
 
 /**
  * @author TGCity
- * 基础的静态常量
+ * route constant
  */
 public class RouteConstant {
 
