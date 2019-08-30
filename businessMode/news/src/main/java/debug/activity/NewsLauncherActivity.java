@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.tgcity.mode.news.indexlist.NewsIndexListActivity;
+import com.tgcity.mode.news.list.NewsIndexListActivity;
 
 /**
  * news模块--启动页面

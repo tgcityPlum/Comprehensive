@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 import com.tgcity.network.R;
 import com.tgcity.network.callback.AbstractSimpleCallBack;
-import com.tgcity.base.widget.dialog.NetworkDialogLoading;
+import com.tgcity.base.widget.dialog.NetworkLoadingDialog;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -22,19 +22,19 @@ public class ProgressSubscriber<T> extends AbstractSimpleCallBack<T> {
 
 
     private Context context;
-    private NetworkDialogLoading networkDialogLoading;
+    private NetworkLoadingDialog networkLoadingDialog;
 
     public ProgressSubscriber(SubscriberOnNextListener mSubscriberOnNextListener, Context context) {
         this.mSubscriberOnNextListener = mSubscriberOnNextListener;
         this.context = context;
-        networkDialogLoading = new NetworkDialogLoading(context, R.style.MyDialog1);
-        networkDialogLoading.setCanceledOnTouchOutside(false);
+        networkLoadingDialog = new NetworkLoadingDialog(context, R.style.MyDialog1);
+        networkLoadingDialog.setCanceledOnTouchOutside(false);
     }
 
     private void showProgressDialog(){
         try {
-            if (networkDialogLoading != null) {
-                networkDialogLoading.show();
+            if (networkLoadingDialog != null) {
+                networkLoadingDialog.show();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,9 +43,9 @@ public class ProgressSubscriber<T> extends AbstractSimpleCallBack<T> {
 
     private void dismissProgressDialog(){
         try {
-            if (networkDialogLoading != null) {
-                networkDialogLoading.dismiss();
-                networkDialogLoading = null;
+            if (networkLoadingDialog != null) {
+                networkLoadingDialog.dismiss();
+                networkLoadingDialog = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

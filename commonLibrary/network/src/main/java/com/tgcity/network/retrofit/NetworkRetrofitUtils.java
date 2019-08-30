@@ -1,6 +1,6 @@
 package com.tgcity.network.retrofit;
 
-import android.app.Application;
+import android.content.Context;
 
 import com.google.gson.Gson;
 import com.tgcity.base.constant.BaseConstant;
@@ -76,7 +76,7 @@ public class NetworkRetrofitUtils extends HttpRetrofitUtils {
      * @param server          要初始化的服务器地址，详见AppConstant中的API地址初始化控制部分
      */
     @Override
-    public void init(Application mContext, boolean getCacheVersion, int... server) {
+    public void init(Context mContext, boolean getCacheVersion, int... server) {
         for (int i = 0; i < server.length; i++) {
             LogUtils.e(NetworkConstant.SYSTEM_TAG, server[i]);
             switch (server[i]) {

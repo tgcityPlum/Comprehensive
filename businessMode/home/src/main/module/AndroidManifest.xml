@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.tgcity.mode.home.base.HomeApplication"
+        android:name="debug.base.HomeApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppBaseThemeWithWindowIsTranslucent">
 
-        <activity android:name="debug.activity.HomeIndexActivity">
+        <activity android:name="debug.activity.HomeLauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -22,7 +22,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".testweb.TestWebActivity"/>
 
     </application>
 </manifest>

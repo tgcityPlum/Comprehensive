@@ -6,9 +6,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.constant.RouteConstant;
-import com.tgcity.base.interfaces.RouteActivityNavigationCallBack;
-import com.tgcity.base.utils.RouteActivityUtils;
-import com.tgcity.base.utils.SharedPreferencesUtils;
+import com.tgcity.base.interfaces.RouteNavigationCallBack;
+import com.tgcity.base.utils.RouteIntentUtils;
 import com.tgcity.mode.login.R;
 
 /**
@@ -37,7 +36,7 @@ public class LoginActivity extends BaseCommonActivity {
             //更新缓存“是否登录”状态
             BaseConstant.sharedPreferencesUtils.put(BaseConstant.SP.CACHE_IS_LOGIN, true);
             //跳转main模块主页
-            RouteActivityUtils.toJumpMainModeIndexActivity(getContext(), new RouteActivityNavigationCallBack() {
+            RouteIntentUtils.toJumpMainModeIndexFragment(getContext(), new RouteNavigationCallBack() {
                 @Override
                 public void onArrivalBack() {
                     finish();

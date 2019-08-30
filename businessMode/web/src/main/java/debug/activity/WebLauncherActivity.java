@@ -1,4 +1,4 @@
-package com.tgcity.demo.index;
+package debug.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,17 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import com.tgcity.base.interfaces.RouteNavigationCallBack;
 import com.tgcity.base.utils.RouteIntentUtils;
 
+
 /**
  * @author TGCity
- * app mode index activity
+ * web mode launcher activity
  */
-public class AppIndexActivity extends AppCompatActivity {
+public class WebLauncherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        RouteIntentUtils.toJumpLauncherModeIndexActivity(getApplicationContext(), new RouteNavigationCallBack() {
+        RouteIntentUtils.toJumpWebModeIndexActivity(getApplicationContext(), new RouteNavigationCallBack() {
             @Override
             public void onArrivalBack() {
                 finish();
@@ -28,4 +29,5 @@ public class AppIndexActivity extends AppCompatActivity {
             }
         });
     }
+
 }

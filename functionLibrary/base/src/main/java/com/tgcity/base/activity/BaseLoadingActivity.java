@@ -3,7 +3,7 @@ package com.tgcity.base.activity;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tgcity.base.utils.LogUtils;
-import com.tgcity.base.widget.dialog.BaseDialogLoading;
+import com.tgcity.base.widget.dialog.BaseLoadingDialog;
 
 /**
  * @author TGCity
@@ -12,21 +12,21 @@ import com.tgcity.base.widget.dialog.BaseDialogLoading;
  */
 public class BaseLoadingActivity extends AppCompatActivity {
     /**
-     * BaseDialogLoading
+     * BaseLoadingDialog
      */
-    private BaseDialogLoading mBaseDialogLoading;
+    private BaseLoadingDialog mBaseLoadingDialog;
 
     /**
      * show loading
      */
     public void showLoadingDialog() {
-        if (mBaseDialogLoading == null) {
-            mBaseDialogLoading = new BaseDialogLoading(this);
+        if (mBaseLoadingDialog == null) {
+            mBaseLoadingDialog = new BaseLoadingDialog(this);
         }
 
-        if (!mBaseDialogLoading.isShowing()) {
-            mBaseDialogLoading.show();
-            LogUtils.i("BaseDialogLoading is show");
+        if (!mBaseLoadingDialog.isShowing()) {
+            mBaseLoadingDialog.show();
+            LogUtils.i("BaseLoadingDialog is show");
         }
     }
 
@@ -34,8 +34,8 @@ public class BaseLoadingActivity extends AppCompatActivity {
      * dismiss loading
      */
     public void dismissLoadingDialog() {
-        if (mBaseDialogLoading != null) {
-            mBaseDialogLoading.dismiss();
+        if (mBaseLoadingDialog != null) {
+            mBaseLoadingDialog.dismiss();
         }
     }
 
@@ -44,8 +44,8 @@ public class BaseLoadingActivity extends AppCompatActivity {
         super.onDestroy();
         //destroy loading
         dismissLoadingDialog();
-        if (mBaseDialogLoading != null) {
-            mBaseDialogLoading.clear();
+        if (mBaseLoadingDialog != null) {
+            mBaseLoadingDialog.clear();
         }
     }
 }

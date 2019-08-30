@@ -8,8 +8,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.constant.RouteConstant;
-import com.tgcity.base.interfaces.RouteActivityNavigationCallBack;
-import com.tgcity.base.utils.RouteActivityUtils;
+import com.tgcity.base.interfaces.RouteNavigationCallBack;
+import com.tgcity.base.utils.RouteIntentUtils;
 import com.tgcity.mode.launch.R;
 
 import java.util.concurrent.TimeUnit;
@@ -148,7 +148,7 @@ public class GuideActivity extends BaseCommonActivity {
         jumpClickType = true;
         if (BaseConstant.sharedPreferencesUtils.getBoolean(BaseConstant.SP.CACHE_IS_LOGIN)) {
             //跳转main模块主页
-            RouteActivityUtils.toJumpMainModeIndexActivity(getContext(), new RouteActivityNavigationCallBack() {
+            RouteIntentUtils.toJumpMainModeIndexFragment(getContext(), new RouteNavigationCallBack() {
                 @Override
                 public void onArrivalBack() {
                     finish();
@@ -161,7 +161,7 @@ public class GuideActivity extends BaseCommonActivity {
             });
         } else {
             //跳转登录模块主页
-            RouteActivityUtils.toJumpLoginModeIndexActivity(getContext(), new RouteActivityNavigationCallBack() {
+            RouteIntentUtils.toJumpLoginModeIndexActivity(getContext(), new RouteNavigationCallBack() {
                 @Override
                 public void onArrivalBack() {
                     finish();

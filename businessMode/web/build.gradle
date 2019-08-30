@@ -1,8 +1,8 @@
 def isIntegratedMode = isIntegratedMode.toBoolean()
 def modeType = MODE_TYPE as int
-def isHomeMode = !isIntegratedMode && modeType == 4
+def isWebMode = !isIntegratedMode && modeType == 9
 
-if (isHomeMode) {
+if (isWebMode) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -10,12 +10,13 @@ if (isHomeMode) {
 
 android {
     def versionConfig = rootProject.extensions.getByName("ext")
+
     compileSdkVersion versionConfig.compileSdkVersion
 
     defaultConfig {
         minSdkVersion versionConfig.minSdkVersion
 
-        if (isHomeMode) {
+        if (isWebMode) {
             applicationId versionConfig.applicationId
             targetSdkVersion versionConfig.targetSdkVersion
             versionCode versionConfig.versionCode
@@ -31,14 +32,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
     sourceSets {
         main {
-            if (isHomeMode) {
+            if (isWebMode) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
@@ -50,12 +50,19 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 base
+    //引入 base web
     implementation project(':functionLibrary:base')
+    //引入 webLibrary
+    implementation project(':commonLibrary:web')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7

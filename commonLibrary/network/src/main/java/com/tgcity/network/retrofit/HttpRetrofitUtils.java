@@ -50,7 +50,7 @@ public class HttpRetrofitUtils extends RetrofitBaseUtils {
      * @param server          要初始化的服务器地址，详见AppConstant中的API地址初始化控制部分
      */
     @CallSuper
-    public void init(Application mContext, boolean getCacheVersion, int... server) {
+    public void init(Context mContext, boolean getCacheVersion, int... server) {
         this.context = mContext;
         rxCacheBuilder = new RxCache.Builder().init(mContext);
         HttpKeyOperationHelper.getInstance()

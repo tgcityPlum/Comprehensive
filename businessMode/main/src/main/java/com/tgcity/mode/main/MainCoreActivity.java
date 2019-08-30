@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -15,9 +14,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.constant.RouteConstant;
-import com.tgcity.base.widget.dialog.FragmentNewDesignDialogAsk;
+import com.tgcity.base.widget.dialog.SelectionFragmentDialog;
 import com.tgcity.mode.home.index.HomeFragment;
-import com.tgcity.mode.news.testfragment.NewsFragment;
+import com.tgcity.mode.news.index.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +66,7 @@ public class MainCoreActivity extends BaseCommonActivity {
     /**
      * quit app dialog
      */
-    private FragmentNewDesignDialogAsk quitAppDialog;
+    private SelectionFragmentDialog quitAppDialog;
 
     @Override
     public int getViewLayout() {
@@ -184,20 +183,20 @@ public class MainCoreActivity extends BaseCommonActivity {
 
     private void quitAppWithDialog() {
         if (quitAppDialog == null) {
-            quitAppDialog = new FragmentNewDesignDialogAsk();
+            quitAppDialog = new SelectionFragmentDialog();
         }
-        quitAppDialog.show(getSupportFragmentManager(), new FragmentNewDesignDialogAsk.OnOperationCallBack() {
+        quitAppDialog.show(getSupportFragmentManager(), new SelectionFragmentDialog.OnOperationCallBack() {
             @Override
-            public void onCancel(FragmentNewDesignDialogAsk fragmentNewDesignDialogAsk) {
-                fragmentNewDesignDialogAsk.dismiss();
+            public void onCancel(SelectionFragmentDialog selectionDialogFragment) {
+                selectionDialogFragment.dismiss();
             }
 
             @Override
-            public void onFix(FragmentNewDesignDialogAsk fragmentNewDesignDialogAsk) {
-                fragmentNewDesignDialogAsk.dismissAllowingStateLoss();
+            public void onFix(SelectionFragmentDialog selectionDialogFragment) {
+                selectionDialogFragment.dismissAllowingStateLoss();
                 finish();
             }
-        }, (fragmentNewDesignDialogAsk, title, content, cancel, fix) -> {
+        }, (selectionDialogFragment, title, content, cancel, fix) -> {
             title.setText(getString(R.string.dialog_title));
             content.setText(getString(R.string.exit_app));
             fix.setText(getString(R.string.dialog_fix));

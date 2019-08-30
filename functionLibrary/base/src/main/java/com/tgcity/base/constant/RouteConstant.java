@@ -46,4 +46,12 @@ public class RouteConstant {
         public static final String MAIN_FRAGMENT = "/news/mainFragment";
     }
 
+    /**
+     * web mode
+     */
+    public class WebMode {
+        //首页
+        public static final String MAIN_FRAGMENT = "/web/commonActivity";
+    }
+
 }

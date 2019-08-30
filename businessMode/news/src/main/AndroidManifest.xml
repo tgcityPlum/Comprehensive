@@ -3,7 +3,7 @@
     package="com.tgcity.mode.news">
 
     <application>
-        <activity android:name=".indexlist.NewsIndexListActivity"/>
+        <activity android:name=".list.NewsIndexListActivity"/>
     </application>
 
 </manifest>
