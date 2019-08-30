@@ -1,5 +1,7 @@
 //def isIntegratedMode = isIntegratedMode.toBoolean()
 def isIntegratedMode = true
+def isJitPack = true
+
 
 if (isIntegratedMode) {
     apply plugin: 'com.android.application'
@@ -28,43 +30,52 @@ android {
         }
     }
 
-    signingConfigs {
-        /*
-        * so文件需验证签名 所有debug也要加上签名
-        * 关闭后核心代码将无法调用
-        * */
-        release {
-            storeFile file('../jks/comprehensive.jks')//签名文件路径
-            storePassword "comprehensive"
-            keyAlias "comprehensive"
-            keyPassword "comprehensive"
-        }
-    }
-
-    if (isIntegratedMode) {
+    if (isJitPack){
         buildTypes {
             release {
-                minifyEnabled true   //开启混淆
-                zipAlignEnabled true  //压缩优化
-                shrinkResources true  //移出无用资源
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                signingConfig signingConfigs.release
-            }
-
-            debug {
                 minifyEnabled false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                signingConfig signingConfigs.release
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
         }
-        //自定义apk名称
-        android.applicationVariants.all {
-            variant ->
-                variant.outputs.all {
-                    //这里修改apk文件名
-                    //appName_versionName_variantName_releaseTime.apk
-                    outputFileName = "comprehensive_v${variant.versionName}_${variant.name}_${releaseTime()}.apk"
+    }else {
+        signingConfigs {
+            /*
+            * so文件需验证签名 所有debug也要加上签名
+            * 关闭后核心代码将无法调用
+            * */
+            release {
+                storeFile file('../jks/comprehensive.jks')//签名文件路径
+                storePassword "comprehensive"
+                keyAlias "comprehensive"
+                keyPassword "comprehensive"
+            }
+        }
+
+        if (isIntegratedMode) {
+            buildTypes {
+                release {
+                    minifyEnabled true   //开启混淆
+                    zipAlignEnabled true  //压缩优化
+                    shrinkResources true  //移出无用资源
+                    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                    signingConfig signingConfigs.release
                 }
+
+                debug {
+                    minifyEnabled false
+                    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                    signingConfig signingConfigs.release
+                }
+            }
+            //自定义apk名称
+            android.applicationVariants.all {
+                variant ->
+                    variant.outputs.all {
+                        //这里修改apk文件名
+                        //appName_versionName_variantName_releaseTime.apk
+                        outputFileName = "comprehensive_v${variant.versionName}_${variant.name}_${releaseTime()}.apk"
+                    }
+            }
         }
     }
 
