@@ -39,7 +39,8 @@ public abstract class BaseBindViewActivity extends BaseOrientationActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        rootView = findViewById(android.R.id.content);//设置根布局控件
+        //设置根布局控件
+        rootView = findViewById(android.R.id.content);
         if (rootView != null && getBackgroundColor() != 0) {
             rootView.setBackgroundColor(getBackgroundColor());
         }

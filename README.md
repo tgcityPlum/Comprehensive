@@ -9,7 +9,7 @@
 ## 模块结构
 ![avatar](/picture/comprehensive.png)
 
-## 使用说明
+## 部分mode使用说明
 1\. 在根目录下的build.gradle文件中添加
 ```aidl
 allprojects {
@@ -26,7 +26,7 @@ dependencies {
 }
 ```
 
-3\. 当前项目中**minSdkVersion = 16 targetSdkVersion = 28**如果出现不兼容问题可以**new issues**
+3\. 当前项目中 **minSdkVersion = 16 targetSdkVersion = 28** 如果出现不兼容问题可以 **new issues**；成功引入后，可以直接使用functionLibrary和commonLibrary两个mode里面的资源，业务模块需要根据自身的业务自主处理
 
 ## 遗留问题
 1\. 在library中，butterKnife在MVP模式中无法兼容，找不到R2文件
