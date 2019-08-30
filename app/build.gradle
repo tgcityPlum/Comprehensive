@@ -91,16 +91,13 @@ dependencies {
     implementation project(':functionLibrary:base')
 
     if (isIntegratedMode) {
-        implementation project(':businessMode:launch')
+//        implementation project(':businessMode:launch')
     }
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
     implementation supportDependencies.constraintLayout
     implementation supportDependencies.recyclerview
-    implementation testDependencies.junit
-    implementation testDependencies.runner
-    implementation testDependencies.espresso
     //引入 rxLifecycle
     implementation dataDependencies.rxlifecycle
     implementation dataDependencies.rxlifecycleAndroid

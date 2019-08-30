@@ -1,4 +1,4 @@
 include ':app'
-include ':businessMode:home', ':businessMode:news', ':businessMode:launch', ':businessMode:main', ':businessMode:login', ':businessMode:web'
+//include ':businessMode:home', ':businessMode:news', ':businessMode:launch', ':businessMode:main', ':businessMode:login', ':businessMode:web'
 include ':commonLibrary:mvp', ':commonLibrary:network', ':commonLibrary:webview', ':commonLibrary:refreshview', ':commonLibrary:refreshadapter'
 include ':functionLibrary:resource', ':functionLibrary:base'
