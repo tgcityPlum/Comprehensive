@@ -87,16 +87,15 @@ dependencies {
     implementation supportDependencies.appcompatV7
     implementation supportDependencies.constraintLayout
     implementation supportDependencies.recyclerview
-    testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.runner
-    androidTestImplementation testDependencies.espresso
+    implementation testDependencies.junit
+    implementation testDependencies.runner
+    implementation testDependencies.espresso
     //引入 rxLifecycle
     implementation dataDependencies.rxlifecycle
     implementation dataDependencies.rxlifecycleAndroid
     //alibaba路由
     implementation dataDependencies.routeApi
     annotationProcessor dataDependencies.routeCompiler
-
 }
 
 //获取打包时间
