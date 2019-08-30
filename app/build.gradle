@@ -1,4 +1,5 @@
-def isIntegratedMode = isIntegratedMode.toBoolean()
+//def isIntegratedMode = isIntegratedMode.toBoolean()
+def isIntegratedMode = true
 
 if (isIntegratedMode) {
     apply plugin: 'com.android.application'
