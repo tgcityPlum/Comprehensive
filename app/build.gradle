@@ -1,6 +1,6 @@
-//def isIntegratedMode = isIntegratedMode.toBoolean()
-def isIntegratedMode = true
-def isJitPack = true
+def isIntegratedMode = isIntegratedMode.toBoolean()
+//def isIntegratedMode = true
+def isJitPack = false
 
 
 if (isIntegratedMode) {

@@ -22,7 +22,7 @@ allprojects {
 2\. 在app目录下的build.gradle文件中添加
 ```aidl
 dependencies {
-    implementation 'com.github.tgcityPlum:Comprehensive:1.1.0'
+    implementation 'com.github.tgcityPlum:Comprehensive:1.2.1'
 }
 ```
 
