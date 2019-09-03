@@ -1,7 +1,7 @@
-def isIntegratedMode = isIntegratedMode.toBoolean()
-def modeType = MODE_TYPE as int
-def isWebMode = !isIntegratedMode && modeType == 9
-//def isWebMode = false
+//def isIntegratedMode = isIntegratedMode.toBoolean()
+//def modeType = MODE_TYPE as int
+//def isWebMode = !isIntegratedMode && modeType == 9
+def isWebMode = false
 
 if (isWebMode) {
     apply plugin: 'com.android.application'
