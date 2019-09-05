@@ -1,4 +1,4 @@
-package com.tgcity.mode.media.view;
+package com.tgcity.mode.media.mp4.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.tgcity.mode.media.manage.MediaRecorderManage;
-import com.tgcity.mode.media.manage.MedioRecorderProgressManage;
+import com.tgcity.mode.media.mp4.manage.MediaRecorderManage;
+import com.tgcity.mode.media.mp4.manage.MedioRecorderProgressManage;
 
 /**
  * @author TGCity

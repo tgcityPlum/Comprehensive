@@ -1,4 +1,4 @@
-package com.tgcity.mode.media.manage;
+package com.tgcity.mode.media.mp4.manage;
 
 import android.app.Dialog;
 import android.content.Context;

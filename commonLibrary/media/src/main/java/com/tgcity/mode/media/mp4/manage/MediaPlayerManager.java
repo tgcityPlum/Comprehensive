@@ -1,4 +1,4 @@
-package com.tgcity.mode.media.manage;
+package com.tgcity.mode.media.mp4.manage;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
