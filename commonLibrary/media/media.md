@@ -3,7 +3,7 @@
 ## introduction
 the library provides media recording and media playing. 
 
-## using
+## mp4 file using
 1\. xml code
 ```aidl
 <?xml version="1.0" encoding="utf-8"?>
@@ -81,3 +81,6 @@ public class RecordingActivity extends AppCompatActivity implements MediaRecorde
  mediaPlayerManager.setArguments(bundle);
  mediaPlayerManager.show(getSupportFragmentManager(),"mediaPlayerDialog");
 ```
+
+## h264 file
+we can use H264CreateCodeUtils to create h264 file and use H264DecodeLocalUtils to decode h264 file

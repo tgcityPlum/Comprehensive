@@ -7,6 +7,7 @@ import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.constant.RouteConstant;
 import com.tgcity.base.interfaces.RouteNavigationCallBack;
+import com.tgcity.base.utils.PermissionUtils;
 import com.tgcity.base.utils.RouteIntentUtils;
 import com.tgcity.mode.login.R;
 
@@ -27,6 +28,8 @@ public class LoginActivity extends BaseCommonActivity {
     @Override
     public void initView() {
         findViews();
+
+        PermissionUtils.getPermissionsResult(getParent());
 
         clickListener();
     }

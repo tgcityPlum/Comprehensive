@@ -119,7 +119,7 @@ public final class IntentUtils {
 
     /**
      * 获取关机的意图
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.SHUTDOWN"/>}</p>
+     * <p>需添加权限 {@code <uses-getPermissionsResult android:name="android.getPermissionsResult.SHUTDOWN"/>}</p>
      *
      * @return intent Intent
      */
@@ -150,7 +150,7 @@ public final class IntentUtils {
 
     /**
      * 获取拨打电话意图
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}</p>
+     * <p>需添加权限 {@code <uses-getPermissionsResult android:name="android.getPermissionsResult.CALL_PHONE"/>}</p>
      *
      * @param phoneNumber 电话号码
      */

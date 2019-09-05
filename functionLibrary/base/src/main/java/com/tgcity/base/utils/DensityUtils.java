@@ -10,7 +10,7 @@ import android.view.WindowManager;
 /**
  * @author TGCity
  */
-public class DensityUtil {
+public class DensityUtils {
     /**
      * dp转px
      */
