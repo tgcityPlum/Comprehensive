@@ -13,8 +13,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.BaseConstant;
-import com.tgcity.base.constant.RouteConstant;
 import com.tgcity.base.widget.dialog.SelectionFragmentDialog;
+import com.tgcity.mode.arouter.constant.RouteConstant;
 import com.tgcity.mode.home.index.HomeFragment;
 //import com.tgcity.mode.news.index.NewsFragment;
 

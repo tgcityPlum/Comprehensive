@@ -3,8 +3,8 @@ package com.tgcity.demo.index;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.tgcity.base.interfaces.RouteNavigationCallBack;
-import com.tgcity.base.utils.RouteIntentUtils;
+import com.tgcity.mode.arouter.interfaces.RouteNavigationCallBack;
+import com.tgcity.mode.arouter.utils.RouteIntentUtils;
 
 /**
  * @author TGCity

@@ -5,10 +5,10 @@ import android.widget.Button;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.tgcity.base.activity.BaseCommonActivity;
 import com.tgcity.base.constant.BaseConstant;
-import com.tgcity.base.constant.RouteConstant;
-import com.tgcity.base.interfaces.RouteNavigationCallBack;
 import com.tgcity.base.utils.PermissionUtils;
-import com.tgcity.base.utils.RouteIntentUtils;
+import com.tgcity.mode.arouter.constant.RouteConstant;
+import com.tgcity.mode.arouter.interfaces.RouteNavigationCallBack;
+import com.tgcity.mode.arouter.utils.RouteIntentUtils;
 import com.tgcity.mode.login.R;
 
 /**

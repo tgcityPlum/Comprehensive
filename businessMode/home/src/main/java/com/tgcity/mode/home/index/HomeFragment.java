@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.tgcity.base.constant.RouteConstant;
+import com.tgcity.mode.arouter.constant.RouteConstant;
 import com.tgcity.mode.home.R;
 
 /**

@@ -23,11 +23,6 @@ android {
             versionName versionConfig.versionName
             testInstrumentationRunner versionConfig.testInstrumentationRunner
         }
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-            }
-        }
     }
 
     if (isJitPack) {
@@ -87,8 +82,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入 base
+    //引入 base  arouter
     implementation project(':functionLibrary:base')
+    implementation project(':commonLibrary:arouter')
     implementation project(':businessMode:launch')
 
     //项目初始化引入的dependencies

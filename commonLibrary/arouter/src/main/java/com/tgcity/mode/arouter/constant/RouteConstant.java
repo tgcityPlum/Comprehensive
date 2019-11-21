@@ -1,4 +1,4 @@
-package com.tgcity.base.constant;
+package com.tgcity.mode.arouter.constant;
 
 /**
  * @author TGCity

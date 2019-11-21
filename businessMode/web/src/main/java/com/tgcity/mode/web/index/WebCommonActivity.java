@@ -4,8 +4,8 @@ import android.view.KeyEvent;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.tgcity.base.activity.BaseCommonActivity;
-import com.tgcity.base.constant.RouteConstant;
 import com.tgcity.base.widget.titlebar.TitleBar;
+import com.tgcity.mode.arouter.constant.RouteConstant;
 import com.tgcity.mode.web.R;
 import com.tgcity.web.WebViewInit;
 import com.tgcity.web.WebViewLayout;

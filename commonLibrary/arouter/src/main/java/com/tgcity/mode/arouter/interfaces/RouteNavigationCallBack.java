@@ -1,4 +1,4 @@
-package com.tgcity.base.interfaces;
+package com.tgcity.mode.arouter.interfaces;
 
 /**
  * @author TGCity

@@ -62,6 +62,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base main
     implementation project(':functionLibrary:base')
+    implementation project(':commonLibrary:arouter')
     implementation project(':businessMode:main')
 
     //项目初始化引入的dependencies

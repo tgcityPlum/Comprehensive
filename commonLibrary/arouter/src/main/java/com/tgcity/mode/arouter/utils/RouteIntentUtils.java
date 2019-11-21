@@ -1,12 +1,13 @@
-package com.tgcity.base.utils;
+package com.tgcity.mode.arouter.utils;
 
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.tgcity.base.constant.RouteConstant;
-import com.tgcity.base.interfaces.RouteNavigationCallBack;
+import com.tgcity.base.utils.LogUtils;
+import com.tgcity.mode.arouter.constant.RouteConstant;
+import com.tgcity.mode.arouter.interfaces.RouteNavigationCallBack;
 
 /**
  * @author TGCity
