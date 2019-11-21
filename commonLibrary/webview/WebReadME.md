@@ -1,5 +1,7 @@
 # Web模块简介
 
+## 版本号
+1.0.0
 ## 一、AgentWeb库说明
 本库基于AgentWeb（https://github.com/Justson/AgentWeb)上做了个二次封装，因为原有框架中的一堆混乱参数，使得开发者不知道该设置哪些参数，为了避免这个现象故而诞生了本库，
 本库中的抽象类WebViewConfig强制实现的方法中提供的参数足已满足日常大部分使用需求，开发者可以实现WebViewConfig之后定制业务需求，

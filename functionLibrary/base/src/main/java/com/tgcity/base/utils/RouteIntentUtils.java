@@ -18,8 +18,8 @@ public class RouteIntentUtils {
     /**
      * jump launcher mode index activity
      */
-    public static void toJumpLauncherModeIndexActivity(Context context, final RouteNavigationCallBack callBack) {
-        final String path = RouteConstant.LaunchMode.MAIN_FRAGMENT;
+    public static void onLauncherModeIndexActivity(Context context, final RouteNavigationCallBack callBack) {
+        final String path = RouteConstant.LaunchMode.LAUNCH_ACTIVITY_GUIDE;
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
@@ -48,8 +48,8 @@ public class RouteIntentUtils {
     /**
      * jump main mode index fragment
      */
-    public static void toJumpMainModeIndexFragment(Context context, final RouteNavigationCallBack callBack) {
-        final String path = RouteConstant.MainMode.MAIN_FRAGMENT;
+    public static void onMainModeIndexActivity(Context context, final RouteNavigationCallBack callBack) {
+        final String path = RouteConstant.MainMode.MAIN_ACTIVITY_CORE;
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
@@ -78,8 +78,8 @@ public class RouteIntentUtils {
     /**
      * jump login mode index activity
      */
-    public static void toJumpLoginModeIndexActivity(Context context, final RouteNavigationCallBack arrivalBack) {
-        final String path = RouteConstant.LoginMode.MAIN_FRAGMENT;
+    public static void onLoginModeIndexActivity(Context context, final RouteNavigationCallBack arrivalBack) {
+        final String path = RouteConstant.LoginMode.LOGIN_ACTIVITY_LOGIN;
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
@@ -107,8 +107,8 @@ public class RouteIntentUtils {
     /**
      * jump web mode index activity
      */
-    public static void toJumpWebModeIndexActivity(Context context, final RouteNavigationCallBack arrivalBack) {
-        final String path = RouteConstant.WebMode.MAIN_FRAGMENT;
+    public static void onWebModeIndexActivity(Context context, final RouteNavigationCallBack arrivalBack) {
+        final String path = RouteConstant.WebMode.WEB_FRAGMENT;
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {

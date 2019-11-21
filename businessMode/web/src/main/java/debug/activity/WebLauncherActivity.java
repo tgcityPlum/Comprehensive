@@ -17,7 +17,7 @@ public class WebLauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        RouteIntentUtils.toJumpWebModeIndexActivity(getApplicationContext(), new RouteNavigationCallBack() {
+        RouteIntentUtils.onWebModeIndexActivity(getApplicationContext(), new RouteNavigationCallBack() {
             @Override
             public void onArrivalBack() {
                 finish();

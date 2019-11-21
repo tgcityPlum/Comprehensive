@@ -98,6 +98,7 @@ public class NewsIndexListActivity extends MVPCommonActivity<NewsIndexListConsta
 
     @Override
     public void showProgress() {
+        showLoadingDialog();
         progressView.showLoading();
     }
 

@@ -3,6 +3,7 @@ package com.tgcity.mode.news.net;
 import android.content.Context;
 
 import com.tgcity.base.network.bean.request.QueryMessagesInput;
+import com.tgcity.base.network.bean.response.AccountTokenOutput;
 import com.tgcity.base.network.bean.response.QueryMajorChooseSubjectOutput;
 import com.tgcity.base.network.bean.response.QueryMessagesOutput;
 import com.tgcity.base.network.bean.response.TestDataItemBean;
@@ -76,6 +77,23 @@ public class NewsRetrofitUtils extends NetworkRetrofitUtils {
     }
 
     /**
+     * 获取oken
+     *
+     * @param callBack    AbstractSimpleCallBack
+     */
+    public void oauthToken(String password, String username, AbstractSimpleCallBack<AccountTokenOutput> callBack) {
+        String clientId = "xietong110_web";
+        String clientSecret = "xietong110_web_secret";
+        String grantType = "password";
+
+        toObservable(null, new Builder(service_weixin.oauthToken(clientId, clientSecret, grantType, password, username))
+                .setApiName("oauthToken")
+                .setRequestData(clientId, clientSecret, grantType, password, username, NetworkConstant.Cache_Other)
+                .setHttpResultFormatting(false)
+                .setCacheMode(CacheMode.NO_CACHE), callBack);
+    }
+
+    /**
      * 选科模块--选科专业明细查询
      *
      * @param lifecycleTransformer LifecycleTransformer
@@ -107,5 +125,7 @@ public class NewsRetrofitUtils extends NetworkRetrofitUtils {
                 .setExtraRemark(NetworkConstant.API_SERVICE_TZY)
                 .setCacheMode(CacheMode.NO_CACHE), callBack);
     }
+
+
 
 }

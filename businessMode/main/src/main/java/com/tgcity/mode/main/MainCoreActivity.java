@@ -16,7 +16,7 @@ import com.tgcity.base.constant.BaseConstant;
 import com.tgcity.base.constant.RouteConstant;
 import com.tgcity.base.widget.dialog.SelectionFragmentDialog;
 import com.tgcity.mode.home.index.HomeFragment;
-import com.tgcity.mode.news.index.NewsFragment;
+//import com.tgcity.mode.news.index.NewsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import java.util.List;
  * @author TGCity
  * main模块--主页
  */
-@Route(path = RouteConstant.MainMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.MainMode.MAIN_ACTIVITY_CORE)
 public class MainCoreActivity extends BaseCommonActivity {
     /**
      * 底部列表控件
@@ -103,10 +103,10 @@ public class MainCoreActivity extends BaseCommonActivity {
      */
     private void initFragments() {
         HomeFragment homeFragment = (HomeFragment) ARouter.getInstance().build(titleObjectList.get(0).getRoutePath()).navigation();
-        NewsFragment newsFragment = (NewsFragment) ARouter.getInstance().build(titleObjectList.get(1).getRoutePath()).navigation();
+//        NewsFragment newsFragment = (NewsFragment) ARouter.getInstance().build(titleObjectList.get(1).getRoutePath()).navigation();
 
         fragmentList.add(homeFragment);
-        fragmentList.add(newsFragment);
+//        fragmentList.add(newsFragment);
     }
 
     /**
@@ -149,13 +149,13 @@ public class MainCoreActivity extends BaseCommonActivity {
     private List<TabTitle> getBottomSetting() {
         //本来这里应该要读取配置文件，然后配置文字和颜色，还有图标,暂时写死
         titleObjectList.add(new TabTitle(
-                RouteConstant.HomeMode.MAIN_FRAGMENT,
+                RouteConstant.HomeMode.HOME_FRAGMENT,
                 R.string.tag_name_tab3,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(getApplicationContext(), R.mipmap.a_tabbar_tab1, R.mipmap.a_tabbar_home_p)));
 
         titleObjectList.add(new TabTitle(
-                RouteConstant.NewsMode.MAIN_FRAGMENT,
+                RouteConstant.NewsMode.NEWS_FRAGMENT,
                 R.string.tag_name_tab1,
                 R.color.home_tab_text_selector,
                 DrawableUtil.getStateListDrawable(getApplicationContext(), R.mipmap.a_tabbar_tab2, R.mipmap.a_tabbar_trade_p)));

@@ -3,7 +3,8 @@
     package="com.tgcity.mode.main">
 
     <application>
-        <activity android:name=".MainCoreActivity"/>
+        <activity android:name=".Demo2Activity"></activity>
+        <activity android:name=".MainCoreActivity" />
     </application>
 
 </manifest>

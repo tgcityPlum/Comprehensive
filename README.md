@@ -35,3 +35,5 @@ dependencies {
 
 3\. 关于Application的继承，app直接继承与BaseApplication，但是NetApplication没有封装进去，暂未想到合适的解决方案
 初步想法是在mode的index类中进行初始化 XXXRetrofitUtils
+
+4\. 设置错误异常的埋点功能

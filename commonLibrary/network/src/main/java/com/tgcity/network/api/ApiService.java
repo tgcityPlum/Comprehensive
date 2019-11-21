@@ -1,6 +1,7 @@
 package com.tgcity.network.api;
 
 import com.tgcity.base.network.bean.request.WeiXinBody;
+import com.tgcity.base.network.bean.response.AccountTokenOutput;
 import com.tgcity.base.network.bean.response.PictureDto;
 import com.tgcity.base.network.bean.response.TestDataItemBean;
 import com.tgcity.base.network.bean.result.HttpResult;
@@ -50,4 +51,19 @@ public interface ApiService {
      */
     @GET("uz-appmgrv2/api/app/usercenter/list")
     Observable<HttpResult<List<TestDataItemBean>>> getTestList(@Query("access_token") String token);
+
+    /**
+     * 获取token
+     *
+     * @param clientId      String
+     * @param clientSecret  String
+     * @param grantType     String
+     * @param password      String
+     * @param username      String
+     * @return
+     */
+    @POST("/uz-auth/oauth/token")
+    Observable<AccountTokenOutput> oauthToken(@Query("client_id") String clientId, @Query("client_secret") String clientSecret,
+                                                          @Query("grant_type") String grantType, @Query("password") String password, @Query("username") String username);
+
 }

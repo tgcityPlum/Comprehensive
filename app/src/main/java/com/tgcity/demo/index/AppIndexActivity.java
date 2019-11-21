@@ -16,7 +16,7 @@ public class AppIndexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        RouteIntentUtils.toJumpLauncherModeIndexActivity(getApplicationContext(), new RouteNavigationCallBack() {
+        RouteIntentUtils.onLauncherModeIndexActivity(getApplicationContext(), new RouteNavigationCallBack() {
             @Override
             public void onArrivalBack() {
                 finish();

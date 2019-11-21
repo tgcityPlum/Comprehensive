@@ -25,7 +25,7 @@ import pl.droidsonroids.gif.GifImageView;
  * @author TGCity
  * launch模块--启动界面
  */
-@Route(path = RouteConstant.LaunchMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.LaunchMode.LAUNCH_ACTIVITY_GUIDE)
 public class GuideActivity extends BaseCommonActivity {
 
     /**
@@ -148,7 +148,7 @@ public class GuideActivity extends BaseCommonActivity {
         jumpClickType = true;
         if (BaseConstant.sharedPreferencesUtils.getBoolean(BaseConstant.SP.CACHE_IS_LOGIN)) {
             //跳转main模块主页
-            RouteIntentUtils.toJumpMainModeIndexFragment(getContext(), new RouteNavigationCallBack() {
+            RouteIntentUtils.onMainModeIndexActivity(getContext(), new RouteNavigationCallBack() {
                 @Override
                 public void onArrivalBack() {
                     finish();
@@ -161,7 +161,7 @@ public class GuideActivity extends BaseCommonActivity {
             });
         } else {
             //跳转登录模块主页
-            RouteIntentUtils.toJumpLoginModeIndexActivity(getContext(), new RouteNavigationCallBack() {
+            RouteIntentUtils.onLoginModeIndexActivity(getContext(), new RouteNavigationCallBack() {
                 @Override
                 public void onArrivalBack() {
                     finish();

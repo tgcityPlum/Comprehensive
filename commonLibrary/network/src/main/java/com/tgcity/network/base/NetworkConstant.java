@@ -27,11 +27,12 @@ public class NetworkConstant {
      */
     public class Service {
         //默认域名
-        public final static String SERVICE_DEFAULT = "https://app.sharetome.com/";
+        public final static String SERVICE_DEFAULT = "https://mcuv2.uzer.me/";
         public final static String SERVICE_PART_5001 = SERVICE_DEFAULT + ":5001/";
         public final static String SERVICE_PART_5100 = SERVICE_DEFAULT + ":5100/";
         public final static String SERVICE_PART_5101 = SERVICE_DEFAULT + ":5101/";
-        public static final String SERVICE_WX = "https://api.weixin.qq.com/";
+        public static final String SERVICE_WX = SERVICE_DEFAULT;
+//        public static final String SERVICE_WX = "https://api.weixin.qq.com/";
         //图片域名
         public final static String SERVICE_IMAGE_UPLOAD = "http://img3-upload.youzy.cn/";
     }

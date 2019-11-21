@@ -15,7 +15,7 @@ import com.tgcity.mode.login.R;
  * @author TGCity
  * 登录模块--登录界面
  */
-@Route(path = RouteConstant.LoginMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.LoginMode.LOGIN_ACTIVITY_LOGIN)
 public class LoginActivity extends BaseCommonActivity {
 
     private Button btnLogin;
@@ -29,7 +29,7 @@ public class LoginActivity extends BaseCommonActivity {
     public void initView() {
         findViews();
 
-        PermissionUtils.getPermissionsResult(getParent());
+        PermissionUtils.getPermissionsResult(LoginActivity.this);
 
         clickListener();
     }
@@ -39,7 +39,7 @@ public class LoginActivity extends BaseCommonActivity {
             //更新缓存“是否登录”状态
             BaseConstant.sharedPreferencesUtils.put(BaseConstant.SP.CACHE_IS_LOGIN, true);
             //跳转main模块主页
-            RouteIntentUtils.toJumpMainModeIndexFragment(getContext(), new RouteNavigationCallBack() {
+            RouteIntentUtils.onMainModeIndexActivity(getContext(), new RouteNavigationCallBack() {
                 @Override
                 public void onArrivalBack() {
                     finish();

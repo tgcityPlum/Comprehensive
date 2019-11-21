@@ -62,7 +62,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
     implementation project(':functionLibrary:base')
-    implementation project(':businessMode:news')
+
+    if (modeType != 5) {
+        implementation project(':businessMode:news')
+    }
     implementation project(':businessMode:home')
 
     //项目初始化引入的dependencies

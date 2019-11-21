@@ -15,7 +15,7 @@ import com.tgcity.web.WebViewManager;
  * @author TGCity
  * 测试web界面的显示
  */
-@Route(path = RouteConstant.WebMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.WebMode.WEB_FRAGMENT)
 public class WebCommonActivity extends BaseCommonActivity {
 
     WebViewLayout webLayout;

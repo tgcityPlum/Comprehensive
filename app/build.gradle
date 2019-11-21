@@ -30,14 +30,14 @@ android {
         }
     }
 
-    if (isJitPack){
+    if (isJitPack) {
         buildTypes {
             release {
                 minifyEnabled false
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
         }
-    }else {
+    } else {
         signingConfigs {
             /*
             * so文件需验证签名 所有debug也要加上签名
@@ -89,6 +89,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 base
     implementation project(':functionLibrary:base')
+    implementation project(':businessMode:launch')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
@@ -97,9 +98,6 @@ dependencies {
     //引入 rxLifecycle
     implementation dataDependencies.rxlifecycle
     implementation dataDependencies.rxlifecycleAndroid
-    //alibaba路由
-    implementation dataDependencies.routeApi
-    annotationProcessor dataDependencies.routeCompiler
 }
 
 //获取打包时间

@@ -3,9 +3,9 @@ package com.tgcity.mode.news.list;
 import android.util.Log;
 
 import com.tgcity.base.network.bean.response.TestDataItemBean;
+import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.mode.news.net.NewsRetrofitUtils;
 import com.tgcity.mvp.present.CommonPresenter;
-import com.tgcity.base.network.bean.result.HttpResult;
 import com.tgcity.network.callback.AbstractSimpleCallBack;
 
 import java.util.List;

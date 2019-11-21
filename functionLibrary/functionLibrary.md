@@ -1,5 +1,7 @@
 # functionLibrary文档说明
 
+## 版本号
+1.0.0
 ## functionLibrary含义
 提供开发APP的某些基础功能，例如打印日志、资源文件等；
 

@@ -1,4 +1,6 @@
 # base library
+## 版本号
+1.0.0
 ## 项目结构
 --activity                  //Activity包
 ----BaseCommonActivity      //项目中常规的Activity都继承此类

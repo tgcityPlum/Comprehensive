@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import com.tgcity.mode.home.R;
  * @author TGCity
  * home mode index fragment
  */
-@Route(path = RouteConstant.HomeMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.HomeMode.HOME_FRAGMENT)
 public class HomeFragment extends Fragment {
 
     @Nullable

@@ -17,7 +17,7 @@ import com.tgcity.network.base.NetworkConstant;
 /**
  * @author TGCity
  */
-@Route(path = RouteConstant.NewsMode.MAIN_FRAGMENT)
+@Route(path = RouteConstant.NewsMode.NEWS_FRAGMENT)
 public class NewsFragment extends Fragment {
 
     @Nullable

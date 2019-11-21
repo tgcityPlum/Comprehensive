@@ -14,7 +14,7 @@ public class NewsApplication extends NetworkApplication {
     public void onCreate() {
         super.onCreate();
 
-        NewsUtils.initNetWork(this,false,NetworkConstant.ServiceFlag.SERVER_DEFAULT);
+        NewsUtils.initNetWork(this,false,NetworkConstant.ServiceFlag.SERVER_DEFAULT,NetworkConstant.ServiceFlag.SERVER_WX);
     }
 
 }
