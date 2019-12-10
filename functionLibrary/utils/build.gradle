@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion versionConfig.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion versionConfig.minSdkVersion
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.tgcity.utils:log:1.0.1'
+}

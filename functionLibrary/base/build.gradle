@@ -26,6 +26,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //引入 resource
     implementation project(':functionLibrary:resource')
+//    implementation project(':functionLibrary:utils')
 
     //项目初始化引入的dependencies
     implementation supportDependencies.appcompatV7
