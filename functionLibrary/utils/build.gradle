@@ -14,5 +14,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.tgcity.utils:log:1.0.1'
+    api 'com.tgcity.utils:Log:1.0.1'
 }
